@@ -1,1 +1,1 @@
-# 3311-Term-Project
+# EECS3311Project
