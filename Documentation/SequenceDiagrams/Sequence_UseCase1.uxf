@@ -150,16 +150,15 @@ sendToSystem()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>460</x>
+      <x>360</x>
       <y>310</y>
-      <w>930</w>
+      <w>1030</w>
       <h>420</h>
     </coordinates>
-    <panel_attributes>alt
+    <panel_attributes>Alternative
 --
 
 -.
-[isError == True]
 
 
 
@@ -170,8 +169,8 @@ sendToSystem()</panel_attributes>
 
 
 
--.
-[else]</panel_attributes>
+
+-.</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -333,5 +332,31 @@ exit()</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>360</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>halign=left
+[isError == True]
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>540</y>
+      <w>50</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>halign=left
+[else]</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

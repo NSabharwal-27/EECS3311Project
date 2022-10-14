@@ -4,7 +4,7 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>231</x>
+      <x>264</x>
       <y>0</y>
       <w>66</w>
       <h>121</h>
@@ -15,7 +15,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>253</x>
+      <x>286</x>
       <y>99</y>
       <w>33</w>
       <h>66</h>
@@ -26,7 +26,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>495</x>
+      <x>528</x>
       <y>33</y>
       <w>110</w>
       <h>33</h>
@@ -37,7 +37,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>539</x>
+      <x>572</x>
       <y>55</y>
       <w>33</w>
       <h>176</h>
@@ -48,7 +48,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>869</x>
+      <x>902</x>
       <y>33</y>
       <w>110</w>
       <h>33</h>
@@ -59,7 +59,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>913</x>
+      <x>946</x>
       <y>55</y>
       <w>33</w>
       <h>99</h>
@@ -70,7 +70,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1320</x>
+      <x>1353</x>
       <y>33</y>
       <w>110</w>
       <h>33</h>
@@ -81,7 +81,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>253</x>
+      <x>286</x>
       <y>143</y>
       <w>22</w>
       <h>121</h>
@@ -92,7 +92,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>539</x>
+      <x>572</x>
       <y>209</y>
       <w>22</w>
       <h>605</h>
@@ -103,7 +103,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>264</x>
+      <x>297</x>
       <y>198</y>
       <w>297</w>
       <h>44</h>
@@ -115,7 +115,7 @@ selectCountry()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>913</x>
+      <x>946</x>
       <y>132</y>
       <w>22</w>
       <h>572</h>
@@ -126,7 +126,7 @@ selectCountry()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>924</x>
+      <x>957</x>
       <y>165</y>
       <w>462</w>
       <h>44</h>
@@ -138,7 +138,7 @@ maintainList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
+      <x>583</x>
       <y>242</y>
       <w>385</w>
       <h>44</h>
@@ -150,7 +150,7 @@ checkFetch()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1364</x>
+      <x>1397</x>
       <y>132</y>
       <w>22</w>
       <h>539</h>
@@ -161,7 +161,7 @@ checkFetch()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>924</x>
+      <x>957</x>
       <y>341</y>
       <w>462</w>
       <h>44</h>
@@ -173,7 +173,7 @@ isAnalysisAndVisualizationAllowed()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1364</x>
+      <x>1397</x>
       <y>55</y>
       <w>33</w>
       <h>99</h>
@@ -184,7 +184,7 @@ isAnalysisAndVisualizationAllowed()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>264</x>
+      <x>297</x>
       <y>132</y>
       <w>671</w>
       <h>44</h>
@@ -196,16 +196,16 @@ updateList()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>495</x>
+      <x>418</x>
       <y>319</y>
-      <w>935</w>
+      <w>1023</w>
       <h>407</h>
     </coordinates>
-    <panel_attributes>alt
+    <panel_attributes>Alternative
 --
 
 -.
-[isError == False]
+
 
 
 
@@ -216,13 +216,13 @@ updateList()</panel_attributes>
 
 
 -.
-[else]</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>924</x>
+      <x>957</x>
       <y>418</y>
       <w>462</w>
       <h>44</h>
@@ -234,7 +234,7 @@ return True</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>924</x>
+      <x>957</x>
       <y>627</y>
       <w>462</w>
       <h>44</h>
@@ -246,7 +246,7 @@ return False</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
+      <x>583</x>
       <y>660</y>
       <w>385</w>
       <h>44</h>
@@ -258,7 +258,7 @@ sendErrorMessage()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
+      <x>583</x>
       <y>473</y>
       <w>385</w>
       <h>44</h>
@@ -270,7 +270,7 @@ Application proceed</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>253</x>
+      <x>286</x>
       <y>715</y>
       <w>22</w>
       <h>88</h>
@@ -281,7 +281,7 @@ Application proceed</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>264</x>
+      <x>297</x>
       <y>737</y>
       <w>297</w>
       <h>44</h>
@@ -293,7 +293,7 @@ Display to user</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>253</x>
+      <x>286</x>
       <y>253</y>
       <w>33</w>
       <h>484</h>
@@ -304,7 +304,7 @@ Display to user</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>253</x>
+      <x>286</x>
       <y>792</y>
       <w>33</w>
       <h>99</h>
@@ -315,7 +315,7 @@ Display to user</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>913</x>
+      <x>946</x>
       <y>693</y>
       <w>33</w>
       <h>209</h>
@@ -326,7 +326,7 @@ Display to user</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>539</x>
+      <x>572</x>
       <y>803</y>
       <w>33</w>
       <h>88</h>
@@ -337,12 +337,38 @@ Display to user</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1364</x>
+      <x>1397</x>
       <y>660</y>
       <w>33</w>
       <h>231</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>429</x>
+      <y>561</y>
+      <w>55</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>halign=left
+[else]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>429</x>
+      <y>374</y>
+      <w>132</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>halign=left
+[isError == False]
+
+</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
