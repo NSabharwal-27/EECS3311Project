@@ -1,5 +1,12 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.attribute.UserPrincipalNotFoundException;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -59,15 +66,43 @@ public class Login_GUI implements ActionListener{
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent event) {
 		String username = usernameText.getText();
-//		String password = passwordText.getText()
 		String password = String.valueOf(passwordText.getPassword());
+
+		try {
+			if(checkUsenameAndPassword(username, password)) {
+				// TODO: Display Main UI
+				System.out.println("The application launches, and the main UI of the application is displayed");
+			}
+			else {
+				System.exit(0);
+			}
+		} catch (IOException error) {
+			error.printStackTrace();
+		}
 		
-		System.out.println(username + ", " + password);
+	}
+	
+	private boolean checkUsenameAndPassword(String username, String password) throws IOException {
+		boolean userFound = false;
+		String line = "";  
+		String splitBy = ","; 
 		
-		// TODO: event listener logic
+		try (BufferedReader br = new BufferedReader(new FileReader("src/userData.csv"))) {
+			while((line = br.readLine()) != null) {
+				String user = line.split(splitBy)[0];
+				String pass = line.split(splitBy)[1];
+				
+				if(username.equals(user) && password.equals(pass)) {
+					userFound = true;
+					break;
+				}
+			}
+		}
 		
+		return userFound;
 	}
 
 }
+
