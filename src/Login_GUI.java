@@ -94,7 +94,7 @@ public class Login_GUI implements ActionListener{
 				String user = line.split(splitBy)[0];
 				String pass = line.split(splitBy)[1];
 				
-				if(username.equals(user) && password.equals(pass)) {
+				if(username.equalsIgnoreCase(user) && password.equals(pass)) {
 					userFound = true;
 					break;
 				}
