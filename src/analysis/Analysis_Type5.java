@@ -16,22 +16,22 @@ public class Analysis_Type5 {
         double nullCounter = 0.0;
         double average = 0.0;
         
-        HashMap<Integer, Double> forestArea = getForestArea(countryCode, GOV_EXPENDITURE, startYear, endYear);
+        HashMap<Integer, Double> govExpenditure = getGovExpenditure(countryCode, GOV_EXPENDITURE, startYear, endYear);
         
         for(int i = startYear = 2000; i <= endYear; i++) {
-            if(forestArea.get(i) == null) {
+            if(govExpenditure.get(i) == null) {
                 average += 0;
                 nullCounter++;
             }
             else {
-                average += forestArea.get(i);
+                average += govExpenditure.get(i);
             }
         }
         
         System.out.println("Average is: " + (average / ((endYear - startYear) - nullCounter)));
     }
 
-    private static HashMap<Integer, Double> getForestArea(String countryCode, String forestAreaCode,
+    private static HashMap<Integer, Double> getGovExpenditure(String countryCode, String forestAreaCode,
             int startYear, int endYear) {
         
         HashMap<Integer, Double> rawData = FetchData.fetchData(countryCode, forestAreaCode, startYear, endYear);
