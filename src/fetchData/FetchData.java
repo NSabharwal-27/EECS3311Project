@@ -30,6 +30,7 @@ public class FetchData {
 	public static HashMap<Integer, Double> fetchData(String countryCode, String indicator, int startYear, int endYear) {
 		String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/%s?date=%d:%d&format=json",
 			countryCode, indicator, startYear, endYear);
+		System.out.println("URL USED ----> " + urlString);
 		HttpURLConnection connection;
 		HashMap<Integer, Double> results = new HashMap<Integer, Double>();
 
