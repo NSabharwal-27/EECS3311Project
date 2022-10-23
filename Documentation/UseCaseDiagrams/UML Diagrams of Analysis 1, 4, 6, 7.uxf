@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>56</x>
+      <y>456</y>
+      <w>752</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Analysis_Type7
+Package :: analysis
+--
+_+PROBLEMS_ACCESSING_HEALTH_CODE: String = "SH.ACS.MONY.Q1.ZS"_
+_+INFANT_MORTALITY_RATE_CODE: String = "SP.DYN.IMRT.IN"_
+--
+_+main(arg: String[]): void_
+_-justGetData(String countryCode, String indicatorCode,int startYear, int endYear):HashMap&lt;Integer, Double&gt;_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>56</x>
+      <y>216</y>
+      <w>752</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Analysis_Type4
+Package :: analysis
+--
+_+FOREST_AREA_CODE: String = "AG.LND.FRST.ZS"_
+--
+_+main(arg: String[]): void_
+_-calculateAvergeForestArea(String countryCode, String indicatorCode,int startYear, int endYear):Double_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>56</x>
+      <y>80</y>
+      <w>752</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Analysis_Type1
+Package :: analysis
+--
+_+HEALTH_EXPENDITURE_CODE: String = "EN.ATM.CO2E.PC"_
+_+ENERGY_USE_CODE: String = "EG.USE.PCAP.KG.OE"_
+_+POLLUTION_CODE: String = "EN.ATM.PM25.MC.M3"_
+--
+_+main(arg: String[]): void_
+_-calculateAnnualPercentageChange(String countryCode, String indicatorCode,int startYear, int endYear):HashMap&lt;Integer, Double&gt;_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>56</x>
+      <y>328</y>
+      <w>752</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Analysis_Type6
+Package :: analysis
+--
+_+HEALTH_EXPENDITURE_CODE: String = "SH.XPD.CHEX.PC.CD"_
+_+HOSPITAL_BEDS_CODE: String = "SH.MED.BEDS.ZS"_
+--
+_+main(arg: String[]): void_
+_-calculateRatio(String countryCode, String indicatorCode,int startYear, int endYear):HashMap&lt;Integer, Double&gt;_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
