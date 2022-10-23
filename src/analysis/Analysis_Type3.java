@@ -10,6 +10,7 @@ import fetchData.FetchData;
  *      1.C02 emissions
  *      2.GDP per capita
  */
+
 public class Analysis_Type3 {
 
         final static String CO2_EMISSIONS_CODE = "EN.ATM.CO2E.PC";
