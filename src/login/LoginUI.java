@@ -1,3 +1,6 @@
+package login;
+
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -15,25 +18,62 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class Login_GUI implements ActionListener{
+public class LoginUI extends JFrame implements ActionListener{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private static JLabel usernameLabel;
 	private static JTextField usernameText;
 	private static JLabel passwordLabel;
 	private static JPasswordField passwordText;
 	private static JButton submitButton;
-	private static JLabel success;
 	
+	private static LoginUI instance;
+	
+	public static LoginUI getInstance() {
+		if (instance == null) {
+			instance = new  LoginUI();
+		}
+		return instance;
+	}
+	
+	
+	
+	public static JTextField getUsernameText() {
+		return usernameText;
+	}
 
-	public static void main(String[] args) {
-		
+	public static void setUsernameText(JTextField usernameText) {
+		LoginUI.usernameText = usernameText;
+	}
+
+	public static JPasswordField getPasswordText() {
+		return passwordText;
+	}
+
+	public static void setPasswordText(JPasswordField passwordText) {
+		LoginUI.passwordText = passwordText;
+	}
+
+	public static JButton getSubmitButton() {
+		return submitButton;
+	}
+
+	public static void setSubmitButton(JButton submitButton) {
+		LoginUI.submitButton = submitButton;
+	}
+
+	private LoginUI() {
+		// setup frame
 		JPanel panel = new JPanel();
-		JFrame frame = new JFrame();
-		
-		frame.setSize(350, 150);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(panel);
-		
+		panel.setPreferredSize(new Dimension(350, 150));
+		this.getContentPane().add(panel);
+		this.pack();
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.add(panel);
 		panel.setLayout(null);
 		
 		usernameLabel = new JLabel("Username:");
@@ -51,20 +91,14 @@ public class Login_GUI implements ActionListener{
 		passwordText = new JPasswordField();
 		passwordText.setBounds(100, 50, 200, 25);
 		panel.add(passwordText);
-		
+
 		submitButton = new JButton("Submit!");
 		submitButton.setBounds(150, 80, 100, 25);
-		submitButton.addActionListener(new Login_GUI());
+		submitButton.addActionListener(this);
 		panel.add(submitButton);
 		
-		success = new JLabel("");
-		success.setBounds(10, 110, 300, 25);
-		panel.add(success);
-		
-		
-		frame.setVisible(true);
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		String username = usernameText.getText();
@@ -81,10 +115,9 @@ public class Login_GUI implements ActionListener{
 		} catch (IOException error) {
 			error.printStackTrace();
 		}
-		
 	}
 	
-	private boolean checkUsenameAndPassword(String username, String password) throws IOException {
+	public boolean checkUsenameAndPassword(String username, String password) throws IOException {
 		boolean userFound = false;
 		String line = "";  
 		String splitBy = ","; 
@@ -102,6 +135,13 @@ public class Login_GUI implements ActionListener{
 		}
 		
 		return userFound;
+	}
+
+	public static void main(String[] args) {
+		
+		JFrame frame = LoginUI.getInstance();
+		frame.setVisible(true);
+		
 	}
 
 }
