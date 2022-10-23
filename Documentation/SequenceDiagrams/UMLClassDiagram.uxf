@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>110</y>
+      <w>490</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>LoginUI
+Package::login
+--
+_- static usernameLabel: JLabel_
+_- static usernameText: JTextField_
+_- static passwordLabel: JLabel_
+_- static passwordText: JPasswordField_
+_- static submitButton: JButton_
+_- static instance: LoginUI_
+--
+_+ getInstance(): LoginUI_
+_- LoginUI(): void_
+_+ getUsernameText(): JTextField_
+_+ setUsernameText(usernameText: JTextField): void_
+_+ getPasswordText(): JPasswordField_
+_+ setPasswordText(passwordText: JPasswordField): void_
+_+ getSubmitButton(): JButton_
+_+ setSubmitButton(usernameText: JButton): void_
++ actionPerformed(event: ActionEvent): void
++ checkUsenameAndPassword(username: String, password: String): boolean
++ main(args: String[]): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>480</y>
+      <w>670</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>FetchData
+Package::fetchData
+--
+
+--
++ main(args: String[]): void
+_+fetchData(countryCode: String, indicator: String, startYear: int, endYear: int): HashMap&lt;Integer, Double&gt;_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>640</y>
+      <w>860</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Analysis_Type2
+Package::analysis
+--
+_+ final POLLUTION_CODE: String = "EN.ATM.PM25.MC.M3"_
+_+ final FOREST_AREA_CODE: String = "AG.LND.FRST.ZS"_
+--
++ main(args: String[]): void
+_- calculateAnnualPercentageChange(countryCode: String, indicatorCode: String, startYear: int, endYear: int): HashMap&lt;Integer, Double&gt;_</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

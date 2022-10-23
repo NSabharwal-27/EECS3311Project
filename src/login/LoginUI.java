@@ -19,10 +19,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class LoginUI extends JFrame implements ActionListener{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	private static JLabel usernameLabel;
@@ -40,32 +37,6 @@ public class LoginUI extends JFrame implements ActionListener{
 		return instance;
 	}
 	
-	
-	
-	public static JTextField getUsernameText() {
-		return usernameText;
-	}
-
-	public static void setUsernameText(JTextField usernameText) {
-		LoginUI.usernameText = usernameText;
-	}
-
-	public static JPasswordField getPasswordText() {
-		return passwordText;
-	}
-
-	public static void setPasswordText(JPasswordField passwordText) {
-		LoginUI.passwordText = passwordText;
-	}
-
-	public static JButton getSubmitButton() {
-		return submitButton;
-	}
-
-	public static void setSubmitButton(JButton submitButton) {
-		LoginUI.submitButton = submitButton;
-	}
-
 	private LoginUI() {
 		// setup frame
 		JPanel panel = new JPanel();
@@ -96,7 +67,30 @@ public class LoginUI extends JFrame implements ActionListener{
 		submitButton.setBounds(150, 80, 100, 25);
 		submitButton.addActionListener(this);
 		panel.add(submitButton);
-		
+	}
+	
+	public static JTextField getUsernameText() {
+		return usernameText;
+	}
+
+	public static void setUsernameText(JTextField usernameText) {
+		LoginUI.usernameText = usernameText;
+	}
+
+	public static JPasswordField getPasswordText() {
+		return passwordText;
+	}
+
+	public static void setPasswordText(JPasswordField passwordText) {
+		LoginUI.passwordText = passwordText;
+	}
+
+	public static JButton getSubmitButton() {
+		return submitButton;
+	}
+
+	public static void setSubmitButton(JButton submitButton) {
+		LoginUI.submitButton = submitButton;
 	}
 	
 	@Override
