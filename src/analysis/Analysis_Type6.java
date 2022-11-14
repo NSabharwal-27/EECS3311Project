@@ -1,7 +1,11 @@
 package analysis;
 
 import java.util.HashMap;
+
+import fetchData.DataSet;
+import fetchData.DataSetIterator;
 import fetchData.FetchData;
+import fetchData.Pair;
 
 // 1 Series Graph
 // The ratio
@@ -10,8 +14,9 @@ import fetchData.FetchData;
 
 public class Analysis_Type6 {
 
-	final static String HEALTH_EXPENDITURE_CODE = "SH.XPD.CHEX.PC.CD";
+	final static String HEALTH_EXPENDITURE_CODE = "SH.XPD.CHEX.GD.ZS";
 	final static String HOSPITAL_BEDS_CODE = "SH.MED.BEDS.ZS";
+	final static String POPULATION_CODE = "SP.POP.TOTL";
 
 	public static void main(String[] args) {
 
@@ -21,48 +26,44 @@ public class Analysis_Type6 {
 		int endYear = 2020;
 
 		// Current health expenditure (per 1,000 people) (% of GDP)
-		HashMap<Integer, Double> CurrentHealthExpenditureRatio = calculateRatio(countryCode, HEALTH_EXPENDITURE_CODE, startYear, endYear);
-		System.out.println("\nRatio of Current Health Expenditure per 1,000 People in: " + countryCode + "\n----------------------");
-		for (int i = startYear; i <= endYear; i++) {
-			System.out.println(i + ": " + String.format("%.6f", CurrentHealthExpenditureRatio.get(i)) + " %");
-		}
-
-		// Hospital beds (per 1,000 people)
-		System.out.println("\n\n-----------------\n\n");
-		HashMap<Integer, Double> HospitalBedsRatio = calculateRatio(countryCode, HOSPITAL_BEDS_CODE, startYear, endYear);
-		System.out.println("\nRatio of Hospital Beds per 1,000 People in: " + countryCode + "\n----------------------");
-		for (int i = startYear; i <= endYear; i++) {
-			System.out.println(i + ": " + String.format("%.6f", HospitalBedsRatio.get(i)) + " %");
-		}
-
+		DataSet ratioHealthExpToBeds = calculateRatioHealthExpenditureToBeds(countryCode, startYear, endYear);
+		System.out.println(ratioHealthExpToBeds);
 	}
 
 	/**
 	 * Returns a HashMap<Integer, Double> of the calculated ratio per a 1,000 people 
 	 * in form (year, ratio). For a year with an undefined value, ratio = null.
 	 */
-	private static HashMap<Integer, Double> calculateRatio(String countryCode, String indicatorCode,
-			int startYear, int endYear) {
+	private static DataSet calculateRatioHealthExpenditureToBeds(String countryCode, int startYear, int endYear) {
 
-		HashMap<Integer, Double> rawData = FetchData.fetchData(countryCode, indicatorCode, startYear, endYear); // Data from fetch
-		HashMap<Integer, Double> ratio = new HashMap<Integer, Double>(); // For the calculated ratio of 
+	    DataSet rawDataBedsPer1000 = FetchData.fetchData(countryCode, HOSPITAL_BEDS_CODE, startYear, endYear);
+
+		DataSet rawDataHealthExpenditure = FetchData.fetchData(countryCode, HEALTH_EXPENDITURE_CODE, startYear, endYear); // Data from fetch
+		DataSet population = FetchData.fetchData(countryCode, POPULATION_CODE, startYear, endYear);
+		DataSet healthExpenditurePer1000 = new DataSet();
 		
-		// if the code is for the Hospital beds (per 1,000 people) then the ratio is the raw data
-		// otherwise we take the Current health expenditure per capita value each year 
-		// and multiply it by a 1000 to get the ratio
-		if (indicatorCode.equals("SH.MED.BEDS.ZS")){
-			ratio = rawData;
-		} else{
-			for (int i = startYear; i <= endYear ; i++){
-				if (rawData.get(i) == null){
-					ratio.put(i, null);
-				}else{
-					ratio.put(i, rawData.get(i)*1000);
-				}
-			}
+		DataSet ratio; // For the calculated ratio of 
+		
+		//Use population to find health expenditure *per 1000 people*
+		DataSetIterator iterator = rawDataHealthExpenditure.getIterator();
+		while(iterator.hasNext())
+		{
+		    Pair current = iterator.next();
+		    
+		    Double healthExp = current.getValue();
+		    Double pop = population.get(current.getKey());
+		    if (healthExp == null | pop == null)
+		    {
+	              healthExpenditurePer1000.put(current.getKey(), null);
+		    }
+		    else
+		    {
+		        double per1000Value = healthExp / pop / 1000; 
+	            healthExpenditurePer1000.put(current.getKey(), per1000Value);
+		    }
 		}
-
+		
+		ratio = CalculateRatio.calculate(healthExpenditurePer1000, rawDataBedsPer1000);
 		return ratio;
 	}
-
 }

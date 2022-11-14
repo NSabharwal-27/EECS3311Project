@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
+import fetchData.DataSet;
 import fetchData.FetchData;
 
 class UC7_TestFetchData {
@@ -22,13 +23,13 @@ class UC7_TestFetchData {
 		int year2 = 2003;
 		String indicator = "AG.LND.FRST.ZS";
 		
-		HashMap<Integer, Double> expected = new HashMap<Integer, Double>();
+		DataSet expected = new DataSet();
 		expected.put(2000, 38.7929818338782);
 		expected.put(2001, 38.7876307080739);
 		expected.put(2002, 38.7822795822695);
 		expected.put(2003, 38.7769284564652);
 		
-		HashMap<Integer, Double> actual = FetchData.fetchData(country, indicator, year1, year2);
+		DataSet actual = FetchData.fetchData(country, indicator, year1, year2);
 		assertEquals(expected, actual);
 	}
 	
@@ -43,7 +44,7 @@ class UC7_TestFetchData {
 		int year2 = 2001;
 		String indicator = "AG.LND.FRST.ZS";
 		
-		HashMap<Integer, Double> actual = FetchData.fetchData(country, indicator, year1, year2);
+		DataSet actual = FetchData.fetchData(country, indicator, year1, year2);
 		assertNull(actual);
 	}
 	
@@ -59,7 +60,7 @@ class UC7_TestFetchData {
 		int year2 = 2001;
 		String indicator = "AG.LND.FRST.Z";
 		
-		HashMap<Integer, Double> actual = FetchData.fetchData(country, indicator, year1, year2);
+		DataSet actual = FetchData.fetchData(country, indicator, year1, year2);
 		assertNull(actual);	
 	}
 	
@@ -76,10 +77,10 @@ class UC7_TestFetchData {
 		int year2 = 2005;
 		String indicator = "EN.ATM.PM25.MC.M3";
 		
-		HashMap<Integer, Double> expected = new HashMap<Integer, Double>();
+		DataSet expected = new DataSet();
 		expected.put(2005, 9.6098244651228);
 		
-		HashMap<Integer, Double> actual = FetchData.fetchData(country, indicator, year1, year2);
+		DataSet actual = FetchData.fetchData(country, indicator, year1, year2);
 		assertTrue(actual.size() == 1);
 		assertEquals(expected, actual);
 	}
@@ -97,12 +98,12 @@ class UC7_TestFetchData {
 		int year2 = 2010;
 		String indicator = "EN.ATM.PM25.MC.M3";
 		
-		HashMap<Integer, Double> expected = new HashMap<Integer, Double>();
+		DataSet expected = new DataSet();
 		expected.put(2010, 8.38445726234609);
 		expected.put(2011, 8.62446106021405);
 		expected.put(2012, 8.10741049508877);
 		
-		HashMap<Integer, Double> actual = FetchData.fetchData(country, indicator, year1, year2);
+		DataSet actual = FetchData.fetchData(country, indicator, year1, year2);
 		assertEquals(expected, actual);
 	}
 	
@@ -118,10 +119,10 @@ class UC7_TestFetchData {
 		int year2 = 2020;
 		String indicator = "EN.ATM.PM25.MC.M3";
 		
-		HashMap<Integer, Double> expected = new HashMap<Integer, Double>();
+		DataSet expected = new DataSet();
 		expected.put(2020, null);
 		
-		HashMap<Integer, Double> actual = FetchData.fetchData(country, indicator, year1, year2);
+		DataSet actual = FetchData.fetchData(country, indicator, year1, year2);
 		assertEquals(expected, actual);
 	}
 }

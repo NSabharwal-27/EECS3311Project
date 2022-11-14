@@ -1,6 +1,6 @@
 package analysis;
 
-import java.util.HashMap;
+import fetchData.DataSet;
 import fetchData.FetchData;
 
 public class Analysis_Type5 {
@@ -13,28 +13,13 @@ public class Analysis_Type5 {
         int startYear = 2000;
         int endYear = 2020;
         
-        double nullCounter = 0.0;
-        double average = 0.0;
-        
-        HashMap<Integer, Double> govExpenditure = getGovExpenditure(countryCode, GOV_EXPENDITURE, startYear, endYear);
-        
-        for(int i = startYear = 2000; i <= endYear; i++) {
-            if(govExpenditure.get(i) == null) {
-                average += 0;
-                nullCounter++;
-            }
-            else {
-                average += govExpenditure.get(i);
-            }
-        }
-        
-        System.out.println("Average is: " + (average / ((endYear - startYear) - nullCounter)));
+        double govExpenditure = calculateAverageGovExpenditure(countryCode, startYear, endYear);
+        System.out.println(String.format("Average government expenditure: %.2f", govExpenditure));
     }
 
-    private static HashMap<Integer, Double> getGovExpenditure(String countryCode, String forestAreaCode,
-            int startYear, int endYear) {
+    private static double calculateAverageGovExpenditure(String countryCode, int startYear, int endYear) {
         
-        HashMap<Integer, Double> rawData = FetchData.fetchData(countryCode, forestAreaCode, startYear, endYear);
-        return rawData;
+        DataSet rawData = FetchData.fetchData(countryCode, GOV_EXPENDITURE, startYear, endYear);
+        return CalculateAverage.calculate(rawData);
     }
 }

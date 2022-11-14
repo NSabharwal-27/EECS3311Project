@@ -1,7 +1,6 @@
 package analysis;
 
-import java.util.HashMap;
-
+import fetchData.DataSet;
 import fetchData.FetchData;
 
 /*
@@ -22,27 +21,17 @@ public class Analysis_Type3 {
             int startYear = 2000;
             int endYear = 2020;
             
-            HashMap<Integer, Double> gdpPerCapita = calculateGDP(countryCode, GDP_CODE, startYear, endYear);
-            HashMap<Integer, Double> c02Emissions = getCO2Emission(countryCode, CO2_EMISSIONS_CODE, startYear, endYear);
-            
-            for(int i = startYear; i <= endYear; i++) {
-                System.out.println(i + ": " + String.format("%.2f", gdpPerCapita.get(i)) + " : " + c02Emissions.get(i));
-            }
+            DataSet ratio = calculateCO2ToGDPRatio(countryCode, startYear, endYear);
+            System.out.println(ratio);
+        }
         
-        }
-
-        private static HashMap<Integer, Double> getCO2Emission(String countryCode, String co2EmissionsCode,
-                int startYear, int endYear) {
+        public static DataSet calculateCO2ToGDPRatio(String countryCode, int startYear, int endYear)
+        {
+            DataSet rawDataCO2 = FetchData.fetchData(countryCode, CO2_EMISSIONS_CODE, startYear, endYear);
+            DataSet rawDataGDP = FetchData.fetchData(countryCode, GDP_CODE, startYear, endYear);
             
-            HashMap<Integer, Double> rawData = FetchData.fetchData(countryCode, co2EmissionsCode, startYear, endYear);
-            return rawData;
-        }
-
-        private static HashMap<Integer, Double> calculateGDP(String countryCode, String gdpCode, int startYear,
-                int endYear) {
-            
-            HashMap<Integer, Double> rawData = FetchData.fetchData(countryCode, gdpCode, startYear, endYear);
-            return rawData;
+            //Larger numbers divided by smaller numbers
+            return CalculateRatio.calculate(rawDataGDP, rawDataCO2);
         }
 }
 
