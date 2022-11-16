@@ -3,13 +3,10 @@ package login;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.attribute.UserPrincipalNotFoundException;
-import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import gui.MainWindow;
 
 public class LoginUI extends JFrame implements ActionListener{
 
@@ -44,6 +43,7 @@ public class LoginUI extends JFrame implements ActionListener{
 		this.getContentPane().add(panel);
 		this.pack();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
 		this.add(panel);
 		panel.setLayout(null);
 		
@@ -95,13 +95,13 @@ public class LoginUI extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		String username = usernameText.getText();
-		String password = String.valueOf(passwordText.getPassword());
+		String username = usernameText.getText().trim();
+		String password = String.valueOf(passwordText.getPassword()).trim();
 
 		try {
 			if(checkUsenameAndPassword(username, password)) {
-				// TODO: Display Main UI
-				System.out.println("The application launches, and the main UI of the application is displayed");
+				this.dispose();
+				new MainWindow();
 			}
 			else {
 				System.exit(0);
