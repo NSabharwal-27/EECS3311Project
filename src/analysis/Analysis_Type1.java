@@ -15,15 +15,15 @@ import java.util.HashMap;
 // 		select as a range 2018 – 2021 the annual change rate 
 // 		for 2018 would be between 2017 and 2018.
 
-public class Analysis_Type1 implements AnalysisStrategy{
+public class Analysis_Type1 implements AnalysisStrategy {
 
 	final static String CO2_EMISSIONS_CODE = "EN.ATM.CO2E.PC";
 	final static String ENERGY_USE_CODE = "EG.USE.PCAP.KG.OE";
 	final static String POLLUTION_CODE = "EN.ATM.PM25.MC.M3";
 
-	public static HashMap analysisExecute() {
+	public static HashMap<String, DataSet> analysisExecute() {
 
-		HashMap<String, DataSet> data = new Hashmap<String, DataSet>();
+		HashMap<String, DataSet> data = new HashMap<String, DataSet>();
 
 		// Example: Country = Canada, from 2000 to 2020
 		String countryCode = "CAN";
