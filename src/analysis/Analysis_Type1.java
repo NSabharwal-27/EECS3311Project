@@ -21,7 +21,7 @@ public class Analysis_Type1 implements AnalysisStrategy {
 	final static String ENERGY_USE_CODE = "EG.USE.PCAP.KG.OE";
 	final static String POLLUTION_CODE = "EN.ATM.PM25.MC.M3";
 
-	public static HashMap<String, DataSet> analysisExecute() {
+	public HashMap<String, DataSet> analysisExecute() {
 
 		HashMap<String, DataSet> data = new HashMap<String, DataSet>();
 
