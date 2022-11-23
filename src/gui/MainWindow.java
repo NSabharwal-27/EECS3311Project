@@ -20,7 +20,7 @@ import org.jfree.chart.JFreeChart;
 
 import chartFactory.PieChart;
 
-public class MainWindow extends JFrame implements ActionListener {
+public class MainWindow extends JFrame{
 
     String[] analysisTypes = {
             "1. CO2 vs Energy vs Air Pollution",
@@ -153,11 +153,18 @@ public class MainWindow extends JFrame implements ActionListener {
         // Buttons
         JButton addView = new JButton("+");
         addView.setFocusable(false);
+        eventAdd eventAdd = new eventAdd();
+        addView.addActionListener(eventAdd);
+        
         JButton removeView = new JButton("-");
         removeView.setFocusable(false);
+        eventRemove eventRemove = new eventRemove();
+        removeView.addActionListener(eventRemove);
+        
         JButton recalculate = new JButton("Recalculate");
         recalculate.setFocusable(false);
-        recalculate.addActionListener(this);
+        eventRecalc eventRecalc = new eventRecalc();
+        recalculate.addActionListener(eventRecalc);
 
         // Add Components to Panel
         bottomPanel.add(viewsLabel);
@@ -172,8 +179,24 @@ public class MainWindow extends JFrame implements ActionListener {
         bottomPanel.setBackground(lightGrey);
         pane.add(bottomPanel, BorderLayout.PAGE_END);
     }
+    
+    public class eventAdd implements ActionListener{
+        public void actionPerformed(ActionEvent eAdd){
+            System.out.println("TODO - Add");
+        }
+    }
 
-    public void actionPerformed(ActionEvent event) {
-        System.out.println("TODO - Recalculate");
+    public class eventRemove implements ActionListener{
+        public void actionPerformed(ActionEvent eRemove){
+            System.out.println("TODO - Remove");
+        }
+    }
+
+    public class eventRecalc implements ActionListener{
+        public void actionPerformed(ActionEvent eRecalc){
+            System.out.println("TODO - Recalculate");
+        }
     }
 }
+
+
