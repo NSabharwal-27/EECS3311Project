@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 
-import chartFactory.PieChart;
+import chartFactory.*;
 
 public class MainWindow extends JFrame{
 
@@ -110,10 +110,10 @@ public class MainWindow extends JFrame{
         chartHolder.setPreferredSize(new Dimension(900, 500));
 
         JFreeChart chartSample = PieChart.createChart(20, 20, 20, 40);
-        JFreeChart chartSampleB = PieChart.createChart(15, 15, 30, 40);
-        JFreeChart chartSampleC = PieChart.createChart(30, 30, 30, 10);
-        JFreeChart chartSampleD = PieChart.createChart(25, 25, 25, 25);
-        JFreeChart chartSampleE = PieChart.createChart(70, 15, 10, 5);
+        JFreeChart chartSampleB = BarChart.createChart();
+        JFreeChart chartSampleC = LineChart.createChart();
+        JFreeChart chartSampleD = SeriesChart.createChart();
+        JFreeChart chartSampleE = ScatterChart.createChart();
 
         ChartPanel chartPanelSample = new ChartPanel(chartSample);
         ChartPanel chartPanelSampleB = new ChartPanel(chartSampleB);

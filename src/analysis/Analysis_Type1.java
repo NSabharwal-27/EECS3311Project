@@ -2,6 +2,7 @@ package analysis;
 
 import fetchData.DataSet;
 import fetchData.FetchData;
+import java.util.HashMap;
 
 // 3 Series Graph
 // The annual percentage change of  
@@ -14,13 +15,15 @@ import fetchData.FetchData;
 // 		select as a range 2018 – 2021 the annual change rate 
 // 		for 2018 would be between 2017 and 2018.
 
-public class Analysis_Type1 {
+public class Analysis_Type1 implements AnalysisStrategy {
 
 	final static String CO2_EMISSIONS_CODE = "EN.ATM.CO2E.PC";
 	final static String ENERGY_USE_CODE = "EG.USE.PCAP.KG.OE";
 	final static String POLLUTION_CODE = "EN.ATM.PM25.MC.M3";
 
-	public static void main(String[] args) {
+	public HashMap<String, DataSet> analysisExecute() {
+
+		HashMap<String, DataSet> data = new HashMap<String, DataSet>();
 
 		// Example: Country = Canada, from 2000 to 2020
 		String countryCode = "CAN";
@@ -44,6 +47,10 @@ public class Analysis_Type1 {
 		System.out.println("\nAnnual Percentage Change of Pollution for: " + countryCode + "\n----------------------");
 	    System.out.println(pollutionAnnualPercentage);
 
+		data.put("C02 Annual emissions percentage", CO2EmissionsAnnualPercentage);
+		data.put("Annual Pollution Percentage", pollutionAnnualPercentage);
+		
+		return data;
 	}
 
 	/**
