@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 
 import gui.MainWindow;
 
+// Uses Singleton Design Pattern
 public class LoginUI extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;

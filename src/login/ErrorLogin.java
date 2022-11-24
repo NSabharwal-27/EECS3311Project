@@ -37,6 +37,5 @@ public class ErrorLogin extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         this.dispose();
-        LoginUI.getInstance();
     }
 }
