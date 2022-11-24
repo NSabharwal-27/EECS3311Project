@@ -20,7 +20,6 @@ public class BarChart implements Chart {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         
         for(Map.Entry<String, DataSet> entry : analysis.entrySet()) {
-            XYSeries series = new XYSeries(entry.getKey());
             DataSetIterator iterator = entry.getValue().getIterator();
             
             while(iterator.hasNext()) {
@@ -30,18 +29,6 @@ public class BarChart implements Chart {
         }
         
         return dataset;
-    }
-    
-    public static JFreeChart createChart(String title, HashMap<String, DataSet> analysis) {
-        CategoryDataset dataset = createDataset(analysis);
-        JFreeChart barChart = ChartFactory.createBarChart(
-                title, //Chart title
-                "", // X-Axis Label
-                "", // Y-Axis Label
-                dataset,       
-                PlotOrientation.VERTICAL,           
-                true, true, false);
-        return barChart;
     }
 
 }

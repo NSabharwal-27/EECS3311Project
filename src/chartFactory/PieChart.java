@@ -32,15 +32,4 @@ public class PieChart implements Chart {
         
         return dataset;
     }
-
-    public static JFreeChart createChart(String title, HashMap<String, DataSet> analysis) {
-        PieDataset<String> dataset = createDataset(analysis);
-        JFreeChart chart = ChartFactory.createPieChart( //NOTE: ChartFactory here refers to a Factory supplied with JFreeChart
-                title, // chart title
-                dataset, // data
-                true, // include legend
-                true,
-                false);
-        return chart;
-    }
 }

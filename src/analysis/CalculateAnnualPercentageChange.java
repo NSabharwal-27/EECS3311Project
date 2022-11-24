@@ -15,14 +15,14 @@ public class CalculateAnnualPercentageChange {
 
         // Set the lastYearWithData with a previous year to be able to calculate the start year percentage
         // Fetches the value of the previous year and loads it into lastYearWithData if  != null
-        // otherwise loops through the past 10 years to get till it find a year with a non-null value 
-        DataSet preStartingYear = FetchData.fetchData(rawData.countryCode, rawData.indicator, rawData.startYear-1, rawData.startYear-1);
+        // otherwise loops through the past 20 years to get till it find a year with a non-null value 
+        DataSet preStartingYear = FetchData.fetchData(rawData.countryCode, rawData.indicator, rawData.startYear-20, rawData.startYear-1);
         int i = 1;
-        //TODO - Do a single data fetch for last 10 years, and iterate through it, rather than repeatedly fetching data.
-        while(preStartingYear.get(rawData.startYear-i) == null && i <= 10){
+        while(preStartingYear.get(rawData.startYear-i) == null)
+        {
+            if( i > 20)
+                break;
             i++;
-            preStartingYear = FetchData.fetchData(rawData.countryCode, rawData.indicator, rawData.startYear-i, rawData.startYear-i);
-            // System.out.println(startYear-i + ": " + String.format("%.6f", preStartingYear.get(startYear-i)));
         }
 
         lastYearWithData[0] = (double) rawData.startYear-i;

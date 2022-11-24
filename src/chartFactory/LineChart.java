@@ -1,34 +1,36 @@
 package chartFactory;
 
 import org.jfree.chart.ChartPanel;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.xy.XYSeries;
+
+import fetchData.DataSet;
+import fetchData.DataSetIterator;
+import fetchData.Pair;
 
 public class LineChart implements Chart {
     
-    private static DefaultCategoryDataset createDataset() {
+    public static DefaultCategoryDataset createDataset(HashMap<String, DataSet> analysis) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(15, "schools", "1970");
-        dataset.addValue(30, "schools", "1980");
-        dataset.addValue(60, "schools",  "1990");
-        dataset.addValue(120, "schools", "2000");
-        dataset.addValue(240, "schools", "2010");
-        dataset.addValue(300, "schools", "2014");
+        
+        for(Map.Entry<String, DataSet> entry : analysis.entrySet()) {
+            XYSeries series = new XYSeries(entry.getKey());
+            DataSetIterator iterator = entry.getValue().getIterator();
+            
+            while(iterator.hasNext()) {
+                Pair pair = iterator.next();
+                dataset.addValue(pair.getValue(), entry.getKey(), Integer.toString(pair.getKey()));
+            }
+        }        
+        
         return dataset;
      }
-    
-    public static JFreeChart createChart() {
-        DefaultCategoryDataset dataset = createDataset();
-        JFreeChart lineChart = ChartFactory.createLineChart(
-                "Schools Vs Years","Year",
-                "Schools Count",
-                dataset,
-                PlotOrientation.VERTICAL,
-                true,true,false);
-    
-        return lineChart;
-    }
 
 }
