@@ -19,19 +19,21 @@ import javax.swing.JPanel;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 
+import analysis.AnalysisStrategy;
+import analysis.Analysis_Type1;
 import chartFactory.*;
 
 public class MainWindow extends JFrame{
 
     static String[] analysisTypes = {
-            "1. CO2 vs Energy vs Air Pollution",
-            "2. Air Pollution vs Forest Area",
-            "3. CO2 vs GDP per Capita",
-            "4. Average Forest Area (% of Land Area)",
-            "5. Average Government Expenditure on Education",
-            "6. Current Health Expenditure vs Hospital Beds",
-            "7. Problems in Accessing Health Care vs Infant Mortality",
-            "8. Government Expenditure on Education vs Health Expenditure"
+            "CO2 vs Energy vs Air Pollution",
+            "Air Pollution vs Forest Area",
+            "CO2 vs GDP per Capita",
+            "Average Forest Area (% of Land Area)",
+            "Average Government Expenditure on Education",
+            "Current Health Expenditure vs Hospital Beds",
+            "Problems in Accessing Health Care vs Infant Mortality",
+            "Government Expenditure on Education vs Health Expenditure"
     };
 
     static Color lightGrey = new Color(220, 220, 220);
@@ -117,12 +119,16 @@ public class MainWindow extends JFrame{
 
         JPanel chartHolder = new JPanel(new GridLayout(2, 3));
         chartHolder.setPreferredSize(new Dimension(900, 500));
+        
+        // Steeve: creating the object Strategy <-- DELETE AND COMMIT IF WE'RE KEEPING THIS
+        AnalysisStrategy strategy = new Analysis_Type1();
 
-        JFreeChart chartSample = PieChart.createChart(20, 20, 20, 40);
-        JFreeChart chartSampleB = BarChart.createChart();
+        JFreeChart chartSample = PieChart.createChart("Average Forest Area (% of Land Area)", strategy.analysisExecute(2005, 2020, "CAN"));
+        JFreeChart chartSampleB = BarChart.createChart("CO2 vs Energy vs Air Pollution", strategy.analysisExecute(2005, 2020, "CAN"));
         JFreeChart chartSampleC = LineChart.createChart();
         JFreeChart chartSampleD = SeriesChart.createChart();
-        JFreeChart chartSampleE = ScatterChart.createChart();
+        JFreeChart chartSampleE = ScatterChart.createChart("CO2 vs Energy vs Air Pollution", strategy.analysisExecute(2005, 2020, "CAN"));
+        
 
         ChartPanel chartPanelSample = new ChartPanel(chartSample);
         ChartPanel chartPanelSampleB = new ChartPanel(chartSampleB);
