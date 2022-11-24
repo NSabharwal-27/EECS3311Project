@@ -19,7 +19,7 @@ import org.jfree.chart.plot.PlotOrientation;
 
 public class ScatterChart implements Chart {
     
-    private static XYSeriesCollection createDataset(HashMap<String, DataSet> analysis) {
+    public static XYSeriesCollection createDataset(HashMap<String, DataSet> analysis) {
         XYSeriesCollection dataset = new XYSeriesCollection();
         
         for(Map.Entry<String, DataSet> entry : analysis.entrySet()) {
@@ -35,19 +35,6 @@ public class ScatterChart implements Chart {
         }
         
         return dataset;
-    }
-    
-    public static JFreeChart createChart(String title, HashMap<String, DataSet> analysis) {
-        XYSeriesCollection dataset = createDataset(analysis);
-        
-        JFreeChart scatterPlot = ChartFactory.createScatterPlot(
-                title, //Chart title
-                "", // X-Axis Label
-                "", // Y-Axis Label
-                dataset
-                );
-        
-        return scatterPlot;
     }
 
 }
