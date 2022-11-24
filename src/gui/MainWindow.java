@@ -8,6 +8,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -22,7 +23,7 @@ import chartFactory.*;
 
 public class MainWindow extends JFrame{
 
-    String[] analysisTypes = {
+    static String[] analysisTypes = {
             "1. CO2 vs Energy vs Air Pollution",
             "2. Air Pollution vs Forest Area",
             "3. CO2 vs GDP per Capita",
@@ -33,10 +34,18 @@ public class MainWindow extends JFrame{
             "8. Government Expenditure on Education vs Health Expenditure"
     };
 
-    Color lightGrey = new Color(220, 220, 220);
-    String[] views = { "Pie Chart", "Line Chart", "Bar Chart", "Scatter Chart", "Report" };
-    String[] countryOptions = { "Brazil", "Canada", "China", "France", "USA" };
+    static Color lightGrey = new Color(220, 220, 220);
+    static String[] views = { "Pie Chart", "Line Chart", "Bar Chart", "Scatter Chart", "Report" };
+    static String[] countryOptions = { "Brazil", "Canada", "China", "France", "USA" };
 
+    static ArrayList<String> requestedChartTypes = new ArrayList<String>();
+    
+    static JComboBox<String> countryComboBox;
+    static JComboBox<Integer> startYearComboBox;
+    static JComboBox<Integer> endYearComboBox;
+    static JComboBox<String> availableViews;
+    static JComboBox<String> analysisMethod;
+    
     public MainWindow() {
 
         Container pane = this.getContentPane();
@@ -68,10 +77,10 @@ public class MainWindow extends JFrame{
         JLabel toLabel = new JLabel("To");
 
         // ComboBoxes
-        JComboBox<String> countryComboBox = new JComboBox<String>(countryOptions);
-
-        JComboBox<Integer> startYearComboBox = new JComboBox<Integer>();
-        JComboBox<Integer> endYearComboBox = new JComboBox<Integer>();
+        countryComboBox = new JComboBox<String>(countryOptions);
+        startYearComboBox = new JComboBox<Integer>();
+        endYearComboBox = new JComboBox<Integer>();
+        
         for (int i = 1950; i <= 2022; i++) {
             startYearComboBox.addItem(i);
             endYearComboBox.addItem(i);
@@ -143,8 +152,8 @@ public class MainWindow extends JFrame{
         JLabel analysisLabel = new JLabel("Choose Analysis Method: ");
 
         // ComboBoxes
-        JComboBox<String> availableViews = new JComboBox<String>(views);
-        JComboBox<String> analysisMethod = new JComboBox<String>(analysisTypes);
+        availableViews = new JComboBox<String>(views);
+        analysisMethod = new JComboBox<String>(analysisTypes);
         // TODO - If we want center aligned text
         // ((JLabel)analysisMethod.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
         availableViews.setFocusable(false);
@@ -182,20 +191,57 @@ public class MainWindow extends JFrame{
     
     public class eventAdd implements ActionListener{
         public void actionPerformed(ActionEvent eAdd){
-            System.out.println("TODO - Add");
+            //TODO - Determine if chart is allowed based on analysis type
+            
+            String selectedChart = MainWindow.availableViews.getSelectedItem().toString();
+            if ( !MainWindow.requestedChartTypes.contains(selectedChart)) //Prevent duplicate
+                MainWindow.requestedChartTypes.add(selectedChart);
         }
     }
 
     public class eventRemove implements ActionListener{
         public void actionPerformed(ActionEvent eRemove){
-            System.out.println("TODO - Remove");
+            String selectedChart = MainWindow.availableViews.getSelectedItem().toString();
+            MainWindow.requestedChartTypes.remove(selectedChart);
         }
     }
 
     public class eventRecalc implements ActionListener{
         public void actionPerformed(ActionEvent eRecalc){
-            System.out.println("TODO - Recalculate");
+           System.out.println("TODO - Recalculate");
+           System.out.println(getCountryCode() + "\n"
+                   + getStartYear() + "\n" 
+                   + getEndYear() + "\n"
+                   + getRequestedChartTypes().toString() + "\n"
+                   + getAnalysisType() + "\n");
+           
+           //TODO send to backend (OBSERVER)
         }
+    }
+
+    public String getCountryCode()
+    {
+        return countryComboBox.getSelectedItem().toString();
+    }
+    
+    public String getStartYear()
+    {
+        return startYearComboBox.getSelectedItem().toString();
+    }
+    
+    public String getEndYear()
+    {
+        return endYearComboBox.getSelectedItem().toString();
+    }
+    
+    public ArrayList<String> getRequestedChartTypes()
+    {
+        return requestedChartTypes;
+    }
+    
+    public String getAnalysisType()
+    {
+        return analysisMethod.getSelectedItem().toString();
     }
 }
 
