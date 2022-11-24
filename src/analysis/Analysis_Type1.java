@@ -32,23 +32,31 @@ public class Analysis_Type1 implements AnalysisStrategy {
 
 		// CO2 emissions (as metric tons per capita)
 		DataSet CO2EmissionsAnnualPercentage = calculateAnnualPercentageChangeCO2(countryCode, startYear, endYear);
-		System.out.println("\nAnnual Percentage Change of CO2 Emissions for: " + countryCode + "\n----------------------");
-		System.out.println(CO2EmissionsAnnualPercentage);
+		//System.out.println("\nAnnual Percentage Change of CO2 Emissions for: " + countryCode + "\n----------------------");
+		//System.out.println(CO2EmissionsAnnualPercentage);
 
 		// Energy use (as kg of oil equivalent per capita)
-		System.out.println("\n\n-----------------\n\n");
-		DataSet EnergyUseAnnualPercentage = calculateAnnualPercentageChangeEnergy(countryCode, startYear, endYear);
-		System.out.println("\nAnnual Percentage Change of Energy Use for: " + countryCode + "\n----------------------");
-	    System.out.println(EnergyUseAnnualPercentage);
+		//System.out.println("\n\n-----------------\n\n");
+		DataSet energyUseAnnualPercentage = calculateAnnualPercentageChangeEnergy(countryCode, startYear, endYear);
+        /*
+         * System.out.println("\nAnnual Percentage Change of Energy Use for: " +
+         * countryCode + "\n----------------------");
+         * System.out.println(energyUseAnnualPercentage);
+         */
 
 		// PM2.5 air pollution, mean annual exposure (as micrograms per cubic meter)
-		System.out.println("\n\n-----------------\n\n");
+		//System.out.println("\n\n-----------------\n\n");
 		DataSet pollutionAnnualPercentage = calculateAnnualPercentageChangePollution(countryCode, startYear, endYear);
-		System.out.println("\nAnnual Percentage Change of Pollution for: " + countryCode + "\n----------------------");
-	    System.out.println(pollutionAnnualPercentage);
+        /*
+         * System.out.println("\nAnnual Percentage Change of Pollution for: " +
+         * countryCode + "\n----------------------");
+         * System.out.println(pollutionAnnualPercentage);
+         */
 
+	    
 		data.put("C02 Annual emissions percentage", CO2EmissionsAnnualPercentage);
 		data.put("Annual Pollution Percentage", pollutionAnnualPercentage);
+		data.put("Annual Energy Percentage", energyUseAnnualPercentage);
 		
 		return data;
 	}
@@ -58,8 +66,7 @@ public class Analysis_Type1 implements AnalysisStrategy {
 	 * changes in form (year, percentChange). For a year with an undefined
 	 * percentage change, percentChange = null.
 	 */
-	public static DataSet calculateAnnualPercentageChangeCO2(String countryCode, int startYear, int endYear)
-	{
+	public static DataSet calculateAnnualPercentageChangeCO2(String countryCode, int startYear, int endYear){
 		DataSet rawData = FetchData.fetchData(countryCode, CO2_EMISSIONS_CODE, startYear, endYear); // Data from fetch
 		return CalculateAnnualPercentageChange.calculate(rawData);
 	}
@@ -69,8 +76,7 @@ public class Analysis_Type1 implements AnalysisStrategy {
      * changes in form (year, percentChange). For a year with an undefined
      * percentage change, percentChange = null.
      */
-	public static DataSet calculateAnnualPercentageChangeEnergy(String countryCode, int startYear, int endYear)
-	{
+	public static DataSet calculateAnnualPercentageChangeEnergy(String countryCode, int startYear, int endYear){
         DataSet rawData = FetchData.fetchData(countryCode, ENERGY_USE_CODE, startYear, endYear); // Data from fetch
         return CalculateAnnualPercentageChange.calculate(rawData);
     }
@@ -80,8 +86,7 @@ public class Analysis_Type1 implements AnalysisStrategy {
      * changes in form (year, percentChange). For a year with an undefined
      * percentage change, percentChange = null.
      */
-	public static DataSet calculateAnnualPercentageChangePollution(String countryCode, int startYear, int endYear)
-	{
+	public static DataSet calculateAnnualPercentageChangePollution(String countryCode, int startYear, int endYear){
         DataSet rawData = FetchData.fetchData(countryCode, POLLUTION_CODE, startYear, endYear); // Data from fetch
         return CalculateAnnualPercentageChange.calculate(rawData);
     }
