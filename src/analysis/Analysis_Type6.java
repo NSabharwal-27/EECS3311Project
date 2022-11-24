@@ -18,12 +18,12 @@ public class Analysis_Type6 implements AnalysisStrategy{
 	final static String HOSPITAL_BEDS_CODE = "SH.MED.BEDS.ZS";
 	final static String POPULATION_CODE = "SP.POP.TOTL";
 
-	public HashMap<String, DataSet> analysisExecute(){
+	public HashMap<String, DataSet> analysisExecute(int start, int end, String country){
 
 		// Example: Country = Canada, from 2000 to 2020
-		String countryCode = "CAN";
-		int startYear = 2000;
-		int endYear = 2020;
+		String countryCode = country;
+		int startYear = start;
+		int endYear = end;
 		
 		 HashMap<String, DataSet> data = new HashMap<String, DataSet>();
 		

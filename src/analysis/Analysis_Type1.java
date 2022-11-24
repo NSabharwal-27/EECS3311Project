@@ -21,14 +21,14 @@ public class Analysis_Type1 implements AnalysisStrategy {
 	final static String ENERGY_USE_CODE = "EG.USE.PCAP.KG.OE";
 	final static String POLLUTION_CODE = "EN.ATM.PM25.MC.M3";
 
-	public HashMap<String, DataSet> analysisExecute() {
+	public HashMap<String, DataSet> analysisExecute(int start, int end, String country) {
 
 		HashMap<String, DataSet> data = new HashMap<String, DataSet>();
 
 		// Example: Country = Canada, from 2000 to 2020
-		String countryCode = "CAN";
-		int startYear = 2000;
-		int endYear = 2020;
+		String countryCode = country;
+		int startYear = start;
+		int endYear = end;
 
 		// CO2 emissions (as metric tons per capita)
 		DataSet CO2EmissionsAnnualPercentage = calculateAnnualPercentageChangeCO2(countryCode, startYear, endYear);

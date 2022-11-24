@@ -10,11 +10,11 @@ public class Analysis_Type8 implements AnalysisStrategy{
     final static String GOV_EXPENDITURE_EDUCATION = "SE.XPD.TOTL.GD.ZS";
     final static String CURRENT_HEALTH_EXPENDITURE = "SH.XPD.CHEX.GD.ZS";
 
-    public HashMap<String, DataSet> analysisExecute(){
+    public HashMap<String, DataSet> analysisExecute(int start, int end, String country){
 
-        String countryCode = "CAN";
-        int startYear = 2000;
-        int endYear = 2020;
+        String countryCode = country;
+        int startYear = start;
+        int endYear = end;
         
         HashMap<String, DataSet> data = new HashMap<String, DataSet>();
 

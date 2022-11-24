@@ -17,11 +17,11 @@ public class Analysis_Type3 implements AnalysisStrategy{
         final static String CO2_EMISSIONS_CODE = "EN.ATM.CO2E.PC";
         final static String GDP_CODE = "NY.GDP.PCAP.CD";
         
-        public HashMap<String, DataSet> analysisExecute(){
+        public HashMap<String, DataSet> analysisExecute(int start, int end, String country){
             
-            String countryCode = "CAN";
-            int startYear = 2000;
-            int endYear = 2020;
+            String countryCode = country;
+            int startYear = start;
+            int endYear = end;
             
             HashMap<String, DataSet> data = new HashMap<String, DataSet>();
             

@@ -9,11 +9,11 @@ public class Analysis_Type5 {
 
     final static String GOV_EXPENDITURE = "SE.XPD.TOTL.GD.ZS";
     
-    public HashMap<String, DataSet> analysisExecute(){
+    public HashMap<String, DataSet> analysisExecute(int start, int end, String country){
         
-        String countryCode = "CAN";
-        int startYear = 2000;
-        int endYear = 2020;
+        String countryCode = country;
+        int startYear = start;
+        int endYear = end;
         
         HashMap<String, DataSet> data = new HashMap<String, DataSet>();
         DataSet toReturn = new DataSet();
