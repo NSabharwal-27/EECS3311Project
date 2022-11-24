@@ -166,16 +166,18 @@ public class MainWindow extends JFrame{
         analysisMethod.setFocusable(false);
 
         // Buttons
-        Buttons buttons = new Buttons();
+        RecalcButton recalcBut = new RecalcButton();
+        AddButton addBut = new AddButton();
+        RemoveButton remBut = new RemoveButton();
 
         // Add Components to Panel
         bottomPanel.add(viewsLabel);
         bottomPanel.add(availableViews);
-        bottomPanel.add(buttons.addView);
-        bottomPanel.add(buttons.removeView);
+        bottomPanel.add(addBut.addView);
+        bottomPanel.add(remBut.removeView);
         bottomPanel.add(analysisLabel);
         bottomPanel.add(analysisMethod);
-        bottomPanel.add(buttons.recalculate);
+        bottomPanel.add(recalcBut.recalculate);
 
         bottomPanel.setOpaque(true);
         bottomPanel.setBackground(lightGrey);
