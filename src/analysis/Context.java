@@ -14,3 +14,11 @@ public class Context {
         return strategy.analysisExecute(start, end, country);
     }
 }
+
+
+/*
+ * To use strategy, this is the implementation return 
+ * type value of HashMap<String, DataSet>
+ * Context context = new Context(new Analysis_Type4());
+ * context.callExecute(start, end, country)
+ */
