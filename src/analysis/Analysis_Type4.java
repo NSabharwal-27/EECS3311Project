@@ -23,15 +23,18 @@ public class Analysis_Type4 {
         int endYear = 2020;
         
         HashMap<String, DataSet> data = new HashMap<String, DataSet>();
+        DataSet toReturn = new DataSet();
         
-        DataSet averageForestArea = calculateAverageForestArea(countryCode, startYear, endYear);
+        Double averageForestArea = calculateAverageForestArea(countryCode, startYear, endYear);
+        toReturn.put(0, averageForestArea);
         //System.out.println(String.format("Average forest area: %.2f", averageForestArea));
         
-        data.put("Average Forest Area", averageForestArea);
+        
+        data.put("Average Forest Area", toReturn);
         return data;
     }
     
-    private static DataSet calculateAverageForestArea(String countryCode, int startYear, int endYear)
+    private static Double calculateAverageForestArea(String countryCode, int startYear, int endYear)
     {
         DataSet rawData = FetchData.fetchData(countryCode, FOREST_AREA_CODE, startYear, endYear);
         return CalculateAverage.calculate(rawData);

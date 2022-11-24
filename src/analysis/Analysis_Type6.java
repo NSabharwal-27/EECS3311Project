@@ -12,22 +12,27 @@ import fetchData.Pair;
 // 		1. Current health expenditure per capita (per 1,000 people) (current US$)
 //		2. Hospital beds (per 1,000 people)
 
-public class Analysis_Type6 {
+public class Analysis_Type6 implements AnalysisStrategy{
 
 	final static String HEALTH_EXPENDITURE_CODE = "SH.XPD.CHEX.GD.ZS";
 	final static String HOSPITAL_BEDS_CODE = "SH.MED.BEDS.ZS";
 	final static String POPULATION_CODE = "SP.POP.TOTL";
 
-	public static void main(String[] args) {
+	public HashMap<String, DataSet> analysisExecute(){
 
 		// Example: Country = Canada, from 2000 to 2020
 		String countryCode = "CAN";
 		int startYear = 2000;
 		int endYear = 2020;
-
+		
+		 HashMap<String, DataSet> data = new HashMap<String, DataSet>();
+		
 		// Current health expenditure (per 1,000 people) (% of GDP)
 		DataSet ratioHealthExpToBeds = calculateRatioHealthExpenditureToBeds(countryCode, startYear, endYear);
-		System.out.println(ratioHealthExpToBeds);
+		//System.out.println(ratioHealthExpToBeds);
+		
+		data.put("Ratio of Health Expenditure to Hospital Beds", ratioHealthExpToBeds);
+		return data;
 	}
 
 	/**
