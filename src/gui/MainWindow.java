@@ -129,6 +129,7 @@ public class MainWindow extends JFrame{
         JFreeChart chartSampleD = SeriesChart.createChart();
         JFreeChart chartSampleE = ScatterChart.createChart("CO2 vs Energy vs Air Pollution", strategy.analysisExecute(2005, 2020, "CAN"));
         
+        
 
         ChartPanel chartPanelSample = new ChartPanel(chartSample);
         ChartPanel chartPanelSampleB = new ChartPanel(chartSampleB);
