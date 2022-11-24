@@ -19,19 +19,21 @@ import javax.swing.JPanel;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 
+import analysis.AnalysisStrategy;
+import analysis.Analysis_Type1;
 import chartFactory.*;
 
 public class MainWindow extends JFrame{
 
     static String[] analysisTypes = {
-            "1. CO2 vs Energy vs Air Pollution",
-            "2. Air Pollution vs Forest Area",
-            "3. CO2 vs GDP per Capita",
-            "4. Average Forest Area (% of Land Area)",
-            "5. Average Government Expenditure on Education",
-            "6. Current Health Expenditure vs Hospital Beds",
-            "7. Problems in Accessing Health Care vs Infant Mortality",
-            "8. Government Expenditure on Education vs Health Expenditure"
+            "CO2 vs Energy vs Air Pollution",
+            "Air Pollution vs Forest Area",
+            "CO2 vs GDP per Capita",
+            "Average Forest Area (% of Land Area)",
+            "Average Government Expenditure on Education",
+            "Current Health Expenditure vs Hospital Beds",
+            "Problems in Accessing Health Care vs Infant Mortality",
+            "Government Expenditure on Education vs Health Expenditure"
     };
 
     static Color lightGrey = new Color(220, 220, 220);
@@ -117,12 +119,16 @@ public class MainWindow extends JFrame{
 
         JPanel chartHolder = new JPanel(new GridLayout(2, 3));
         chartHolder.setPreferredSize(new Dimension(900, 500));
+        
+        // Steeve: creating the object Strategy <-- DELETE AND COMMIT IF WE'RE KEEPING THIS
+        AnalysisStrategy strategy = new Analysis_Type1();
 
-        JFreeChart chartSample = PieChart.createChart(20, 20, 20, 40);
-        JFreeChart chartSampleB = BarChart.createChart();
+        JFreeChart chartSample = PieChart.createChart("Average Forest Area (% of Land Area)", strategy.analysisExecute(2005, 2020, "CAN"));
+        JFreeChart chartSampleB = BarChart.createChart("CO2 vs Energy vs Air Pollution", strategy.analysisExecute(2005, 2020, "CAN"));
         JFreeChart chartSampleC = LineChart.createChart();
         JFreeChart chartSampleD = SeriesChart.createChart();
-        JFreeChart chartSampleE = ScatterChart.createChart();
+        JFreeChart chartSampleE = ScatterChart.createChart("CO2 vs Energy vs Air Pollution", strategy.analysisExecute(2005, 2020, "CAN"));
+        
 
         ChartPanel chartPanelSample = new ChartPanel(chartSample);
         ChartPanel chartPanelSampleB = new ChartPanel(chartSampleB);
@@ -160,86 +166,43 @@ public class MainWindow extends JFrame{
         analysisMethod.setFocusable(false);
 
         // Buttons
-        JButton addView = new JButton("+");
-        addView.setFocusable(false);
-        eventAdd eventAdd = new eventAdd();
-        addView.addActionListener(eventAdd);
-        
-        JButton removeView = new JButton("-");
-        removeView.setFocusable(false);
-        eventRemove eventRemove = new eventRemove();
-        removeView.addActionListener(eventRemove);
-        
-        JButton recalculate = new JButton("Recalculate");
-        recalculate.setFocusable(false);
-        eventRecalc eventRecalc = new eventRecalc();
-        recalculate.addActionListener(eventRecalc);
+        Buttons buttons = new Buttons();
 
         // Add Components to Panel
         bottomPanel.add(viewsLabel);
         bottomPanel.add(availableViews);
-        bottomPanel.add(addView);
-        bottomPanel.add(removeView);
+        bottomPanel.add(buttons.addView);
+        bottomPanel.add(buttons.removeView);
         bottomPanel.add(analysisLabel);
         bottomPanel.add(analysisMethod);
-        bottomPanel.add(recalculate);
+        bottomPanel.add(buttons.recalculate);
 
         bottomPanel.setOpaque(true);
         bottomPanel.setBackground(lightGrey);
         pane.add(bottomPanel, BorderLayout.PAGE_END);
     }
-    
-    public class eventAdd implements ActionListener{
-        public void actionPerformed(ActionEvent eAdd){
-            //TODO - Determine if chart is allowed based on analysis type
-            
-            String selectedChart = MainWindow.availableViews.getSelectedItem().toString();
-            if ( !MainWindow.requestedChartTypes.contains(selectedChart)) //Prevent duplicate
-                MainWindow.requestedChartTypes.add(selectedChart);
-        }
-    }
 
-    public class eventRemove implements ActionListener{
-        public void actionPerformed(ActionEvent eRemove){
-            String selectedChart = MainWindow.availableViews.getSelectedItem().toString();
-            MainWindow.requestedChartTypes.remove(selectedChart);
-        }
-    }
-
-    public class eventRecalc implements ActionListener{
-        public void actionPerformed(ActionEvent eRecalc){
-           System.out.println("TODO - Recalculate");
-           System.out.println(getCountryCode() + "\n"
-                   + getStartYear() + "\n" 
-                   + getEndYear() + "\n"
-                   + getRequestedChartTypes().toString() + "\n"
-                   + getAnalysisType() + "\n");
-           
-           //TODO send to backend (OBSERVER)
-        }
-    }
-
-    public String getCountryCode()
+    public static String getCountryCode()
     {
         return countryComboBox.getSelectedItem().toString();
     }
     
-    public String getStartYear()
+    public static String getStartYear()
     {
         return startYearComboBox.getSelectedItem().toString();
     }
     
-    public String getEndYear()
+    public static String getEndYear()
     {
         return endYearComboBox.getSelectedItem().toString();
     }
     
-    public ArrayList<String> getRequestedChartTypes()
+    public static ArrayList<String> getRequestedChartTypes()
     {
         return requestedChartTypes;
     }
     
-    public String getAnalysisType()
+    public static String getAnalysisType()
     {
         return analysisMethod.getSelectedItem().toString();
     }

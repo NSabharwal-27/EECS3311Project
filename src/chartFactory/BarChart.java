@@ -1,5 +1,8 @@
 package chartFactory;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel; 
 import org.jfree.chart.JFreeChart; 
@@ -7,45 +10,35 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset; 
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.PieDataset;
+import org.jfree.data.xy.XYSeries;
+
+import fetchData.*;
 
 public class BarChart implements Chart {
     
-    public static CategoryDataset createDataset() {
-        final String fiat = "FIAT";        
-        final String audi = "AUDI";        
-        final String ford = "FORD";        
-        final String speed = "Speed";        
-        final String millage = "Millage";        
-        final String userrating = "User Rating";        
-        final String safety = "safety";        
-        final DefaultCategoryDataset dataset = 
-        new DefaultCategoryDataset( );  
-
-        dataset.addValue(1.0, fiat, speed);
-        dataset.addValue(3.0, fiat, userrating);
-        dataset.addValue(5.0, fiat, millage);
-        dataset.addValue(5.0, fiat, safety);
-
-        dataset.addValue(5.0, audi, speed);
-        dataset.addValue(6.0, audi, userrating);
-        dataset.addValue(10.0, audi, millage);
-        dataset.addValue(4.0, audi, safety);
-
-        dataset.addValue(4.0, ford, speed);
-        dataset.addValue(2.0 , ford, userrating);
-        dataset.addValue(3.0 , ford, millage);
-        dataset.addValue(6.0, ford, safety);
-
+    public static CategoryDataset createDataset(HashMap<String, DataSet> analysis) {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        
+        for(Map.Entry<String, DataSet> entry : analysis.entrySet()) {
+            XYSeries series = new XYSeries(entry.getKey());
+            DataSetIterator iterator = entry.getValue().getIterator();
+            
+            while(iterator.hasNext()) {
+                Pair pair = iterator.next();
+                dataset.addValue(pair.getValue(), entry.getKey(), Integer.toString(pair.getKey()));
+            }
+        }
+        
         return dataset;
     }
     
-    public static JFreeChart createChart() {
-        CategoryDataset dataset = createDataset();
+    public static JFreeChart createChart(String title, HashMap<String, DataSet> analysis) {
+        CategoryDataset dataset = createDataset(analysis);
         JFreeChart barChart = ChartFactory.createBarChart(
-                "Bar Chart Mobile Sales",           
-                "Category",            
-                "Score",            
-                dataset,          
+                title, //Chart title
+                "", // X-Axis Label
+                "", // Y-Axis Label
+                dataset,       
                 PlotOrientation.VERTICAL,           
                 true, true, false);
         return barChart;

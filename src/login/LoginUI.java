@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 
 import gui.MainWindow;
 
+// Uses Singleton Design Pattern
 public class LoginUI extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
@@ -26,7 +27,7 @@ public class LoginUI extends JFrame implements ActionListener{
 	private static JLabel passwordLabel;
 	private static JPasswordField passwordText;
 	private static JButton submitButton;
-	
+
 	private static LoginUI instance;
 	
 	public static LoginUI getInstance() {
@@ -104,7 +105,7 @@ public class LoginUI extends JFrame implements ActionListener{
 				new MainWindow();
 			}
 			else {
-				System.exit(0);
+				new ErrorLogin();
 			}
 		} catch (IOException error) {
 			error.printStackTrace();
