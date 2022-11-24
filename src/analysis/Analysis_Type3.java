@@ -1,5 +1,7 @@
 package analysis;
 
+import java.util.HashMap;
+
 import fetchData.DataSet;
 import fetchData.FetchData;
 
@@ -10,19 +12,25 @@ import fetchData.FetchData;
  *      2.GDP per capita
  */
 
-public class Analysis_Type3 {
+public class Analysis_Type3 implements AnalysisStrategy{
 
         final static String CO2_EMISSIONS_CODE = "EN.ATM.CO2E.PC";
         final static String GDP_CODE = "NY.GDP.PCAP.CD";
         
-        public static void main(String[] args) {
+        public HashMap<String, DataSet> analysisExecute(){
             
             String countryCode = "CAN";
             int startYear = 2000;
             int endYear = 2020;
             
+            HashMap<String, DataSet> data = new HashMap<String, DataSet>();
+            
             DataSet ratio = calculateCO2ToGDPRatio(countryCode, startYear, endYear);
-            System.out.println(ratio);
+            //System.out.println(ratio);
+            
+            data.put("C02 to GDP Ratio", ratio);
+            
+            return data;
         }
         
         public static DataSet calculateCO2ToGDPRatio(String countryCode, int startYear, int endYear)
