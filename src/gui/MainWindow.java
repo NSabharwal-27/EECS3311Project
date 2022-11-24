@@ -166,86 +166,43 @@ public class MainWindow extends JFrame{
         analysisMethod.setFocusable(false);
 
         // Buttons
-        JButton addView = new JButton("+");
-        addView.setFocusable(false);
-        eventAdd eventAdd = new eventAdd();
-        addView.addActionListener(eventAdd);
-        
-        JButton removeView = new JButton("-");
-        removeView.setFocusable(false);
-        eventRemove eventRemove = new eventRemove();
-        removeView.addActionListener(eventRemove);
-        
-        JButton recalculate = new JButton("Recalculate");
-        recalculate.setFocusable(false);
-        eventRecalc eventRecalc = new eventRecalc();
-        recalculate.addActionListener(eventRecalc);
+        Buttons buttons = new Buttons();
 
         // Add Components to Panel
         bottomPanel.add(viewsLabel);
         bottomPanel.add(availableViews);
-        bottomPanel.add(addView);
-        bottomPanel.add(removeView);
+        bottomPanel.add(buttons.addView);
+        bottomPanel.add(buttons.removeView);
         bottomPanel.add(analysisLabel);
         bottomPanel.add(analysisMethod);
-        bottomPanel.add(recalculate);
+        bottomPanel.add(buttons.recalculate);
 
         bottomPanel.setOpaque(true);
         bottomPanel.setBackground(lightGrey);
         pane.add(bottomPanel, BorderLayout.PAGE_END);
     }
-    
-    public class eventAdd implements ActionListener{
-        public void actionPerformed(ActionEvent eAdd){
-            //TODO - Determine if chart is allowed based on analysis type
-            
-            String selectedChart = MainWindow.availableViews.getSelectedItem().toString();
-            if ( !MainWindow.requestedChartTypes.contains(selectedChart)) //Prevent duplicate
-                MainWindow.requestedChartTypes.add(selectedChart);
-        }
-    }
 
-    public class eventRemove implements ActionListener{
-        public void actionPerformed(ActionEvent eRemove){
-            String selectedChart = MainWindow.availableViews.getSelectedItem().toString();
-            MainWindow.requestedChartTypes.remove(selectedChart);
-        }
-    }
-
-    public class eventRecalc implements ActionListener{
-        public void actionPerformed(ActionEvent eRecalc){
-           System.out.println("TODO - Recalculate");
-           System.out.println(getCountryCode() + "\n"
-                   + getStartYear() + "\n" 
-                   + getEndYear() + "\n"
-                   + getRequestedChartTypes().toString() + "\n"
-                   + getAnalysisType() + "\n");
-           
-           //TODO send to backend (OBSERVER)
-        }
-    }
-
-    public String getCountryCode()
+    public static String getCountryCode()
     {
         return countryComboBox.getSelectedItem().toString();
     }
     
-    public String getStartYear()
+    public static String getStartYear()
     {
         return startYearComboBox.getSelectedItem().toString();
     }
     
-    public String getEndYear()
+    public static String getEndYear()
     {
         return endYearComboBox.getSelectedItem().toString();
     }
     
-    public ArrayList<String> getRequestedChartTypes()
+    public static ArrayList<String> getRequestedChartTypes()
     {
         return requestedChartTypes;
     }
     
-    public String getAnalysisType()
+    public static String getAnalysisType()
     {
         return analysisMethod.getSelectedItem().toString();
     }
