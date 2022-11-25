@@ -48,9 +48,11 @@ public class MainWindow extends JFrame{
     static JComboBox<String> availableViews;
     static JComboBox<String> analysisMethod;
 
+    public static int indexCounter = 1;
+    static JPanel chartHolder;
     static JFreeChart chartSampleA = ChartSampleA.getInstance().chart;
-    static JFreeChart chartSampleB = ChartSampleB.getInstance().chart;
-    static JFreeChart chartSampleC = ChartSampleC.getInstance().chart;
+    // static JFreeChart chartSampleB = ChartSampleB.getInstance().chart;
+    // static JFreeChart chartSampleC = ChartSampleC.getInstance().chart;
     // JFreeChart chartSampleD;
 
     
@@ -132,36 +134,38 @@ public class MainWindow extends JFrame{
 
         //NOTE: Add JFreeChart to ChartPanel -> Add ChartPanel to ChartHolder
 
-        JPanel chartHolder = new JPanel(new GridLayout(2, 2));
+        chartHolder = new JPanel(new GridLayout(2, 2));
         chartHolder.setPreferredSize(new Dimension(900, 500));
         
         // Steeve: creating the object Strategy <-- DELETE AND COMMIT IF WE'RE KEEPING THIS
-        AnalysisStrategy strategy = new Analysis_Type1();
-        BarChartCreator bar = new BarChartCreator();
-        SeriesChartCreator line = new SeriesChartCreator();
+        // AnalysisStrategy strategy = new Analysis_Type1();
+        // BarChartCreator bar = new BarChartCreator();
+        // SeriesChartCreator line = new SeriesChartCreator();
 
-        chartSampleA = ChartSampleA.getInstance().chart;
+        // chartSampleA = ChartSampleA.getInstance().chart;
+        // chartSampleB = ChartSampleB.getInstance().chart;
+        // chartSampleC = ChartSampleC.getInstance().chart;
         // JFreeChart chartSampleA = PieChart.createChart("Average Forest Area (% of Land Area)", strategy.analysisExecute(2005, 2020, "CAN"));
-        JFreeChart chartSampleB = bar.createChart("CO2 vs Energy vs Air Pollution","Bar Chart", strategy.analysisExecute(2005, 2020, "CAN"));
-        JFreeChart chartSampleC = line.createChart("CO2 vs Energy vs Air Pollution","Line Chart", strategy.analysisExecute(2005, 2020, "CAN"));
+        // JFreeChart chartSampleB = bar.createChart("CO2 vs Energy vs Air Pollution","Bar Chart", strategy.analysisExecute(2005, 2020, "CAN"));
+        // JFreeChart chartSampleC = line.createChart("CO2 vs Energy vs Air Pollution","Line Chart", strategy.analysisExecute(2005, 2020, "CAN"));
         // JFreeChart chartSampleD = SeriesChart.createChart();
         // JFreeChart chartSampleE = ScatterChart.createChart("CO2 vs Energy vs Air Pollution", strategy.analysisExecute(2005, 2020, "CAN"));
         
         
 
-        ChartPanel chartPanelSampleA = new ChartPanel(chartSampleA);
-        ChartPanel chartPanelSampleB = new ChartPanel(chartSampleB);
-        ChartPanel chartPanelSampleC = new ChartPanel(chartSampleC);
+        // ChartPanel chartPanelSampleA = new ChartPanel(chartSampleA);
+        // ChartPanel chartPanelSampleB = new ChartPanel(chartSampleB);
+        // ChartPanel chartPanelSampleC = new ChartPanel(chartSampleC);
         // ChartPanel chartPanelSampleD = new ChartPanel(chartSampleD);
         // ChartPanel chartPanelSampleE = new ChartPanel(chartSampleE);
 
-        chartHolder.add(chartPanelSampleA);
-        chartHolder.add(chartPanelSampleB);
-        chartHolder.add(chartPanelSampleC);
+        // chartHolder.add(chartPanelSampleA);
+        // chartHolder.add(chartPanelSampleB);
+        // chartHolder.add(chartPanelSampleC);
         // chartHolder.add(chartPanelSampleD);
         // chartHolder.add(chartPanelSampleE);
 
-        JLabel textDescription = new JLabel("Text Description Here");
+        JLabel textDescription = new JLabel("Nothing to display");
         textDescription.setHorizontalAlignment(JLabel.CENTER);
         chartHolder.add(textDescription);
 

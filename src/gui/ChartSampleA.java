@@ -4,7 +4,9 @@ import java.util.HashMap;
 
 import javax.swing.JFrame;
 
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.ui.UIUtils;
 
 import analysis.AnalysisStrategy;
 import analysis.Analysis_Type1;
@@ -58,29 +60,38 @@ public class ChartSampleA implements Observer{
             //     System.out.println(title);
             //     System.out.println(data.toString());
             // }
-            MainWindow.chartSampleA = chart;
         }
-        // window.dispose();
-        // JFrame frame = MainWindow.getInstance();
-        // frame.setVisible(true);
+        // MainWindow.getInstance().dispose();
+        ChartPanel chartPanelSampleA = new ChartPanel(chart);
+        MainWindow.chartHolder.add(chartPanelSampleA);
+        MainWindow frame = MainWindow.getInstance();
+        frame.setVisible(true);
     }
 
     @Override
     public void addUpdate(AddButton sub) {
         System.out.println("Add" + analysis.toString());
-        if(chart == null && analysis.size() > 0){
+        if(analysis.size() > 0){
             thisAnalysis = analysis.get(0);
+            analysis.remove(0);
+            MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());
+
             if (title == null){
                 new ErrorRecalc();
+
             } else{
                 FactoryChart factory = new FactoryChart();
                 chart = factory.getChart(thisAnalysis, title, data);
+
                 if (chart == null) {
-                    analysis.remove(0);
-                    MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());
                     new ErrorChart();
+
                 }else{
-                    MainWindow.chartSampleA = chart;
+                    // MainWindow.chartSampleA = chart;
+                    ChartPanel chartPanelSampleA = new ChartPanel(chart);
+                    MainWindow.chartHolder.add(chartPanelSampleA);
+                    MainWindow frame = MainWindow.getInstance();
+                    frame.setVisible(true);
                 }
             }
         }
@@ -90,10 +101,16 @@ public class ChartSampleA implements Observer{
     @Override
     public void remUpdate(RemoveButton sub) {
         System.out.println("Rem" + MainWindow.getCurrentChart());
-        if(analysis.size() > 0 && MainWindow.getCurrentChart().equals(thisAnalysis)){
-            chart = null;
-            analysis.remove(0);
-            MainWindow.chartSampleA = chart;
+        if(analysis.size() > 0){
+            // chart = null;
+            // analysis.remove(0);
+            // MainWindow.chartSampleA = chart;
+            FactoryChart factory = new FactoryChart();
+            chart = factory.getChart(MainWindow.getCurrentChart(), title, data);
+            ChartPanel chartPanelSampleA = new ChartPanel(chart);
+            MainWindow.chartHolder.remove(chartPanelSampleA);
+            MainWindow frame = MainWindow.getInstance();
+            frame.setVisible(true);
         }
         
     }

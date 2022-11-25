@@ -1,6 +1,8 @@
 package gui;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,7 +42,8 @@ public class RecalcButton extends Subject {
                    + MainWindow.getRequestedChartTypes().toString() + "\n"
                    + MainWindow.getAnalysisType() + "\n");
 
-           notifyObservers();
+            MainWindow.chartHolder.removeAll();
+            notifyObservers();
         }
     }
 }
