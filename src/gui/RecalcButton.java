@@ -34,7 +34,6 @@ public class RecalcButton extends Subject {
 
     public class eventRecalc implements ActionListener{
         public void actionPerformed(ActionEvent eRecalc){
-           System.out.println("TODO - Recalculate");
            System.out.println(MainWindow.getCountryCode() + "\n"
                    + MainWindow.getStartYear() + "\n" 
                    + MainWindow.getEndYear() + "\n"

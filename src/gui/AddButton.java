@@ -36,7 +36,7 @@ public class AddButton extends Subject {
             
             System.out.println(MainWindow.getRequestedChartTypes().toString());
 
-            String selectedChart = MainWindow.availableViews.getSelectedItem().toString();
+            String selectedChart = MainWindow.getCurrentChart();
             if ( !MainWindow.requestedChartTypes.contains(selectedChart)){ //Prevent duplicate
                 MainWindow.requestedChartTypes.add(selectedChart);
             }

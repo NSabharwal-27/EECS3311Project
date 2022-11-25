@@ -49,8 +49,8 @@ public class ChartSampleC implements Observer{
         Context context = new Context(getAnalysisObj());
         data = context.callExecute(start, end, country);
         FactoryChart factory = new FactoryChart();
-        if (analysis.size() > 0){
-            thisAnalysis = analysis.get(0);
+        if (analysis.size() > 2){
+            thisAnalysis = analysis.get(2);
             chart = factory.getChart(thisAnalysis, title, data);
             // if (chart == null) {
             //     System.out.println("god dammit");
@@ -68,20 +68,22 @@ public class ChartSampleC implements Observer{
     @Override
     public void addUpdate(AddButton sub) {
         System.out.println("Add" + analysis.toString());
-        if(chart == null && analysis.size() > 0){
-            thisAnalysis = analysis.get(0);
+        if(chart == null && analysis.size() > 2){
+            thisAnalysis = analysis.get(2);
             System.out.println("local" + thisAnalysis);
             FactoryChart factory = new FactoryChart();
             chart = factory.getChart(thisAnalysis, title, data);
             if (chart == null) {
-                // System.out.println("god dammit");
+                System.out.println("god dammit");
                 // System.out.println(analysis.get(0));
                 // System.out.println(title);
                 // System.out.println(data.toString());
-                analysis.remove(0);
+                analysis.remove(2);
+                MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());
                 new ErrorChart();
+            }else{
+                MainWindow.chartSampleC = chart;
             }
-            MainWindow.chartSampleC = chart;
         }
         
     }
@@ -89,10 +91,10 @@ public class ChartSampleC implements Observer{
     @Override
     public void remUpdate(RemoveButton sub) {
         System.out.println("Rem" + MainWindow.getCurrentChart());
-        if(analysis.size() > 0 && MainWindow.getCurrentChart().equals(thisAnalysis)){
+        if(analysis.size() > 2 && MainWindow.getCurrentChart().equals(thisAnalysis)){
             System.out.println("Rem2" + analysis.toString());
             chart = null;
-            analysis.remove(0);
+            analysis.remove(2);
             MainWindow.chartSampleC = chart;
         }
         

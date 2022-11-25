@@ -34,7 +34,7 @@ public class RemoveButton extends Subject{
             System.out.println("Removing Chart");
             System.out.println(MainWindow.getRequestedChartTypes().toString());
             
-            String selectedChart = MainWindow.availableViews.getSelectedItem().toString();
+            String selectedChart = MainWindow.getCurrentChart();
             MainWindow.requestedChartTypes.remove(selectedChart);
 
             System.out.println(MainWindow.getRequestedChartTypes().toString());
