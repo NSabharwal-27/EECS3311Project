@@ -45,7 +45,7 @@ public class ChartSampleA implements Observer{
             System.out.println("3/////////////");
             window.chartSampleA = chart;
         }
-        MainWindow.
+        // MainWindow.
         System.out.println("4/////////////");
     }
 
