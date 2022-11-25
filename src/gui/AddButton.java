@@ -16,6 +16,12 @@ public class AddButton extends Subject {
 		return instance;
 	}
 
+    public void notifyObservers(){
+        for (Observer observer : this.observers){
+            observer.addUpdate(this);
+        }
+    }
+
     public AddButton(){
         addView.setFocusable(false);
         eventAdd eventAdd = new eventAdd();

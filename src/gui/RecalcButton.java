@@ -17,6 +17,13 @@ public class RecalcButton extends Subject {
 		return instance;
 	}
 
+    public void notifyObservers(){
+        observers.add(ChartSampleA.getInstance());
+        for (Observer observer : this.observers){
+            observer.recalcUpdate(this);
+        }
+    }
+
     public RecalcButton(){
         recalculate.setFocusable(false);
         eventRecalc eventRecalc = new eventRecalc();
@@ -31,7 +38,9 @@ public class RecalcButton extends Subject {
                    + MainWindow.getEndYear() + "\n"
                    + MainWindow.getRequestedChartTypes().toString() + "\n"
                    + MainWindow.getAnalysisType() + "\n");
-           
+            for (String i : MainWindow.getRequestedChartTypes()){
+                Observer.analysis.add(i);
+            }
            //TODO send to backend (OBSERVER)
            notifyObservers();
         }
