@@ -11,7 +11,7 @@ import fetchData.FetchData;
  *     The rest percentage would be land for all other uses
  */
 
-public class Analysis_Type4 {
+public class Analysis_Type4 implements AnalysisStrategy{
     
     final static String FOREST_AREA_CODE = "AG.LND.FRST.ZS";
 
@@ -28,7 +28,6 @@ public class Analysis_Type4 {
         Double averageForestArea = calculateAverageForestArea(countryCode, startYear, endYear);
         toReturn.put(0, averageForestArea);
         //System.out.println(String.format("Average forest area: %.2f", averageForestArea));
-        
         
         data.put("Average Forest Area", toReturn);
         return data;
