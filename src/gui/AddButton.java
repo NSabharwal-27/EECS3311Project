@@ -43,6 +43,7 @@ public class AddButton extends Subject {
 
             System.out.println(MainWindow.getRequestedChartTypes().toString());
 
+            updateChartList();
             notifyObservers();
         }
     }

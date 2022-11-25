@@ -39,6 +39,7 @@ public class RemoveButton extends Subject{
 
             System.out.println(MainWindow.getRequestedChartTypes().toString());
 
+            updateChartList();
             notifyObservers();
         }
     }

@@ -26,12 +26,7 @@ public class ChartSampleA implements Observer{
 	}
 
     public ChartSampleA(){
-        // subject.register(this);
-        // if(MainWindow.getRequestedChartTypes()!= null){
-        //     for (String i : MainWindow.getRequestedChartTypes()){
-        //         analysis.add(i);
-        //     }
-        // }
+        subject.register(this);
     }
 
     @Override
@@ -51,11 +46,11 @@ public class ChartSampleA implements Observer{
                 System.out.println(title);
                 System.out.println(data.toString());
             }
-            window.chartSampleA = chart;
+            // window.chartSampleA = chart;
         }
-        window.dispose();
-        JFrame frame = MainWindow.getInstance();
-        frame.setVisible(true);
+        // window.dispose();
+        // JFrame frame = MainWindow.getInstance();
+        // frame.setVisible(true);
         System.out.println("4/////////////");
     }
 

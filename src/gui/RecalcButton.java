@@ -18,8 +18,10 @@ public class RecalcButton extends Subject {
 	}
 
     public void notifyObservers(){
-        observers.add(ChartSampleA.getInstance());
+        // observers.add(ChartSampleA.getInstance());
+        System.out.println("notifying");
         for (Observer observer : this.observers){
+            System.out.println(observer.toString());
             observer.recalcUpdate(this);
         }
     }
@@ -38,10 +40,8 @@ public class RecalcButton extends Subject {
                    + MainWindow.getEndYear() + "\n"
                    + MainWindow.getRequestedChartTypes().toString() + "\n"
                    + MainWindow.getAnalysisType() + "\n");
-            for (String i : MainWindow.getRequestedChartTypes()){
-                Observer.analysis.add(i);
-            }
-           //TODO send to backend (OBSERVER)
+            
+           updateChartList();
            notifyObservers();
         }
     }
