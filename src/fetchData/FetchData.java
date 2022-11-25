@@ -24,8 +24,9 @@ public class FetchData {
      *         an undefined value returns null as the value.
      */
     public static DataSet fetchData(String countryCode, String indicator, int startYear, int endYear) {
+        String mappedCode = mapCode(countryCode);
         String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/%s?date=%d:%d&format=json",
-                countryCode, indicator, startYear, endYear);
+                mappedCode, indicator, startYear, endYear);
 
         try {
             URL url = new URL(urlString);
@@ -52,5 +53,29 @@ public class FetchData {
         } catch (Exception E) {
             return null;
         }
+    }
+    
+    private static String mapCode(String countryCode) {
+        String toReturn = "";
+        
+        switch (countryCode) {
+            case "Canada":
+                toReturn = "CAN";
+                break;
+            case "China":
+                toReturn = "CHN";
+                break;
+            case "Brazil":
+                toReturn = "BRA";
+                break;
+            case "France":
+                toReturn = "FRA";
+                break;
+            case "USA":
+                toReturn = "USA";
+                break;
+        }
+   
+        return toReturn;
     }
 }
