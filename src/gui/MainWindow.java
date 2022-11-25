@@ -47,7 +47,22 @@ public class MainWindow extends JFrame{
     static JComboBox<Integer> endYearComboBox;
     static JComboBox<String> availableViews;
     static JComboBox<String> analysisMethod;
+
+    JFreeChart chartSampleA;
+    JFreeChart chartSampleB;
+    JFreeChart chartSampleC;
+    // JFreeChart chartSampleD;
+
     
+    private static MainWindow instance;
+	
+	public static MainWindow getInstance() {
+		if (instance == null) {
+			instance = new  MainWindow();
+		}
+		return instance;
+	}
+
     public MainWindow() {
 
         Container pane = this.getContentPane();
@@ -117,31 +132,34 @@ public class MainWindow extends JFrame{
 
         //NOTE: Add JFreeChart to ChartPanel -> Add ChartPanel to ChartHolder
 
-        JPanel chartHolder = new JPanel(new GridLayout(2, 3));
+        JPanel chartHolder = new JPanel(new GridLayout(2, 2));
         chartHolder.setPreferredSize(new Dimension(900, 500));
         
         // Steeve: creating the object Strategy <-- DELETE AND COMMIT IF WE'RE KEEPING THIS
         AnalysisStrategy strategy = new Analysis_Type1();
+        BarChartCreator bar = new BarChartCreator();
+        SeriesChartCreator line = new SeriesChartCreator();
 
-        JFreeChart chartSample = PieChart.createChart("Average Forest Area (% of Land Area)", strategy.analysisExecute(2005, 2020, "CAN"));
-        JFreeChart chartSampleB = BarChart.createChart("CO2 vs Energy vs Air Pollution", strategy.analysisExecute(2005, 2020, "CAN"));
-        JFreeChart chartSampleC = LineChart.createChart();
-        JFreeChart chartSampleD = SeriesChart.createChart();
-        JFreeChart chartSampleE = ScatterChart.createChart("CO2 vs Energy vs Air Pollution", strategy.analysisExecute(2005, 2020, "CAN"));
+        chartSampleA = ChartSampleA.getInstance().chart;
+        // JFreeChart chartSampleA = PieChart.createChart("Average Forest Area (% of Land Area)", strategy.analysisExecute(2005, 2020, "CAN"));
+        JFreeChart chartSampleB = bar.createChart("CO2 vs Energy vs Air Pollution","Bar Chart", strategy.analysisExecute(2005, 2020, "CAN"));
+        JFreeChart chartSampleC = line.createChart("CO2 vs Energy vs Air Pollution","Line Chart", strategy.analysisExecute(2005, 2020, "CAN"));
+        // JFreeChart chartSampleD = SeriesChart.createChart();
+        // JFreeChart chartSampleE = ScatterChart.createChart("CO2 vs Energy vs Air Pollution", strategy.analysisExecute(2005, 2020, "CAN"));
         
         
 
-        ChartPanel chartPanelSample = new ChartPanel(chartSample);
+        ChartPanel chartPanelSampleA = new ChartPanel(chartSampleA);
         ChartPanel chartPanelSampleB = new ChartPanel(chartSampleB);
         ChartPanel chartPanelSampleC = new ChartPanel(chartSampleC);
-        ChartPanel chartPanelSampleD = new ChartPanel(chartSampleD);
-        ChartPanel chartPanelSampleE = new ChartPanel(chartSampleE);
+        // ChartPanel chartPanelSampleD = new ChartPanel(chartSampleD);
+        // ChartPanel chartPanelSampleE = new ChartPanel(chartSampleE);
 
-        chartHolder.add(chartPanelSample);
+        chartHolder.add(chartPanelSampleA);
         chartHolder.add(chartPanelSampleB);
         chartHolder.add(chartPanelSampleC);
-        chartHolder.add(chartPanelSampleD);
-        chartHolder.add(chartPanelSampleE);
+        // chartHolder.add(chartPanelSampleD);
+        // chartHolder.add(chartPanelSampleE);
 
         JLabel textDescription = new JLabel("Text Description Here");
         textDescription.setHorizontalAlignment(JLabel.CENTER);
@@ -190,14 +208,14 @@ public class MainWindow extends JFrame{
         return countryComboBox.getSelectedItem().toString();
     }
     
-    public static String getStartYear()
+    public static int getStartYear()
     {
-        return startYearComboBox.getSelectedItem().toString();
+        return Integer.parseInt(startYearComboBox.getSelectedItem().toString());
     }
     
-    public static String getEndYear()
+    public static int getEndYear()
     {
-        return endYearComboBox.getSelectedItem().toString();
+        return Integer.parseInt(endYearComboBox.getSelectedItem().toString());
     }
     
     public static ArrayList<String> getRequestedChartTypes()

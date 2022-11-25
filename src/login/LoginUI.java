@@ -102,7 +102,8 @@ public class LoginUI extends JFrame implements ActionListener{
 		try {
 			if(checkUsenameAndPassword(username, password)) {
 				this.dispose();
-				new MainWindow();
+				// new MainWindow();
+				MainWindow.getInstance();
 			}
 			else {
 				new ErrorLogin();
@@ -134,9 +135,10 @@ public class LoginUI extends JFrame implements ActionListener{
 
 	public static void main(String[] args) {
 		
-		JFrame frame = LoginUI.getInstance();
-		frame.setVisible(true);
-		
+		// JFrame frame = LoginUI.getInstance();
+		// frame.setVisible(true);
+		MainWindow.getInstance();
+
 	}
 
 }

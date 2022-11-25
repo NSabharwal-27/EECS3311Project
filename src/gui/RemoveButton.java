@@ -16,6 +16,12 @@ public class RemoveButton extends Subject{
 		return instance;
 	}
 
+    public void notifyObservers(){
+        for (Observer observer : this.observers){
+            observer.remUpdate(this);
+        }
+    }
+
     public RemoveButton(){
         removeView.setFocusable(false);
         eventRemove eventRemove = new eventRemove();
@@ -27,7 +33,7 @@ public class RemoveButton extends Subject{
         public void actionPerformed(ActionEvent eRemove){
             System.out.println("Removing Chart");
             System.out.println(MainWindow.getRequestedChartTypes().toString());
-
+            
             String selectedChart = MainWindow.availableViews.getSelectedItem().toString();
             MainWindow.requestedChartTypes.remove(selectedChart);
 
