@@ -2,6 +2,8 @@ package gui;
 
 import java.util.HashMap;
 
+import javax.swing.JFrame;
+
 import org.jfree.chart.JFreeChart;
 
 import analysis.Analysis_Type1;
@@ -41,11 +43,19 @@ public class ChartSampleA implements Observer{
         System.out.println("2/////////////");
         FactoryChart factory = new FactoryChart();
         if (analysis.size() > 0){
-            chart = factory.getChart(title, analysis.get(0), data);
+            chart = factory.getChart(analysis.get(0), title, data);
             System.out.println("3/////////////");
+            if (chart == null) {
+                System.out.println("god dammit");
+                System.out.println(analysis.get(0));
+                System.out.println(title);
+                System.out.println(data.toString());
+            }
             window.chartSampleA = chart;
         }
-        // MainWindow.
+        window.dispose();
+        JFrame frame = MainWindow.getInstance();
+        frame.setVisible(true);
         System.out.println("4/////////////");
     }
 
