@@ -2,28 +2,21 @@ package fetchData;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.Scanner;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 public class FetchData {
-    public static void main(String[] args) {
-
-        // Example Fetch
-        System.out.println(fetchData("CAN", "EN.ATM.PM25.MC.M3", 2005, 2020));
-        System.out.println(fetchData("CAN", "AG.LND.FRST.ZS", 2005, 2020));
-    }
+   
+    private static HttpURLConnection connection;
 
     /**
      * Fetches data from WorldBank.org for the specified country code, indicator,
      * and year range. Returns a HashMap<Integer, Double> in the format (year,
      * value).
      * 
-     * @param countryCode - Official country code as per
-     * @param indicator   - Official indicator code as per
+     * @param countryCode - Official country code as per WorldBank
+     * @param indicator   - Official indicator code as per WorldBank
      * @param startYear   - Start year for data, represented as an integer. e.g. 1970
      *
      * @param endYear     - End year for data, represented as an integer. e.g. 2015
@@ -31,11 +24,9 @@ public class FetchData {
      *         an undefined value returns null as the value.
      */
     public static DataSet fetchData(String countryCode, String indicator, int startYear, int endYear) {
+        String mappedCode = mapCode(countryCode);
         String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/%s?date=%d:%d&format=json",
-                countryCode, indicator, startYear, endYear);
-//        System.out.println("URL USED ----> " + urlString);
-        HttpURLConnection connection;
-        // HashMap<Integer, Double> results = new HashMap<Integer, Double>();
+                mappedCode, indicator, startYear, endYear);
 
         try {
             URL url = new URL(urlString);
@@ -62,5 +53,29 @@ public class FetchData {
         } catch (Exception E) {
             return null;
         }
+    }
+    
+    private static String mapCode(String countryCode) {
+        String toReturn = "";
+        
+        switch (countryCode) {
+            case "Canada":
+                toReturn = "CAN";
+                break;
+            case "China":
+                toReturn = "CHN";
+                break;
+            case "Brazil":
+                toReturn = "BRA";
+                break;
+            case "France":
+                toReturn = "FRA";
+                break;
+            case "USA":
+                toReturn = "USA";
+                break;
+        }
+   
+        return toReturn;
     }
 }

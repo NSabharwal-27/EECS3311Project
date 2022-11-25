@@ -5,7 +5,7 @@ import java.util.HashMap;
 import fetchData.DataSet;
 import fetchData.FetchData;
 
-public class Analysis_Type5 {
+public class Analysis_Type5 implements AnalysisStrategy{
 
     final static String GOV_EXPENDITURE = "SE.XPD.TOTL.GD.ZS";
     
