@@ -70,18 +70,19 @@ public class ChartSampleB implements Observer{
         System.out.println("Add" + analysis.toString());
         if(chart == null && analysis.size() > 1){
             thisAnalysis = analysis.get(1);
-            System.out.println("local" + thisAnalysis);
-            FactoryChart factory = new FactoryChart();
-            chart = factory.getChart(thisAnalysis, title, data);
-            if (chart == null) {
-                // System.out.println("god dammit");
-                // System.out.println(analysis.get(0));
-                // System.out.println(title);
-                // System.out.println(data.toString());
-                analysis.remove(1);
-                new ErrorChart();
+            if (title == null){
+                new ErrorRecalc();
+            } else{
+                FactoryChart factory = new FactoryChart();
+                chart = factory.getChart(thisAnalysis, title, data);
+                if (chart == null) {
+                    analysis.remove(1);
+                    MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());
+                    new ErrorChart();
+                }else{
+                    MainWindow.chartSampleB = chart;
+                }
             }
-            MainWindow.chartSampleB = chart;
         }
         
     }
@@ -90,7 +91,6 @@ public class ChartSampleB implements Observer{
     public void remUpdate(RemoveButton sub) {
         System.out.println("Rem" + MainWindow.getCurrentChart());
         if(analysis.size() > 1 && MainWindow.getCurrentChart().equals(thisAnalysis)){
-            System.out.println("Rem2" + analysis.toString());
             chart = null;
             analysis.remove(1);
             MainWindow.chartSampleB = chart;
