@@ -18,7 +18,9 @@ public abstract class Subject {
     public void updateChartList(){
         if(MainWindow.getRequestedChartTypes()!= null){
             for (String i : MainWindow.getRequestedChartTypes()){
-                Observer.analysis.add(i);
+                if (!Observer.analysis.contains(i)){
+                    Observer.analysis.add(i);
+                }
             }
         }
     }

@@ -48,9 +48,9 @@ public class MainWindow extends JFrame{
     static JComboBox<String> availableViews;
     static JComboBox<String> analysisMethod;
 
-    JFreeChart chartSampleA;
-    JFreeChart chartSampleB;
-    JFreeChart chartSampleC;
+    static JFreeChart chartSampleA = ChartSampleA.getInstance().chart;
+    static JFreeChart chartSampleB = ChartSampleB.getInstance().chart;
+    static JFreeChart chartSampleC = ChartSampleC.getInstance().chart;
     // JFreeChart chartSampleD;
 
     
@@ -221,6 +221,10 @@ public class MainWindow extends JFrame{
     public static ArrayList<String> getRequestedChartTypes()
     {
         return requestedChartTypes;
+    }
+    public static String getCurrentChart()
+    {
+        return availableViews.getSelectedItem().toString();
     }
     
     public static String getAnalysisType()

@@ -40,8 +40,7 @@ public class RecalcButton extends Subject {
                    + MainWindow.getEndYear() + "\n"
                    + MainWindow.getRequestedChartTypes().toString() + "\n"
                    + MainWindow.getAnalysisType() + "\n");
-            
-           updateChartList();
+
            notifyObservers();
         }
     }

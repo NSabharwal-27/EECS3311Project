@@ -135,9 +135,9 @@ public class LoginUI extends JFrame implements ActionListener{
 
 	public static void main(String[] args) {
 		
-		// JFrame frame = LoginUI.getInstance();
-		// frame.setVisible(true);
-		MainWindow.getInstance();
+		JFrame frame = LoginUI.getInstance();
+		frame.setVisible(true);
+		// MainWindow.getInstance();
 
 	}
 

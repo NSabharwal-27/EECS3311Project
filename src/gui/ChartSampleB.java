@@ -19,7 +19,7 @@ import analysis.Context;
 import chartFactory.FactoryChart;
 import fetchData.DataSet;
 
-public class ChartSampleA implements Observer{
+public class ChartSampleB implements Observer{
     private RecalcButton subject = RecalcButton.getInstance();
     JFreeChart chart;
     HashMap<String, DataSet> data;
@@ -29,16 +29,16 @@ public class ChartSampleA implements Observer{
     public String title;
     String thisAnalysis;
 
-    private static ChartSampleA instance;
+    private static ChartSampleB instance;
 	
-	public static ChartSampleA getInstance() {
+	public static ChartSampleB getInstance() {
 		if (instance == null) {
-			instance = new  ChartSampleA();
+			instance = new  ChartSampleB();
 		}
 		return instance;
 	}
 
-    public ChartSampleA(){
+    public ChartSampleB(){
         subject.register(this);
     }
 
@@ -58,7 +58,7 @@ public class ChartSampleA implements Observer{
             //     System.out.println(title);
             //     System.out.println(data.toString());
             // }
-            MainWindow.chartSampleA = chart;
+            MainWindow.chartSampleB = chart;
         }
         // window.dispose();
         // JFrame frame = MainWindow.getInstance();
@@ -81,7 +81,7 @@ public class ChartSampleA implements Observer{
                 analysis.remove(0);
                 new ErrorChart();
             }
-            MainWindow.chartSampleA = chart;
+            MainWindow.chartSampleB = chart;
         }
         
     }
@@ -93,7 +93,7 @@ public class ChartSampleA implements Observer{
             System.out.println("Rem2" + analysis.toString());
             chart = null;
             analysis.remove(0);
-            MainWindow.chartSampleA = chart;
+            MainWindow.chartSampleB = chart;
         }
         
     }
