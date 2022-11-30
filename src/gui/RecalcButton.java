@@ -43,6 +43,9 @@ public class RecalcButton extends Subject {
                    + MainWindow.getAnalysisType() + "\n");
 
             MainWindow.chartHolder.removeAll();
+            MainWindow.chartHolder.revalidate();
+            MainWindow.chartHolder.repaint();
+
             notifyObservers();
         }
     }

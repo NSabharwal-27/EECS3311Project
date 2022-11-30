@@ -62,10 +62,10 @@ public class ChartSampleA implements Observer{
             // }
         }
         // MainWindow.getInstance().dispose();
-        ChartPanel chartPanelSampleA = new ChartPanel(chart);
-        MainWindow.chartHolder.add(chartPanelSampleA);
-        MainWindow frame = MainWindow.getInstance();
-        frame.setVisible(true);
+        // ChartPanel chartPanelSampleA = new ChartPanel(chart);
+        // MainWindow.chartHolder.add(chartPanelSampleA);
+        // MainWindow frame = MainWindow.getInstance();
+        // frame.setVisible(true);
     }
 
     @Override
