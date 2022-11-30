@@ -16,12 +16,11 @@ public abstract class Subject {
     public void notifyObservers(){}
     
     public void updateChartList(){
-        if(MainWindow.getRequestedChartTypes()!= null){
-            for (String i : MainWindow.getRequestedChartTypes()){
-                if (!Observer.analysis.contains(i)){
-                    Observer.analysis.add(i);
-                }
-            }
+        
+        ArrayList<String> list = MainWindow.getRequestedChartTypes();
+
+        if(list!= null){
+            Observer.analysis.add(list.get(list.size()-1));
         }
     }
 }

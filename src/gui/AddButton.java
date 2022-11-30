@@ -39,12 +39,9 @@ public class AddButton extends Subject {
             String selectedChart = MainWindow.getCurrentChart();
             if ( !MainWindow.requestedChartTypes.contains(selectedChart)){ //Prevent duplicate
                 MainWindow.requestedChartTypes.add(selectedChart);
+                updateChartList();
+                notifyObservers();
             }
-
-            System.out.println(MainWindow.getRequestedChartTypes().toString());
-
-            updateChartList();
-            notifyObservers();
         }
     }
 }

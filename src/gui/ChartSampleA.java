@@ -75,7 +75,7 @@ public class ChartSampleA implements Observer{
         if(analysis.size() > 0){
             thisAnalysis = analysis.get(0);
             analysis.remove(0);
-            MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());
+            // MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());
 
             if (title == null){
                 new ErrorRecalc();
@@ -114,7 +114,7 @@ public class ChartSampleA implements Observer{
 
             //Find the components to remove
             if(c.getName().equals(chartToRemove)){
-                
+
                 //Remove it
                 MainWindow.chartHolder.remove(c);
             }
