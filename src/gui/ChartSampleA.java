@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Component;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JFrame;
@@ -51,22 +52,28 @@ public class ChartSampleA implements Observer{
         getFeilds();
         Context context = new Context(getAnalysisObj());
         data = context.callExecute(start, end, country);
-        FactoryChart factory = new FactoryChart();
-        if (analysis.size() > 0){
-            thisAnalysis = analysis.get(0);
-            chart = factory.getChart(thisAnalysis, title, data);
-            // if (chart == null) {
-            //     System.out.println("god dammit");
-            //     System.out.println(thisAnalysis);
-            //     System.out.println(title);
-            //     System.out.println(data.toString());
-            // }
+        
+        ArrayList<String> list = MainWindow.requestedChartTypes;
+
+        for(String chartName : list){
+
+            FactoryChart factory = new FactoryChart();
+            chart = factory.getChart(chartName, title, data);
+
+            if (chart == null) {
+                MainWindow.requestedChartTypes.remove(chartName);
+                new ErrorChart();
+
+            }else{
+                ChartPanel chartPanelSampleA = new ChartPanel(chart);
+                chartPanelSampleA.setName(chartName);
+                MainWindow.chartHolder.add(chartPanelSampleA);
+                MainWindow frame = MainWindow.getInstance();
+                frame.setVisible(true);
+            }
+            
         }
-        // MainWindow.getInstance().dispose();
-        // ChartPanel chartPanelSampleA = new ChartPanel(chart);
-        // MainWindow.chartHolder.add(chartPanelSampleA);
-        // MainWindow frame = MainWindow.getInstance();
-        // frame.setVisible(true);
+
     }
 
     @Override
@@ -75,9 +82,9 @@ public class ChartSampleA implements Observer{
         if(analysis.size() > 0){
             thisAnalysis = analysis.get(0);
             analysis.remove(0);
-            // MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());
 
             if (title == null){
+                MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());
                 new ErrorRecalc();
 
             } else{
@@ -85,10 +92,10 @@ public class ChartSampleA implements Observer{
                 chart = factory.getChart(thisAnalysis, title, data);
 
                 if (chart == null) {
+                    MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());
                     new ErrorChart();
 
                 }else{
-                    // MainWindow.chartSampleA = chart;
                     ChartPanel chartPanelSampleA = new ChartPanel(chart);
                     chartPanelSampleA.setName(thisAnalysis);
                     MainWindow.chartHolder.add(chartPanelSampleA);
