@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Component;
 import java.util.HashMap;
 
 import javax.swing.JFrame;
@@ -89,6 +90,7 @@ public class ChartSampleA implements Observer{
                 }else{
                     // MainWindow.chartSampleA = chart;
                     ChartPanel chartPanelSampleA = new ChartPanel(chart);
+                    chartPanelSampleA.setName(thisAnalysis);
                     MainWindow.chartHolder.add(chartPanelSampleA);
                     MainWindow frame = MainWindow.getInstance();
                     frame.setVisible(true);
@@ -101,17 +103,26 @@ public class ChartSampleA implements Observer{
     @Override
     public void remUpdate(RemoveButton sub) {
         System.out.println("Rem" + MainWindow.getCurrentChart());
-        if(analysis.size() > 0){
-            // chart = null;
-            // analysis.remove(0);
-            // MainWindow.chartSampleA = chart;
-            FactoryChart factory = new FactoryChart();
-            chart = factory.getChart(MainWindow.getCurrentChart(), title, data);
-            ChartPanel chartPanelSampleA = new ChartPanel(chart);
-            MainWindow.chartHolder.remove(chartPanelSampleA);
-            MainWindow frame = MainWindow.getInstance();
-            frame.setVisible(true);
+        
+        String chartToRemove = MainWindow.getCurrentChart();
+
+        //Get the components in the panel
+        Component[] componentList = MainWindow.chartHolder.getComponents();
+
+        //Loop through the components
+        for(Component c : componentList){
+
+            //Find the components to remove
+            if(c.getName().equals(chartToRemove)){
+                
+                //Remove it
+                MainWindow.chartHolder.remove(c);
+            }
         }
+
+        //IMPORTANT
+        MainWindow.chartHolder.revalidate();
+        MainWindow.chartHolder.repaint();
         
     }
 
