@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RemoveButton extends Subject{
-    JButton removeView = new JButton("-");
+    public JButton removeView = new JButton("-");
 
     private static RemoveButton instance;
 	

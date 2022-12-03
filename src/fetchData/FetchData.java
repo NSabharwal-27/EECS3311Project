@@ -58,20 +58,20 @@ public class FetchData {
     private static String mapCode(String countryCode) {
         String toReturn = "";
         
-        switch (countryCode) {
-            case "Canada":
+        switch (countryCode.toLowerCase()) {
+            case "canada":
                 toReturn = "CAN";
                 break;
-            case "China":
+            case "china":
                 toReturn = "CHN";
                 break;
-            case "Brazil":
+            case "brazil":
                 toReturn = "BRA";
                 break;
-            case "France":
+            case "france":
                 toReturn = "FRA";
                 break;
-            case "USA":
+            case "usa":
                 toReturn = "USA";
                 break;
         }

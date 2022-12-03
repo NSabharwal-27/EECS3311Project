@@ -11,7 +11,7 @@ public interface Observer {
     public void remUpdate(RemoveButton sub);
 
     public AnalysisStrategy getAnalysisObj();
-    public void getFeilds();
+    public void getFields();
     public int start = MainWindow.getStartYear();
     public int end = MainWindow.getEndYear();
     public String country = MainWindow.getCountryCode();

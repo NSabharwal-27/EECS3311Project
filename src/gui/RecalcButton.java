@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 // implements Singleton Design Pattern
 public class RecalcButton extends Subject {
-    JButton recalculate = new JButton("Recalculate");
+    public JButton recalculate = new JButton("Recalculate");
 
     private static RecalcButton instance;
 	
@@ -42,9 +42,9 @@ public class RecalcButton extends Subject {
                    + MainWindow.getRequestedChartTypes().toString() + "\n"
                    + MainWindow.getAnalysisType() + "\n");
 
-            MainWindow.chartHolder.removeAll();
-            MainWindow.chartHolder.revalidate();
-            MainWindow.chartHolder.repaint();
+            MainWindow.getChartHolder().removeAll();
+            MainWindow.getChartHolder().revalidate();
+            MainWindow.getChartHolder().repaint();
 
             notifyObservers();
         }

@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AddButton extends Subject {
-    JButton addView = new JButton("+");
+    public JButton addView = new JButton("+");
 
     private static AddButton instance;
 	

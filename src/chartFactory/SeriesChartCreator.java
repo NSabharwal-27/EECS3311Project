@@ -37,9 +37,9 @@ public class SeriesChartCreator extends ChartCreator {
     public JFreeChart createChart(String title, String yLabel, HashMap<String, DataSet> analysis) {
         XYDataset dataset = createDataset(analysis);
         JFreeChart xylineChart = ChartFactory.createXYLineChart(
-                "Browser usage statastics", 
-                "Category",
-                "Score", 
+                title, //Chart title
+                "Years", // X-Axis Label
+                yLabel, // Y-Axis Label
                 dataset,
                 PlotOrientation.VERTICAL, 
                 true, true, false);

@@ -49,7 +49,7 @@ public class ChartSampleA implements Observer{
     @Override
     public void recalcUpdate(RecalcButton sub) {
         System.out.println("recalc" + analysis.toString());
-        getFeilds();
+        getFields();
         Context context = new Context(getAnalysisObj());
         data = context.callExecute(start, end, country);
         
@@ -134,7 +134,7 @@ public class ChartSampleA implements Observer{
     }
 
     @Override
-    public void getFeilds(){
+    public void getFields(){
         start = MainWindow.getStartYear();
         end = MainWindow.getEndYear();
         country = MainWindow.getCountryCode();

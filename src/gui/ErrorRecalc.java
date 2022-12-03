@@ -12,6 +12,14 @@ import javax.swing.JPanel;
 public class ErrorRecalc extends JFrame implements ActionListener{
     private JLabel errorLabel;
 	private JButton okButton;
+	private static ErrorRecalc instance;
+	
+	public static ErrorRecalc getInstance()
+	{
+	    if (instance == null)
+	        instance = new ErrorRecalc();
+	    return instance;
+	}
 
     public ErrorRecalc(){
 		JPanel panel = new JPanel();
@@ -32,10 +40,16 @@ public class ErrorRecalc extends JFrame implements ActionListener{
 		okButton.setBounds(180, 50, 100, 25);
 		okButton.addActionListener(this);
 		panel.add(okButton);
+		instance = this;
 	}
 
     @Override
     public void actionPerformed(ActionEvent e) {
         this.dispose();
+    }
+    
+    public static boolean isCreated()
+    {
+        return ErrorRecalc.instance != null;
     }
 }

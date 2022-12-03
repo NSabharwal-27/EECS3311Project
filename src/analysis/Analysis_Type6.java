@@ -14,7 +14,7 @@ import fetchData.Pair;
 
 public class Analysis_Type6 implements AnalysisStrategy{
 
-	final static String HEALTH_EXPENDITURE_CODE = "SH.XPD.CHEX.GD.ZS";
+	final static String HEALTH_EXPENDITURE_CODE = "SH.XPD.CHEX.PC.CD"; 
 	final static String HOSPITAL_BEDS_CODE = "SH.MED.BEDS.ZS";
 	final static String POPULATION_CODE = "SP.POP.TOTL";
 
@@ -27,7 +27,7 @@ public class Analysis_Type6 implements AnalysisStrategy{
 		
 		 HashMap<String, DataSet> data = new HashMap<String, DataSet>();
 		
-		// Current health expenditure (per 1,000 people) (% of GDP)
+		// Current health expenditure (per 1,000 people) ()
 		DataSet ratioHealthExpToBeds = calculateRatioHealthExpenditureToBeds(countryCode, startYear, endYear);
 		//System.out.println(ratioHealthExpToBeds);
 		
@@ -63,12 +63,12 @@ public class Analysis_Type6 implements AnalysisStrategy{
 		    }
 		    else
 		    {
-		        double per1000Value = healthExp / pop / 1000; 
+		        double per1000Value = (healthExp / pop) * 1000; 
 	            healthExpenditurePer1000.put(current.getKey(), per1000Value);
 		    }
 		}
 		
-		ratio = CalculateRatio.calculate(healthExpenditurePer1000, rawDataBedsPer1000);
+		ratio = CalculateRatio.calculate(rawDataBedsPer1000, healthExpenditurePer1000);
 		return ratio;
 	}
 }

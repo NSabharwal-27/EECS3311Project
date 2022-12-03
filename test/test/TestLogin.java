@@ -1,18 +1,25 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.awt.Component;
 import java.io.IOException;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 import org.junit.jupiter.api.Test;
 
+import login.ErrorLogin;
 import login.LoginUI;
 
-public class UC1_TestLogin {
+public class TestLogin {
 	
 	/**
 	 * Asserts a correct user name as a string, and correct password as a string with valid characters
@@ -36,20 +43,20 @@ public class UC1_TestLogin {
 		
 		LoginUI loginFrame = LoginUI.getInstance();
 		
-		loginFrame.getUsernameText().setText(username1);
-		loginFrame.getPasswordText().setToolTipText(password1);
+		LoginUI.getUsernameText().setText(username1);
+		LoginUI.getPasswordText().setToolTipText(password1);
 		assertTrue(loginFrame.checkUsenameAndPassword(username1, password1), "The user logs in");
 		
-		loginFrame.getUsernameText().setText(username2);
-		loginFrame.getPasswordText().setToolTipText(password2);
+		LoginUI.getUsernameText().setText(username2);
+		LoginUI.getPasswordText().setToolTipText(password2);
 		assertTrue(loginFrame.checkUsenameAndPassword(username2, password2), "The user logs in");
 		
-		loginFrame.getUsernameText().setText(username3);
-		loginFrame.getPasswordText().setToolTipText(password3);
+		LoginUI.getUsernameText().setText(username3);
+		LoginUI.getPasswordText().setToolTipText(password3);
 		assertTrue(loginFrame.checkUsenameAndPassword(username3, password3), "The user logs in");
 		
-		loginFrame.getUsernameText().setText(username4);
-		loginFrame.getPasswordText().setToolTipText(password4);
+		LoginUI.getUsernameText().setText(username4);
+		LoginUI.getPasswordText().setToolTipText(password4);
 		assertTrue(loginFrame.checkUsenameAndPassword(username4, password4), "The user logs in");
 	}
 	
@@ -75,20 +82,20 @@ public class UC1_TestLogin {
 		
 		LoginUI loginFrame = LoginUI.getInstance();
 		
-		loginFrame.getUsernameText().setText(username1);
-		loginFrame.getPasswordText().setToolTipText(password1);
+		LoginUI.getUsernameText().setText(username1);
+		LoginUI.getPasswordText().setToolTipText(password1);
 		assertFalse(loginFrame.checkUsenameAndPassword(username1, password1), "The user does not login");
 		
-		loginFrame.getUsernameText().setText(username2);
-		loginFrame.getPasswordText().setToolTipText(password2);
+		LoginUI.getUsernameText().setText(username2);
+		LoginUI.getPasswordText().setToolTipText(password2);
 		assertFalse(loginFrame.checkUsenameAndPassword(username2, password2), "The user does not login");
 		
-		loginFrame.getUsernameText().setText(username3);
-		loginFrame.getPasswordText().setToolTipText(password3);
+		LoginUI.getUsernameText().setText(username3);
+		LoginUI.getPasswordText().setToolTipText(password3);
 		assertFalse(loginFrame.checkUsenameAndPassword(username3, password3), "The user does not login");
 		
-		loginFrame.getUsernameText().setText(username4);
-		loginFrame.getPasswordText().setToolTipText(password4);
+		LoginUI.getUsernameText().setText(username4);
+		LoginUI.getPasswordText().setToolTipText(password4);
 		assertFalse(loginFrame.checkUsenameAndPassword(username4, password4), "The user does not login");
 	}
 	
@@ -109,20 +116,20 @@ public class UC1_TestLogin {
 		
 		LoginUI loginFrame = LoginUI.getInstance();
 		
-		loginFrame.getUsernameText().setText(username);
-		loginFrame.getPasswordText().setToolTipText(password1);
+		LoginUI.getUsernameText().setText(username);
+		LoginUI.getPasswordText().setToolTipText(password1);
 		assertFalse(loginFrame.checkUsenameAndPassword(username, password1), "The user does not login");
 		
-		loginFrame.getUsernameText().setText(username);
-		loginFrame.getPasswordText().setToolTipText(password2);
+		LoginUI.getUsernameText().setText(username);
+		LoginUI.getPasswordText().setToolTipText(password2);
 		assertFalse(loginFrame.checkUsenameAndPassword(username, password2), "The user does not login");
 		
-		loginFrame.getUsernameText().setText(username);
-		loginFrame.getPasswordText().setToolTipText(password3);
+		LoginUI.getUsernameText().setText(username);
+		LoginUI.getPasswordText().setToolTipText(password3);
 		assertFalse(loginFrame.checkUsenameAndPassword(username, password3), "The user does not login");
 		
-		loginFrame.getUsernameText().setText(username);
-		loginFrame.getPasswordText().setToolTipText(password4);
+		LoginUI.getUsernameText().setText(username);
+		LoginUI.getPasswordText().setToolTipText(password4);
 		assertFalse(loginFrame.checkUsenameAndPassword(username, password4), "The user does not login");
 	}
 	
@@ -148,21 +155,60 @@ public class UC1_TestLogin {
 		
 		LoginUI loginFrame = LoginUI.getInstance();
 		
-		loginFrame.getUsernameText().setText(username1);
-		loginFrame.getPasswordText().setToolTipText(password1);
+		LoginUI.getUsernameText().setText(username1);
+		LoginUI.getPasswordText().setToolTipText(password1);
 		assertFalse(loginFrame.checkUsenameAndPassword(username1, password1), "The user logs in");
 		
-		loginFrame.getUsernameText().setText(username2);
-		loginFrame.getPasswordText().setToolTipText(password2);
+		LoginUI.getUsernameText().setText(username2);
+		LoginUI.getPasswordText().setToolTipText(password2);
 		assertFalse(loginFrame.checkUsenameAndPassword(username2, password2), "The user logs in");
 		
-		loginFrame.getUsernameText().setText(username3);
-		loginFrame.getPasswordText().setToolTipText(password3);
+		LoginUI.getUsernameText().setText(username3);
+		LoginUI.getPasswordText().setToolTipText(password3);
 		assertFalse(loginFrame.checkUsenameAndPassword(username3, password3), "The user logs in");
 		
-		loginFrame.getUsernameText().setText(username4);
-		loginFrame.getPasswordText().setToolTipText(password4);
+		LoginUI.getUsernameText().setText(username4);
+		LoginUI.getPasswordText().setToolTipText(password4);
 		assertFalse(loginFrame.checkUsenameAndPassword(username4, password4), "The user logs in");
+	}
+	
+	@Test
+	public void testSetUsernamePassword()
+	{
+	    JTextField username = new JTextField("username");
+	    LoginUI.setUsernameText(username);
+	    assertEquals(username, LoginUI.getUsernameText());
+	    
+	    JPasswordField password = new JPasswordField("password");
+        LoginUI.setPasswordText(password);
+        assertEquals(password, LoginUI.getPasswordText());
+	}
+	
+	@Test
+	public void testModifySubmitButton()
+	{
+	    JButton submitButton = new JButton("Submit--");
+        submitButton.setBounds(100, 80, 100, 25);
+        LoginUI.setSubmitButton(submitButton);
+        
+        JButton actual = LoginUI.getSubmitButton();
+        assertEquals(submitButton, actual);
+        
+	}
+	@Test 
+	public void testErrorLogin()
+	{
+	    ErrorLogin error = new ErrorLogin();
+	    Component[] comp = error.getContentPane().getComponents();
+	    JPanel panel = (JPanel) comp[0];
+	    Component[] labels = panel.getComponents();
+	    for(Component c:labels)
+	    {
+	        if (c.getClass().equals(JLabel.class))
+	            assertEquals("The username or password you entered is incorrect. Please retry!", ((JLabel)(c)).getText());
+	        else
+	            assertEquals("Okay", ((JButton)(c)).getText());
+	    }
 	}
 
 }

@@ -47,6 +47,10 @@ public class MainWindow extends JFrame{
     static JComboBox<Integer> endYearComboBox;
     static JComboBox<String> availableViews;
     static JComboBox<String> analysisMethod;
+    
+    static RecalcButton recalcBut;
+    static AddButton addBut;
+    static RemoveButton remBut;
 
     public static int indexCounter = 1;
     static JPanel chartHolder;
@@ -134,8 +138,8 @@ public class MainWindow extends JFrame{
 
         //NOTE: Add JFreeChart to ChartPanel -> Add ChartPanel to ChartHolder
 
-        chartHolder = new JPanel(new GridLayout(2, 2));
-        chartHolder.setPreferredSize(new Dimension(900, 500));
+        setChartHolder(new JPanel(new GridLayout(2, 2)));
+        getChartHolder().setPreferredSize(new Dimension(900, 500));
         
         // Steeve: creating the object Strategy <-- DELETE AND COMMIT IF WE'RE KEEPING THIS
         // AnalysisStrategy strategy = new Analysis_Type1();
@@ -167,9 +171,9 @@ public class MainWindow extends JFrame{
 
         JLabel textDescription = new JLabel("Nothing to display");
         textDescription.setHorizontalAlignment(JLabel.CENTER);
-        chartHolder.add(textDescription);
+        getChartHolder().add(textDescription);
 
-        pane.add(chartHolder, BorderLayout.CENTER);
+        pane.add(getChartHolder(), BorderLayout.CENTER);
     }
 
     private void addBottomBar(Container pane) {
@@ -189,9 +193,9 @@ public class MainWindow extends JFrame{
         analysisMethod.setFocusable(false);
 
         // Buttons
-        RecalcButton recalcBut = new RecalcButton();
-        AddButton addBut = new AddButton();
-        RemoveButton remBut = new RemoveButton();
+        recalcBut = new RecalcButton();
+        addBut = new AddButton();
+        remBut = new RemoveButton();
 
         // Add Components to Panel
         bottomPanel.add(viewsLabel);
@@ -234,6 +238,35 @@ public class MainWindow extends JFrame{
     public static String getAnalysisType()
     {
         return analysisMethod.getSelectedItem().toString();
+    }
+    
+    public static void setAnalysisType(String type)
+    {
+        analysisMethod.setSelectedItem(type);
+    }
+
+    public static JPanel getChartHolder() {
+        return chartHolder;
+    }
+
+    public static void setChartHolder(JPanel chartHolder) {
+        MainWindow.chartHolder = chartHolder;
+    }
+    
+    public static RecalcButton getRecalcBut() {
+        return recalcBut;
+    }
+
+    public static AddButton getAddBut() {
+        return addBut;
+    }
+
+    public static RemoveButton getRemBut() {
+        return remBut;
+    }
+    
+    public static void setAvailableViews(int viewIndex) {
+        MainWindow.availableViews.setSelectedIndex(viewIndex);;
     }
 }
 
