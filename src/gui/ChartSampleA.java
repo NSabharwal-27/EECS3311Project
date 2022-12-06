@@ -4,11 +4,11 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.ui.UIUtils;
 
 import analysis.AnalysisStrategy;
 import analysis.Analysis_Type1;
@@ -31,6 +31,7 @@ public class ChartSampleA implements Observer{
     public int end;
     public String country;
     public String title;
+    public String report;
     String thisAnalysis;
 
     private static ChartSampleA instance;
@@ -50,8 +51,6 @@ public class ChartSampleA implements Observer{
     public void recalcUpdate(RecalcButton sub) {
         System.out.println("recalc" + analysis.toString());
         getFields();
-        Context context = new Context(getAnalysisObj());
-        data = context.callExecute(start, end, country);
         
         ArrayList<String> list = MainWindow.requestedChartTypes;
 
@@ -60,9 +59,17 @@ public class ChartSampleA implements Observer{
             FactoryChart factory = new FactoryChart();
             chart = factory.getChart(chartName, title, data);
 
-            if (chart == null) {
+            if (chart == null && !chartName.equals("Report")) {
                 MainWindow.requestedChartTypes.remove(chartName);
                 new ErrorChart();
+
+            }else if (chartName.equals("Report")){
+                JTextArea textDescription = new JTextArea(report);
+                JScrollPane scrollPane = new JScrollPane(textDescription); 
+                scrollPane.setName("Report");
+                MainWindow.chartHolder.add(scrollPane);
+                MainWindow frame = MainWindow.getInstance();
+                frame.setVisible(true);
 
             }else{
                 ChartPanel chartPanelSampleA = new ChartPanel(chart);
@@ -87,7 +94,15 @@ public class ChartSampleA implements Observer{
                 MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());
                 new ErrorRecalc();
 
-            } else{
+            } else if (thisAnalysis.equals("Report")){
+                JTextArea textDescription = new JTextArea(report);
+                JScrollPane scrollPane = new JScrollPane(textDescription);
+                scrollPane.setName("Report"); 
+                MainWindow.chartHolder.add(scrollPane);
+                MainWindow frame = MainWindow.getInstance();
+                frame.setVisible(true);
+
+            }else{
                 FactoryChart factory = new FactoryChart();
                 chart = factory.getChart(thisAnalysis, title, data);
 
@@ -138,7 +153,12 @@ public class ChartSampleA implements Observer{
         start = MainWindow.getStartYear();
         end = MainWindow.getEndYear();
         country = MainWindow.getCountryCode();
-        title = MainWindow.getAnalysisType();;
+        title = MainWindow.getAnalysisType();
+
+        Context context = new Context(getAnalysisObj());
+        data = context.callExecute(start, end, country);
+        
+        report = getReport();
     }
 
     @Override
@@ -170,5 +190,34 @@ public class ChartSampleA implements Observer{
         }else{
             return null;
         }
+    }
+
+    @Override
+    public String getReport() {
+        if (title.equals(MainWindow.analysisTypes[3]) || title.equals(MainWindow.analysisTypes[4])){
+            report = title + "\n===================================\n";
+
+            for (String i : data.keySet()){
+                DataSet newData = data.get(i);
+                report = report.concat(i + ":\n");
+                report = report.concat("\t Average => " + newData.get(0) + "\n");
+            }
+
+            report = report.concat("\n");
+            
+        }else{
+            report = title + "\n===================================\n";
+            for (int year = start; year <= end; year++){
+                report = report.concat("Year " + year + ":\n");
+
+                for (String i : data.keySet()){
+                    DataSet newData = data.get(i);
+                    report = report.concat("\t" + i + " => " + newData.get(year) + "\n");
+                }
+
+                report = report.concat("\n");
+            }
+        }
+        return report;
     }
 }
