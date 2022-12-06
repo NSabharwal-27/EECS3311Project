@@ -12,10 +12,6 @@ public interface Observer {
 
     public AnalysisStrategy getAnalysisObj();
     public void getFields();
-    public int start = MainWindow.getStartYear();
-    public int end = MainWindow.getEndYear();
-    public String country = MainWindow.getCountryCode();
-    public String title = MainWindow.getAnalysisType();
     ArrayList<String> analysis = new ArrayList<>();
 
 }

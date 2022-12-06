@@ -1,14 +1,6 @@
 package chartFactory;
 import java.util.HashMap;
-import javax.swing.JLabel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.PieDataset;
-import org.jfree.data.xy.XYSeriesCollection;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.plot.PlotOrientation;
-
 
 import fetchData.DataSet;
 
@@ -43,10 +35,6 @@ public class FactoryChart {
             this.chart = creator.createChart(title, yLabel, analysis);
 
         }
-        // else if (chartType.equals("Series Chart")){
-        //     creator = new SeriesChartCreator();
-        //     this.chart = creator.createChart(title, yLabel, analysis);
-        // }
 
         return chart;
     }
