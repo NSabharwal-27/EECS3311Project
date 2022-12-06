@@ -13,5 +13,6 @@ public interface Observer {
     public AnalysisStrategy getAnalysisObj();
     public void getFields();
     ArrayList<String> analysis = new ArrayList<>();
+    public String getReport();
 
 }

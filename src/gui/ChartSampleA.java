@@ -158,17 +158,7 @@ public class ChartSampleA implements Observer{
         Context context = new Context(getAnalysisObj());
         data = context.callExecute(start, end, country);
         
-        report = title + "\n===================================\n";
-        for (int year = start; year <= end; year++){
-            report = report.concat("Year " + year + ":\n");
-
-            for (String i : data.keySet()){
-                DataSet newData = data.get(i);
-                report = report.concat("\t" + i + " => " + newData.get(year) + "\n");
-            }
-
-            report = report.concat("\n");
-        }
+        report = getReport();
     }
 
     @Override
@@ -200,5 +190,34 @@ public class ChartSampleA implements Observer{
         }else{
             return null;
         }
+    }
+
+    @Override
+    public String getReport() {
+        if (title.equals(MainWindow.analysisTypes[3]) || title.equals(MainWindow.analysisTypes[4])){
+            report = title + "\n===================================\n";
+
+            for (String i : data.keySet()){
+                DataSet newData = data.get(i);
+                report = report.concat(i + ":\n");
+                report = report.concat("\t Average => " + newData.get(0) + "\n");
+            }
+
+            report = report.concat("\n");
+            
+        }else{
+            report = title + "\n===================================\n";
+            for (int year = start; year <= end; year++){
+                report = report.concat("Year " + year + ":\n");
+
+                for (String i : data.keySet()){
+                    DataSet newData = data.get(i);
+                    report = report.concat("\t" + i + " => " + newData.get(year) + "\n");
+                }
+
+                report = report.concat("\n");
+            }
+        }
+        return report;
     }
 }
