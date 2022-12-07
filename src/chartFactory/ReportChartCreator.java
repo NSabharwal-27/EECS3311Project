@@ -6,8 +6,6 @@ import java.util.Map;
 
 import javax.swing.JLabel;
 
-import org.jfree.chart.ChartFactory;
-
 import fetchData.DataSet;
 import fetchData.DataSetIterator;
 import fetchData.Pair;

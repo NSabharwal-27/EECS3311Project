@@ -17,7 +17,7 @@ public class AddButton extends Subject {
 	}
 
     public void notifyObservers(){
-        for (Observer observer : this.observers){
+        for (Observer observer : Subject.observers){
             observer.addUpdate(this);
         }
     }

@@ -1,7 +1,6 @@
 package gui;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,9 +19,8 @@ public class RecalcButton extends Subject {
 	}
 
     public void notifyObservers(){
-        // observers.add(ChartSampleA.getInstance());
         System.out.println("notifying");
-        for (Observer observer : this.observers){
+        for (Observer observer : Subject.observers){
             System.out.println(observer.toString());
             observer.recalcUpdate(this);
         }
