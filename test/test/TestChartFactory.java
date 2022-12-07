@@ -5,6 +5,12 @@ import static org.junit.Assert.assertEquals;
 import java.util.HashMap;
 
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.general.PieDataset;
+import org.jfree.data.xy.XYDataset;
 import org.junit.Test;
 
 import analysis.Analysis_Type2;
@@ -29,6 +35,15 @@ public class TestChartFactory {
         FactoryChart factory = new FactoryChart();
         JFreeChart chart = factory.getChart(chartType, analysis, hash);
         assertEquals(analysis, chart.getTitle().getText());
+        XYPlot plot = (XYPlot) chart.getPlot();
+        XYDataset data = plot.getDataset();
+        
+        assertEquals(2, data.getSeriesCount()); // 2 series
+        assertEquals(6, data.getItemCount(0));  // 6 years
+        
+        //Test specific point
+        assertEquals(2000.0, data.getX(0, 0));
+        assertEquals(-0.956, data.getY(0, 0).doubleValue(), 0.01);
     }
     
     @Test  
@@ -43,6 +58,12 @@ public class TestChartFactory {
         FactoryChart factory = new FactoryChart();
         JFreeChart chart = factory.getChart(chartType, analysis, hash);
         assertEquals(analysis, chart.getTitle().getText());
+        
+        CategoryPlot plot = (CategoryPlot) chart.getPlot();
+        CategoryDataset data = plot.getDataset();
+        
+        assertEquals(6, data.getColumnCount()); // 6 Years
+        assertEquals(2, data.getRowCount());    // 2 Series
     }
     
     @Test
@@ -57,6 +78,15 @@ public class TestChartFactory {
         FactoryChart factory = new FactoryChart();
         JFreeChart chart = factory.getChart(chartType, analysis, hash);
         assertEquals(analysis, chart.getTitle().getText());
+        XYPlot plot = (XYPlot) chart.getPlot();
+        XYDataset data = plot.getDataset();
+        
+        assertEquals(1, data.getSeriesCount()); // Single series
+        assertEquals(6, data.getItemCount(0));  // 6 years
+        
+        //Test specific point
+        assertEquals(2000.0, data.getX(0, 0));
+        assertEquals(419.269, data.getY(0, 0).doubleValue(), 0.01);
     }
     
     @Test
@@ -71,5 +101,19 @@ public class TestChartFactory {
         FactoryChart factory = new FactoryChart();
         JFreeChart chart = factory.getChart(chartType, analysis, hash);
         assertEquals(analysis, chart.getTitle().getText());
+        
+        PiePlot plot = (PiePlot) chart.getPlot();
+        PieDataset data = plot.getDataset();
+        assertEquals(2, data.getItemCount());
+        
+        assertEquals("Forest Land Area", data.getKey(0));
+        assertEquals(29.05, data.getValue(0).doubleValue(), 0.01);
+        
+        assertEquals("Non-Forest Land Area", data.getKey(1));
+        assertEquals(70.95, data.getValue(1).doubleValue(), 0.01);
+
+        //Verify percents add to 100
+        assertEquals(100, data.getValue(0).doubleValue() + data.getValue(1).doubleValue(), 0.1);
     }
+
 }
