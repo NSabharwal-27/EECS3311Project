@@ -11,7 +11,7 @@ public class AddButton extends Subject {
 	
 	public static AddButton getInstance() {
 		if (instance == null) {
-			instance = new  AddButton();
+			instance = new AddButton();
 		}
 		return instance;
 	}
