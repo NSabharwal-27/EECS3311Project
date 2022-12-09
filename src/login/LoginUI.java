@@ -37,7 +37,7 @@ public class LoginUI extends JFrame implements ActionListener{
 	}
 	
 	private LoginUI() {
-		// setup frame
+
 		JPanel panel = new JPanel();
 		panel.setPreferredSize(new Dimension(350, 150));
 		this.getContentPane().add(panel);
@@ -101,7 +101,6 @@ public class LoginUI extends JFrame implements ActionListener{
 		try {
 			if(checkUsenameAndPassword(username, password)) {
 				this.dispose();
-				// new MainWindow();
 				MainWindow.getInstance();
 			}
 			else {
@@ -136,8 +135,7 @@ public class LoginUI extends JFrame implements ActionListener{
 		
 		JFrame frame = LoginUI.getInstance();
 		frame.setVisible(true);
-		// MainWindow.getInstance();
-
+		
 	}
 
 }

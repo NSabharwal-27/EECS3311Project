@@ -28,11 +28,11 @@ public class RecalcButton extends Subject {
 
     public RecalcButton(){
         recalculate.setFocusable(false);
-        eventRecalc eventRecalc = new eventRecalc();
+        EventRecalc eventRecalc = new EventRecalc();
         recalculate.addActionListener(eventRecalc);
     }
 
-    public class eventRecalc implements ActionListener{
+    public class EventRecalc implements ActionListener{
         public void actionPerformed(ActionEvent eRecalc){
            System.out.println(MainWindow.getCountryCode() + "\n"
                    + MainWindow.getStartYear() + "\n" 
