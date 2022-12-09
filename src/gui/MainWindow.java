@@ -6,22 +6,14 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-
-import analysis.AnalysisStrategy;
-import analysis.Analysis_Type1;
-import chartFactory.*;
 
 public class MainWindow extends JFrame{
 
@@ -52,12 +44,8 @@ public class MainWindow extends JFrame{
     static AddButton addBut;
     static RemoveButton remBut;
 
-    public static int indexCounter = 1;
     static JPanel chartHolder;
     static JFreeChart chartSampleA = ChartSampleA.getInstance().chart;
-    // static JFreeChart chartSampleB = ChartSampleB.getInstance().chart;
-    // static JFreeChart chartSampleC = ChartSampleC.getInstance().chart;
-    // JFreeChart chartSampleD;
 
     
     private static MainWindow instance;
@@ -132,42 +120,10 @@ public class MainWindow extends JFrame{
         pane.add(topPanel, BorderLayout.PAGE_START);
     }
 
-    // TODO - Sample for displaying charts (Displays 5 Pie Charts)
-    // TODO - Will need to be modified to use ChartFactory
     private void displayCharts(Container pane) {
-
-        //NOTE: Add JFreeChart to ChartPanel -> Add ChartPanel to ChartHolder
 
         setChartHolder(new JPanel(new GridLayout(2, 2)));
         getChartHolder().setPreferredSize(new Dimension(900, 500));
-        
-        // Steeve: creating the object Strategy <-- DELETE AND COMMIT IF WE'RE KEEPING THIS
-        // AnalysisStrategy strategy = new Analysis_Type1();
-        // BarChartCreator bar = new BarChartCreator();
-        // SeriesChartCreator line = new SeriesChartCreator();
-
-        // chartSampleA = ChartSampleA.getInstance().chart;
-        // chartSampleB = ChartSampleB.getInstance().chart;
-        // chartSampleC = ChartSampleC.getInstance().chart;
-        // JFreeChart chartSampleA = PieChart.createChart("Average Forest Area (% of Land Area)", strategy.analysisExecute(2005, 2020, "CAN"));
-        // JFreeChart chartSampleB = bar.createChart("CO2 vs Energy vs Air Pollution","Bar Chart", strategy.analysisExecute(2005, 2020, "CAN"));
-        // JFreeChart chartSampleC = line.createChart("CO2 vs Energy vs Air Pollution","Line Chart", strategy.analysisExecute(2005, 2020, "CAN"));
-        // JFreeChart chartSampleD = SeriesChart.createChart();
-        // JFreeChart chartSampleE = ScatterChart.createChart("CO2 vs Energy vs Air Pollution", strategy.analysisExecute(2005, 2020, "CAN"));
-        
-        
-
-        // ChartPanel chartPanelSampleA = new ChartPanel(chartSampleA);
-        // ChartPanel chartPanelSampleB = new ChartPanel(chartSampleB);
-        // ChartPanel chartPanelSampleC = new ChartPanel(chartSampleC);
-        // ChartPanel chartPanelSampleD = new ChartPanel(chartSampleD);
-        // ChartPanel chartPanelSampleE = new ChartPanel(chartSampleE);
-
-        // chartHolder.add(chartPanelSampleA);
-        // chartHolder.add(chartPanelSampleB);
-        // chartHolder.add(chartPanelSampleC);
-        // chartHolder.add(chartPanelSampleD);
-        // chartHolder.add(chartPanelSampleE);
 
         JLabel textDescription = new JLabel("Nothing to display");
         textDescription.setHorizontalAlignment(JLabel.CENTER);
@@ -187,8 +143,6 @@ public class MainWindow extends JFrame{
         // ComboBoxes
         availableViews = new JComboBox<String>(views);
         analysisMethod = new JComboBox<String>(analysisTypes);
-        // TODO - If we want center aligned text
-        // ((JLabel)analysisMethod.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
         availableViews.setFocusable(false);
         analysisMethod.setFocusable(false);
 

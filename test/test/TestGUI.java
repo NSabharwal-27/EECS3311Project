@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -187,5 +189,52 @@ public class TestGUI {
            
            chartSample.title = "Government Expenditure on Education vs Health Expenditure";
            assertEquals(Analysis_Type8.class, chartSample.getAnalysisObj().getClass());
-       }       
+       }    
+       
+       @Test
+       public void testReport() throws Exception
+       {
+           MainWindow window = MainWindow.getInstance();
+
+           //Recalculate
+           MainWindow.getRecalcBut().recalculate.doClick();
+           Thread.sleep(500);
+           
+           //Change View to Report
+           MainWindow.setAvailableViews(4);
+           Thread.sleep(500);
+           assertEquals("Report", MainWindow.getCurrentChart());
+           
+           //Add Chart
+           MainWindow.getAddBut().addView.doClick();
+           Thread.sleep(500);
+           
+           //Verify Report
+           assertEquals(JScrollPane.class, MainWindow.getChartHolder().getComponent(0).getClass());
+           JScrollPane pane = (JScrollPane) MainWindow.getChartHolder().getComponent(0);
+           assertEquals("Report", pane.getName());
+           assertEquals(JTextArea.class, pane.getViewport().getView().getClass());
+           JTextArea text = (JTextArea) pane.getViewport().getView();
+           assertTrue(text.getText().contains("CO2 vs Energy vs Air Pollution"));
+           
+           //Change Analysis Type
+           MainWindow.setAnalysisType("Average Forest Area (% of Land Area)");
+           Thread.sleep(500);
+           
+           //Recalculate
+           MainWindow.getRecalcBut().recalculate.doClick();
+           Thread.sleep(500);
+           
+         //Verify Report
+           assertEquals(JScrollPane.class, MainWindow.getChartHolder().getComponent(0).getClass());
+           pane = (JScrollPane) MainWindow.getChartHolder().getComponent(0);
+           assertEquals("Report", pane.getName());
+           assertEquals(JTextArea.class, pane.getViewport().getView().getClass());
+           text = (JTextArea) pane.getViewport().getView();
+           assertTrue(text.getText().contains("Average Forest Area (% of Land Area)"));
+           
+                      
+           window.dispose();
+           
+       }
 }

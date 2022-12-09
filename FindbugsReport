@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1670400240202" analysisTimestamp="1670400240052" release="">
+  <Project projectName="EECS3311Project">
+    <Jar>/Users/naghamsabbour/Current Courses F22/EECS 3311/Project/Deliverable 2/EECS3311Project/target/classes</Jar>
+    <AuxClasspathEntry>/Users/naghamsabbour/Current Courses F22/EECS 3311/Project/Deliverable 2/EECS3311Project/target/classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.m2/repository/com/google/code/gson/gson/2.2.2/gson-2.2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.m2/repository/org/jfree/jfreechart/1.5.2/jfreechart-1.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-jupiter-api_5.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-jupiter-engine_5.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-jupiter-migrationsupport_5.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-jupiter-params_5.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-platform-commons_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-platform-engine_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-platform-launcher_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-platform-runner_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-platform-suite-api_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-platform-suite-engine_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-platform-suite-commons_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/junit-vintage-engine_5.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/org.opentest4j_1.2.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/org.apiguardian.api_1.1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/org.junit_4.13.2.v20211018-1956.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/naghamsabbour/.p2/pool/plugins/org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <SrcDir>/Users/naghamsabbour/Current Courses F22/EECS 3311/Project/Deliverable 2/EECS3311Project/test</SrcDir>
+    <SrcDir>/Users/naghamsabbour/Current Courses F22/EECS 3311/Project/Deliverable 2/EECS3311Project/src</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Wed, 7 Dec 2022 02:57:08 -0500" total_classes="0" referenced_classes="18" total_bugs="0" total_size="0" num_packages="0" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="5.47" clock_seconds="70.95" peak_mbytes="845.07" alloc_mbytes="2048.00" gc_seconds="0.00">
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="37" invocations="555" avgMicrosecondsPerInvocation="67" maxMicrosecondsPerInvocation="1996" standardDeviationMircosecondsPerInvocation="196"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="30" invocations="2" avgMicrosecondsPerInvocation="15463" maxMicrosecondsPerInvocation="24633" standardDeviationMircosecondsPerInvocation="9170"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="21" invocations="555" avgMicrosecondsPerInvocation="39" maxMicrosecondsPerInvocation="616" standardDeviationMircosecondsPerInvocation="71"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1670400240202" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>

@@ -53,32 +53,65 @@ public class ChartSampleA implements Observer{
         getFields();
         
         ArrayList<String> list = MainWindow.requestedChartTypes;
+        boolean flagReport = false;
 
-        for(String chartName : list){
+        if (end < start){
+            MainWindow.requestedChartTypes.clear();
+            new ErrorYears();
 
-            FactoryChart factory = new FactoryChart();
-            chart = factory.getChart(chartName, title, data);
+        }else{
 
-            if (chart == null && !chartName.equals("Report")) {
-                MainWindow.requestedChartTypes.remove(chartName);
-                new ErrorChart();
+            for(String chartName : list){
 
-            }else if (chartName.equals("Report")){
-                JTextArea textDescription = new JTextArea(report);
-                JScrollPane scrollPane = new JScrollPane(textDescription); 
-                scrollPane.setName("Report");
-                MainWindow.chartHolder.add(scrollPane);
-                MainWindow frame = MainWindow.getInstance();
-                frame.setVisible(true);
+                FactoryChart factory = new FactoryChart();
+                chart = factory.getChart(chartName, title, data);
 
-            }else{
-                ChartPanel chartPanelSampleA = new ChartPanel(chart);
-                chartPanelSampleA.setName(chartName);
-                MainWindow.chartHolder.add(chartPanelSampleA);
-                MainWindow frame = MainWindow.getInstance();
-                frame.setVisible(true);
+                if (chart == null && !chartName.equals("Report")) {
+
+                    if (list.contains("Report") && !flagReport){
+                        
+                        MainWindow.requestedChartTypes.clear();
+                        MainWindow.requestedChartTypes.add("Report");
+                        JTextArea textDescription = new JTextArea(report);
+                        JScrollPane scrollPane = new JScrollPane(textDescription); 
+                        scrollPane.setName("Report");
+                        MainWindow.chartHolder.add(scrollPane);
+                        MainWindow frame = MainWindow.getInstance();
+                        frame.setVisible(true);
+
+                    }else if (list.contains("Report")){
+
+                        MainWindow.requestedChartTypes.clear();
+                        MainWindow.requestedChartTypes.add("Report");
+
+                    }else{
+                        MainWindow.requestedChartTypes.clear();
+                    }
+                    
+                    new ErrorChart();
+                    break;
+
+                }else if (chartName.equals("Report")){
+                    
+                    flagReport = true;
+                    JTextArea textDescription = new JTextArea(report);
+                    JScrollPane scrollPane = new JScrollPane(textDescription); 
+                    scrollPane.setName("Report");
+                    MainWindow.chartHolder.add(scrollPane);
+                    MainWindow frame = MainWindow.getInstance();
+                    frame.setVisible(true);
+
+                }else{
+                    
+                    ChartPanel chartPanelSampleA = new ChartPanel(chart);
+                    chartPanelSampleA.setName(chartName);
+                    MainWindow.chartHolder.add(chartPanelSampleA);
+                    MainWindow frame = MainWindow.getInstance();
+                    frame.setVisible(true);
+
+                }
+                
             }
-            
         }
 
     }
@@ -86,7 +119,13 @@ public class ChartSampleA implements Observer{
     @Override
     public void addUpdate(AddButton sub) {
         System.out.println("Add" + analysis.toString());
-        if(analysis.size() > 0){
+
+        if (end < start){
+            analysis.remove(0);
+            MainWindow.requestedChartTypes.clear();
+            new ErrorYears();
+
+        }else if(analysis.size() > 0){
             thisAnalysis = analysis.get(0);
             analysis.remove(0);
 
