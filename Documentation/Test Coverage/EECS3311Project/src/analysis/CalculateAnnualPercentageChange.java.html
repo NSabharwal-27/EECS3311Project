@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>CalculateAnnualPercentageChange.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">analysis</a> &gt; <span class="el_source">CalculateAnnualPercentageChange.java</span></div><h1>CalculateAnnualPercentageChange.java</h1><pre class="source lang-java linenums">package analysis;
+
+import fetchData.DataSet;
+import fetchData.DataSetIterator;
+import fetchData.FetchData;
+import fetchData.Pair;
+
+<span class="nc" id="L8">public class CalculateAnnualPercentageChange {</span>
+
+    public static DataSet calculate(DataSet rawData)
+    {
+<span class="fc" id="L12">        DataSet percentages = new DataSet(); // For the calculated annual percent change</span>
+<span class="fc" id="L13">        Double[] lastYearWithData = new Double[2]; //Keeps track of the last year with a recorded value.</span>
+        Double percentageChange;
+
+        // Set the lastYearWithData with a previous year to be able to calculate the start year percentage
+        // Fetches the value of the previous year and loads it into lastYearWithData if  != null
+        // otherwise loops through the past 20 years to get till it find a year with a non-null value 
+<span class="fc" id="L19">        DataSet preStartingYear = FetchData.fetchData(rawData.countryCode, rawData.indicator, rawData.startYear-20, rawData.startYear-1);</span>
+<span class="fc" id="L20">        int i = 1;</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        while(preStartingYear.get(rawData.startYear-i) == null)</span>
+        {
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">            if( i &gt; 20)</span>
+<span class="nc" id="L24">                break;</span>
+<span class="fc" id="L25">            i++;</span>
+        }
+
+<span class="fc" id="L28">        lastYearWithData[0] = (double) rawData.startYear-i;</span>
+<span class="fc" id="L29">        lastYearWithData[1] = preStartingYear.get(rawData.startYear-i);</span>
+
+<span class="fc" id="L31">        DataSetIterator iterator = rawData.getIterator();</span>
+        // For all years starting from startYear
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        while(iterator.hasNext())</span>
+        {
+<span class="fc" id="L35">            Pair currentYear = iterator.next();</span>
+<span class="fc" id="L36">            int year = currentYear.getKey();</span>
+            
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if(currentYear.getValue() != null)</span>
+            {
+<span class="fc" id="L40">                int yearsSince = year - lastYearWithData[0].intValue(); // Most likely 1, but multiple years may have</span>
+                                                                        // passed since there was a recorded value.
+<span class="fc" id="L42">                Double previousVal = lastYearWithData[1]; // Most likely the year prior, but may be a couple years prior.</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">                if (previousVal == null) // No previous value to compare change against.(only to check against the first year)</span>
+<span class="nc" id="L44">                    percentageChange = null;</span>
+                else
+<span class="fc" id="L46">                    percentageChange = 100.0 * ((currentYear.getValue() - previousVal) / previousVal) / yearsSince;</span>
+
+                // Keep track of year as latest year with a recorded value
+<span class="fc" id="L49">                lastYearWithData[0] = (double) year;</span>
+<span class="fc" id="L50">                lastYearWithData[1] = currentYear.getValue();</span>
+<span class="fc" id="L51">            } else {</span>
+<span class="fc" id="L52">                percentageChange = null; // No value for current year</span>
+            }
+<span class="fc" id="L54">            percentages.put(year, percentageChange);</span>
+        }
+<span class="fc" id="L56">        return percentages;  </span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

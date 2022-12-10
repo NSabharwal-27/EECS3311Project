@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>AddButton.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">AddButton.java</span></div><h1>AddButton.java</h1><pre class="source lang-java linenums">package gui;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+public class AddButton extends Subject {
+<span class="fc" id="L9">    public JButton addView = new JButton(&quot;+&quot;);</span>
+
+    private static AddButton instance;
+	
+	public static AddButton getInstance() {
+<span class="nc bnc" id="L14" title="All 2 branches missed.">		if (instance == null) {</span>
+<span class="nc" id="L15">			instance = new AddButton();</span>
+		}
+<span class="nc" id="L17">		return instance;</span>
+	}
+
+    public void notifyObservers(){
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        for (Observer observer : Subject.observers){</span>
+<span class="fc" id="L22">            observer.addUpdate(this);</span>
+        }
+<span class="fc" id="L24">    }</span>
+
+<span class="fc" id="L26">    public AddButton(){</span>
+<span class="fc" id="L27">        addView.setFocusable(false);</span>
+<span class="fc" id="L28">        EventAdd eventAdd = new EventAdd();</span>
+<span class="fc" id="L29">        addView.addActionListener(eventAdd);</span>
+<span class="fc" id="L30">    }</span>
+
+
+<span class="fc" id="L33">    public class EventAdd implements ActionListener{</span>
+        public void actionPerformed(ActionEvent eAdd){
+<span class="fc" id="L35">            System.out.println(&quot;Adding Chart&quot;);</span>
+            //TODO - Determine if chart is allowed based on analysis type
+            
+<span class="fc" id="L38">            System.out.println(MainWindow.getRequestedChartTypes().toString());</span>
+
+<span class="fc" id="L40">            String selectedChart = MainWindow.getCurrentChart();</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">            if ( !MainWindow.requestedChartTypes.contains(selectedChart)){ //Prevent duplicate</span>
+<span class="fc" id="L42">                MainWindow.requestedChartTypes.add(selectedChart);</span>
+<span class="fc" id="L43">                updateChartList();</span>
+<span class="fc" id="L44">                notifyObservers();</span>
+            }
+<span class="fc" id="L46">        }</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

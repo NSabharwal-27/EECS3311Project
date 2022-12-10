@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>RegressionTest0.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">test.java.Randoop</a> &gt; <span class="el_source">RegressionTest0.java</span></div><h1>RegressionTest0.java</h1><pre class="source lang-java linenums">package test.java.Randoop;
+
+
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+<span class="nc" id="L9">public class RegressionTest0 {</span>
+
+<span class="nc" id="L11">    public static boolean debug = false;</span>
+
+    @Test
+    public void test01() throws Throwable {
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L16">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test01&quot;);</span>
+<span class="nc" id="L17">        analysis.CalculateAnnualPercentageChange calculateAnnualPercentageChange0 = new analysis.CalculateAnnualPercentageChange();</span>
+<span class="nc" id="L18">        java.lang.Class&lt;?&gt; wildcardClass1 = calculateAnnualPercentageChange0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L20">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L21">    }</span>
+
+    @Test
+    public void test02() throws Throwable {
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L26">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test02&quot;);</span>
+<span class="nc" id="L27">        analysis.Analysis_Type4 analysis_Type4_0 = new analysis.Analysis_Type4();</span>
+<span class="nc" id="L28">        java.lang.Class&lt;?&gt; wildcardClass1 = analysis_Type4_0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L30">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L31">    }</span>
+
+    @Test
+    public void test03() throws Throwable {
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L36">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test03&quot;);</span>
+<span class="nc" id="L37">        fetchData.DataSet dataSet0 = null;</span>
+        // The following exception was thrown during execution in test generation
+        try {
+<span class="nc" id="L40">            java.lang.Double double1 = analysis.CalculateAverage.calculate(dataSet0);</span>
+<span class="nc" id="L41">            org.junit.Assert.fail(&quot;Expected exception of type java.lang.NullPointerException; message: Cannot invoke \&quot;fetchData.DataSet.getIterator()\&quot; because \&quot;rawData\&quot; is null&quot;);</span>
+<span class="nc" id="L42">        } catch (java.lang.NullPointerException e) {</span>
+        // Expected exception.
+        }
+<span class="nc" id="L45">    }</span>
+
+    @Test
+    public void test04() throws Throwable {
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L50">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test04&quot;);</span>
+<span class="nc" id="L51">        fetchData.DataSet dataSet0 = null;</span>
+        // The following exception was thrown during execution in test generation
+        try {
+<span class="nc" id="L54">            fetchData.DataSet dataSet1 = analysis.CalculateAnnualPercentageChange.calculate(dataSet0);</span>
+<span class="nc" id="L55">            org.junit.Assert.fail(&quot;Expected exception of type java.lang.NullPointerException; message: Cannot read field \&quot;countryCode\&quot; because \&quot;rawData\&quot; is null&quot;);</span>
+<span class="nc" id="L56">        } catch (java.lang.NullPointerException e) {</span>
+        // Expected exception.
+        }
+<span class="nc" id="L59">    }</span>
+
+    @Test
+    public void test05() throws Throwable {
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L64">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test05&quot;);</span>
+<span class="nc" id="L65">        fetchData.DataSet dataSet0 = null;</span>
+<span class="nc" id="L66">        fetchData.DataSet dataSet1 = null;</span>
+        // The following exception was thrown during execution in test generation
+        try {
+<span class="nc" id="L69">            fetchData.DataSet dataSet2 = analysis.CalculateRatio.calculate(dataSet0, dataSet1);</span>
+<span class="nc" id="L70">            org.junit.Assert.fail(&quot;Expected exception of type java.lang.NullPointerException; message: Cannot invoke \&quot;fetchData.DataSet.getIterator()\&quot; because \&quot;a\&quot; is null&quot;);</span>
+<span class="nc" id="L71">        } catch (java.lang.NullPointerException e) {</span>
+        // Expected exception.
+        }
+<span class="nc" id="L74">    }</span>
+
+    @Test
+    public void test06() throws Throwable {
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L79">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test06&quot;);</span>
+<span class="nc" id="L80">        analysis.Analysis_Type5 analysis_Type5_0 = new analysis.Analysis_Type5();</span>
+<span class="nc" id="L81">        java.lang.Class&lt;?&gt; wildcardClass1 = analysis_Type5_0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L83">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L84">    }</span>
+
+    @Test
+    public void test07() throws Throwable {
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L89">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test07&quot;);</span>
+<span class="nc" id="L90">        analysis.Analysis_Type8 analysis_Type8_0 = new analysis.Analysis_Type8();</span>
+<span class="nc" id="L91">        java.lang.Class&lt;?&gt; wildcardClass1 = analysis_Type8_0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L93">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L94">    }</span>
+
+    @Test
+    public void test08() throws Throwable {
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L99">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test08&quot;);</span>
+<span class="nc" id="L100">        analysis.Analysis_Type3 analysis_Type3_0 = new analysis.Analysis_Type3();</span>
+<span class="nc" id="L101">        java.lang.Class&lt;?&gt; wildcardClass1 = analysis_Type3_0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L103">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L104">    }</span>
+
+    @Test
+    public void test09() throws Throwable {
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L109">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test09&quot;);</span>
+<span class="nc" id="L110">        analysis.Analysis_Type1 analysis_Type1_0 = new analysis.Analysis_Type1();</span>
+<span class="nc" id="L111">        java.lang.Class&lt;?&gt; wildcardClass1 = analysis_Type1_0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L113">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L114">    }</span>
+
+    @Test
+    public void test10() throws Throwable {
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L119">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test10&quot;);</span>
+<span class="nc" id="L120">        analysis.CalculateAverage calculateAverage0 = new analysis.CalculateAverage();</span>
+<span class="nc" id="L121">        java.lang.Class&lt;?&gt; wildcardClass1 = calculateAverage0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L123">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L124">    }</span>
+
+    @Test
+    public void test11() throws Throwable {
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L129">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test11&quot;);</span>
+<span class="nc" id="L130">        analysis.Analysis_Type7 analysis_Type7_0 = new analysis.Analysis_Type7();</span>
+<span class="nc" id="L131">        java.lang.Class&lt;?&gt; wildcardClass1 = analysis_Type7_0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L133">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L134">    }</span>
+
+    @Test
+    public void test12() throws Throwable {
+<span class="nc bnc" id="L138" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L139">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test12&quot;);</span>
+<span class="nc" id="L140">        analysis.CalculateRatio calculateRatio0 = new analysis.CalculateRatio();</span>
+<span class="nc" id="L141">        java.lang.Class&lt;?&gt; wildcardClass1 = calculateRatio0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L143">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L144">    }</span>
+
+    @Test
+    public void test13() throws Throwable {
+<span class="nc bnc" id="L148" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L149">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test13&quot;);</span>
+<span class="nc" id="L150">        analysis.Analysis_Type6 analysis_Type6_0 = new analysis.Analysis_Type6();</span>
+<span class="nc" id="L151">        java.lang.Class&lt;?&gt; wildcardClass1 = analysis_Type6_0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L153">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L154">    }</span>
+
+    @Test
+    public void test14() throws Throwable {
+<span class="nc bnc" id="L158" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L159">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test14&quot;);</span>
+<span class="nc" id="L160">        analysis.Analysis_Type2 analysis_Type2_0 = new analysis.Analysis_Type2();</span>
+<span class="nc" id="L161">        java.lang.Class&lt;?&gt; wildcardClass1 = analysis_Type2_0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L163">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L164">    }</span>
+
+    @Test
+    public void test15() throws Throwable {
+<span class="nc bnc" id="L168" title="All 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L169">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test15&quot;);</span>
+<span class="nc" id="L170">        java.lang.Object obj0 = new java.lang.Object();</span>
+<span class="nc" id="L171">        java.lang.Class&lt;?&gt; wildcardClass1 = obj0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="nc" id="L173">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="nc" id="L174">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

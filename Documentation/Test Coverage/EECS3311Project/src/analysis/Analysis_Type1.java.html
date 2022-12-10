@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Analysis_Type1.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">analysis</a> &gt; <span class="el_source">Analysis_Type1.java</span></div><h1>Analysis_Type1.java</h1><pre class="source lang-java linenums">package analysis;
+
+import java.util.HashMap;
+
+import fetchData.DataSet;
+import fetchData.FetchData;
+
+// 3 Series Graph
+// The annual percentage change of  
+// 		1. CO2 emissions (as metric tons per capita)
+//		2. Energy use (as kg of oil equivalent per capita)
+// 		3. PM2.5 air pollution, mean annual exposure 
+// 			(as micrograms per cubic meter) (3-series graph)
+// note:The change rate for the first selected year would be 
+// 		with respect to the previous year. For example, if you 
+// 		select as a range 2018 – 2021 the annual change rate 
+// 		for 2018 would be between 2017 and 2018.
+
+<span class="fc" id="L19">public class Analysis_Type1 implements AnalysisStrategy {</span>
+
+	final static String CO2_EMISSIONS_CODE = &quot;EN.ATM.CO2E.PC&quot;;
+	final static String ENERGY_USE_CODE = &quot;EG.USE.PCAP.KG.OE&quot;;
+	final static String POLLUTION_CODE = &quot;EN.ATM.PM25.MC.M3&quot;;
+	
+	public HashMap&lt;String, DataSet&gt; analysisExecute(int start, int end, String country) {
+	    
+<span class="fc" id="L27">		HashMap&lt;String, DataSet&gt; data = new HashMap&lt;String, DataSet&gt;();</span>
+
+		// Example: Country = Canada, from 2000 to 2020
+<span class="fc" id="L30">		String countryCode = country;</span>
+<span class="fc" id="L31">		int startYear = start;</span>
+<span class="fc" id="L32">		int endYear = end;</span>
+
+		// CO2 emissions (as metric tons per capita)
+<span class="fc" id="L35">		DataSet CO2EmissionsAnnualPercentage = calculateAnnualPercentageChangeCO2(countryCode, startYear, endYear);</span>
+		//System.out.println(&quot;\nAnnual Percentage Change of CO2 Emissions for: &quot; + countryCode + &quot;\n----------------------&quot;);
+		//System.out.println(CO2EmissionsAnnualPercentage);
+
+		// Energy use (as kg of oil equivalent per capita)
+		//System.out.println(&quot;\n\n-----------------\n\n&quot;);
+<span class="fc" id="L41">		DataSet energyUseAnnualPercentage = calculateAnnualPercentageChangeEnergy(countryCode, startYear, endYear);</span>
+        /*
+         * System.out.println(&quot;\nAnnual Percentage Change of Energy Use for: &quot; +
+         * countryCode + &quot;\n----------------------&quot;);
+         * System.out.println(energyUseAnnualPercentage);
+         */
+
+		// PM2.5 air pollution, mean annual exposure (as micrograms per cubic meter)
+		//System.out.println(&quot;\n\n-----------------\n\n&quot;);
+<span class="fc" id="L50">		DataSet pollutionAnnualPercentage = calculateAnnualPercentageChangePollution(countryCode, startYear, endYear);</span>
+        /*
+         * System.out.println(&quot;\nAnnual Percentage Change of Pollution for: &quot; +
+         * countryCode + &quot;\n----------------------&quot;);
+         * System.out.println(pollutionAnnualPercentage);
+         */
+
+	    
+<span class="fc" id="L58">		data.put(&quot;C02 Annual emissions percentage&quot;, CO2EmissionsAnnualPercentage);</span>
+<span class="fc" id="L59">		data.put(&quot;Annual Pollution Percentage&quot;, pollutionAnnualPercentage);</span>
+<span class="fc" id="L60">		data.put(&quot;Annual Energy Percentage&quot;, energyUseAnnualPercentage);</span>
+		
+<span class="fc" id="L62">		return data;</span>
+	}
+
+	/**
+	 * Returns a DataSet of the calculated annual percentage
+	 * changes in form (year, percentChange). For a year with an undefined
+	 * percentage change, percentChange = null.
+	 */
+	public static DataSet calculateAnnualPercentageChangeCO2(String countryCode, int startYear, int endYear){
+<span class="fc" id="L71">		DataSet rawData = FetchData.fetchData(countryCode, CO2_EMISSIONS_CODE, startYear, endYear); // Data from fetch</span>
+<span class="fc" id="L72">		return CalculateAnnualPercentageChange.calculate(rawData);</span>
+	}
+	
+	/**
+     * Returns a DataSet of the calculated annual percentage
+     * changes in form (year, percentChange). For a year with an undefined
+     * percentage change, percentChange = null.
+     */
+	public static DataSet calculateAnnualPercentageChangeEnergy(String countryCode, int startYear, int endYear){
+<span class="fc" id="L81">        DataSet rawData = FetchData.fetchData(countryCode, ENERGY_USE_CODE, startYear, endYear); // Data from fetch</span>
+<span class="fc" id="L82">        return CalculateAnnualPercentageChange.calculate(rawData);</span>
+    }
+	
+	/**
+     * Returns a DataSet of the calculated annual percentage
+     * changes in form (year, percentChange). For a year with an undefined
+     * percentage change, percentChange = null.
+     */
+	public static DataSet calculateAnnualPercentageChangePollution(String countryCode, int startYear, int endYear){
+<span class="fc" id="L91">        DataSet rawData = FetchData.fetchData(countryCode, POLLUTION_CODE, startYear, endYear); // Data from fetch</span>
+<span class="fc" id="L92">        return CalculateAnnualPercentageChange.calculate(rawData);</span>
+    }
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

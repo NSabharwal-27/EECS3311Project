@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>MainWindow.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">MainWindow.java</span></div><h1>MainWindow.java</h1><pre class="source lang-java linenums">package gui;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.util.ArrayList;
+
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import org.jfree.chart.JFreeChart;
+
+public class MainWindow extends JFrame{
+
+<span class="fc" id="L20">    static String[] analysisTypes = {</span>
+<span class="fc" id="L21">            &quot;CO2 vs Energy vs Air Pollution&quot;,</span>
+<span class="fc" id="L22">            &quot;Air Pollution vs Forest Area&quot;,</span>
+<span class="fc" id="L23">            &quot;CO2 vs GDP per Capita&quot;,</span>
+<span class="fc" id="L24">            &quot;Average Forest Area (% of Land Area)&quot;,</span>
+<span class="fc" id="L25">            &quot;Average Government Expenditure on Education&quot;,</span>
+<span class="fc" id="L26">            &quot;Current Health Expenditure vs Hospital Beds&quot;,</span>
+<span class="fc" id="L27">            &quot;Problems in Accessing Health Care vs Infant Mortality&quot;,</span>
+<span class="fc" id="L28">            &quot;Government Expenditure on Education vs Health Expenditure&quot;</span>
+    };
+
+<span class="fc" id="L31">    static Color lightGrey = new Color(220, 220, 220);</span>
+<span class="fc" id="L32">    static String[] views = { &quot;Pie Chart&quot;, &quot;Line Chart&quot;, &quot;Bar Chart&quot;, &quot;Scatter Chart&quot;, &quot;Report&quot; };</span>
+<span class="fc" id="L33">    static String[] countryOptions = { &quot;Brazil&quot;, &quot;Canada&quot;, &quot;China&quot;, &quot;France&quot;, &quot;USA&quot; };</span>
+
+<span class="fc" id="L35">    static ArrayList&lt;String&gt; requestedChartTypes = new ArrayList&lt;String&gt;();</span>
+    
+    static JComboBox&lt;String&gt; countryComboBox;
+    static JComboBox&lt;Integer&gt; startYearComboBox;
+    static JComboBox&lt;Integer&gt; endYearComboBox;
+    static JComboBox&lt;String&gt; availableViews;
+    static JComboBox&lt;String&gt; analysisMethod;
+    
+    static RecalcButton recalcBut;
+    static AddButton addBut;
+    static RemoveButton remBut;
+
+    static JPanel chartHolder;
+<span class="fc" id="L48">    static JFreeChart chartSampleA = ChartSampleA.getInstance().chart;</span>
+
+    
+<span class="fc" id="L51">    private static MainWindow instance;</span>
+	
+	public static MainWindow getInstance() {
+<span class="fc bfc" id="L54" title="All 2 branches covered.">		if (instance == null) {</span>
+<span class="fc" id="L55">			instance = new  MainWindow();</span>
+		}
+<span class="fc" id="L57">		return instance;</span>
+	}
+
+<span class="fc" id="L60">    public MainWindow() {</span>
+
+<span class="fc" id="L62">        Container pane = this.getContentPane();</span>
+
+        // Top Row
+<span class="fc" id="L65">        addTopBar(pane);</span>
+
+        // ChartHolder
+<span class="fc" id="L68">        displayCharts(pane);</span>
+
+        // Bottom Row
+<span class="fc" id="L71">        addBottomBar(pane);</span>
+
+<span class="fc" id="L73">        this.setTitle(&quot;World Banker&quot;);</span>
+<span class="fc" id="L74">        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L75">        this.setResizable(false);</span>
+<span class="fc" id="L76">        this.pack();</span>
+<span class="fc" id="L77">        this.setLocationRelativeTo(null);</span>
+<span class="fc" id="L78">        this.setVisible(true);</span>
+<span class="fc" id="L79">    }</span>
+
+    private void addTopBar(Container pane) {
+<span class="fc" id="L82">        JPanel topPanel = new JPanel();</span>
+<span class="fc" id="L83">        topPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));</span>
+
+        // JLabels
+<span class="fc" id="L86">        JLabel countryLabel = new JLabel(&quot;Choose a country: &quot;);</span>
+<span class="fc" id="L87">        JLabel fromLabel = new JLabel(&quot;From&quot;);</span>
+<span class="fc" id="L88">        JLabel toLabel = new JLabel(&quot;To&quot;);</span>
+
+        // ComboBoxes
+<span class="fc" id="L91">        countryComboBox = new JComboBox&lt;String&gt;(countryOptions);</span>
+<span class="fc" id="L92">        startYearComboBox = new JComboBox&lt;Integer&gt;();</span>
+<span class="fc" id="L93">        endYearComboBox = new JComboBox&lt;Integer&gt;();</span>
+        
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        for (int i = 1950; i &lt;= 2022; i++) {</span>
+<span class="fc" id="L96">            startYearComboBox.addItem(i);</span>
+<span class="fc" id="L97">            endYearComboBox.addItem(i);</span>
+        }
+
+        // Set defaults
+<span class="fc" id="L101">        startYearComboBox.setSelectedItem((Integer) 2005);</span>
+<span class="fc" id="L102">        endYearComboBox.setSelectedItem((Integer) 2020);</span>
+
+        // Remove Focusable
+<span class="fc" id="L105">        countryComboBox.setFocusable(false);</span>
+<span class="fc" id="L106">        startYearComboBox.setFocusable(false);</span>
+<span class="fc" id="L107">        endYearComboBox.setFocusable(false);</span>
+
+        // Add Components to Panel
+<span class="fc" id="L110">        topPanel.add(countryLabel);</span>
+<span class="fc" id="L111">        topPanel.add(countryComboBox);</span>
+<span class="fc" id="L112">        topPanel.add(fromLabel);</span>
+<span class="fc" id="L113">        topPanel.add(startYearComboBox);</span>
+<span class="fc" id="L114">        topPanel.add(toLabel);</span>
+<span class="fc" id="L115">        topPanel.add(endYearComboBox);</span>
+
+        // Set Colour and Add to Pane
+<span class="fc" id="L118">        topPanel.setOpaque(true);</span>
+<span class="fc" id="L119">        topPanel.setBackground(lightGrey);</span>
+<span class="fc" id="L120">        pane.add(topPanel, BorderLayout.PAGE_START);</span>
+<span class="fc" id="L121">    }</span>
+
+    private void displayCharts(Container pane) {
+
+<span class="fc" id="L125">        setChartHolder(new JPanel(new GridLayout(2, 2)));</span>
+<span class="fc" id="L126">        getChartHolder().setPreferredSize(new Dimension(900, 500));</span>
+
+<span class="fc" id="L128">        JLabel textDescription = new JLabel(&quot;Nothing to display&quot;);</span>
+<span class="fc" id="L129">        textDescription.setHorizontalAlignment(JLabel.CENTER);</span>
+<span class="fc" id="L130">        getChartHolder().add(textDescription);</span>
+
+<span class="fc" id="L132">        pane.add(getChartHolder(), BorderLayout.CENTER);</span>
+<span class="fc" id="L133">    }</span>
+
+    private void addBottomBar(Container pane) {
+<span class="fc" id="L136">        JPanel bottomPanel = new JPanel();</span>
+<span class="fc" id="L137">        bottomPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));</span>
+
+        // JLabels
+<span class="fc" id="L140">        JLabel viewsLabel = new JLabel(&quot;Available Views: &quot;);</span>
+<span class="fc" id="L141">        JLabel analysisLabel = new JLabel(&quot;Choose Analysis Method: &quot;);</span>
+
+        // ComboBoxes
+<span class="fc" id="L144">        availableViews = new JComboBox&lt;String&gt;(views);</span>
+<span class="fc" id="L145">        analysisMethod = new JComboBox&lt;String&gt;(analysisTypes);</span>
+<span class="fc" id="L146">        availableViews.setFocusable(false);</span>
+<span class="fc" id="L147">        analysisMethod.setFocusable(false);</span>
+
+        // Buttons
+<span class="fc" id="L150">        recalcBut = new RecalcButton();</span>
+<span class="fc" id="L151">        addBut = new AddButton();</span>
+<span class="fc" id="L152">        remBut = new RemoveButton();</span>
+
+        // Add Components to Panel
+<span class="fc" id="L155">        bottomPanel.add(viewsLabel);</span>
+<span class="fc" id="L156">        bottomPanel.add(availableViews);</span>
+<span class="fc" id="L157">        bottomPanel.add(addBut.addView);</span>
+<span class="fc" id="L158">        bottomPanel.add(remBut.removeView);</span>
+<span class="fc" id="L159">        bottomPanel.add(analysisLabel);</span>
+<span class="fc" id="L160">        bottomPanel.add(analysisMethod);</span>
+<span class="fc" id="L161">        bottomPanel.add(recalcBut.recalculate);</span>
+
+<span class="fc" id="L163">        bottomPanel.setOpaque(true);</span>
+<span class="fc" id="L164">        bottomPanel.setBackground(lightGrey);</span>
+<span class="fc" id="L165">        pane.add(bottomPanel, BorderLayout.PAGE_END);</span>
+<span class="fc" id="L166">    }</span>
+
+    public static String getCountryCode()
+    {
+<span class="fc" id="L170">        return countryComboBox.getSelectedItem().toString();</span>
+    }
+    
+    public static int getStartYear()
+    {
+<span class="fc" id="L175">        return Integer.parseInt(startYearComboBox.getSelectedItem().toString());</span>
+    }
+    
+    public static int getEndYear()
+    {
+<span class="fc" id="L180">        return Integer.parseInt(endYearComboBox.getSelectedItem().toString());</span>
+    }
+    
+    public static ArrayList&lt;String&gt; getRequestedChartTypes()
+    {
+<span class="fc" id="L185">        return requestedChartTypes;</span>
+    }
+    public static String getCurrentChart()
+    {
+<span class="fc" id="L189">        return availableViews.getSelectedItem().toString();</span>
+    }
+    
+    public static String getAnalysisType()
+    {
+<span class="fc" id="L194">        return analysisMethod.getSelectedItem().toString();</span>
+    }
+    
+    public static void setAnalysisType(String type)
+    {
+<span class="fc" id="L199">        analysisMethod.setSelectedItem(type);</span>
+<span class="fc" id="L200">    }</span>
+
+    public static JPanel getChartHolder() {
+<span class="fc" id="L203">        return chartHolder;</span>
+    }
+
+    public static void setChartHolder(JPanel chartHolder) {
+<span class="fc" id="L207">        MainWindow.chartHolder = chartHolder;</span>
+<span class="fc" id="L208">    }</span>
+    
+    public static RecalcButton getRecalcBut() {
+<span class="fc" id="L211">        return recalcBut;</span>
+    }
+
+    public static AddButton getAddBut() {
+<span class="fc" id="L215">        return addBut;</span>
+    }
+
+    public static RemoveButton getRemBut() {
+<span class="fc" id="L219">        return remBut;</span>
+    }
+    
+    public static void setAvailableViews(int viewIndex) {
+<span class="fc" id="L223">        MainWindow.availableViews.setSelectedIndex(viewIndex);;</span>
+<span class="fc" id="L224">    }</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

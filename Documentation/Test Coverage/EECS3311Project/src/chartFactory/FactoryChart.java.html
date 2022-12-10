@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>FactoryChart.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">chartFactory</a> &gt; <span class="el_source">FactoryChart.java</span></div><h1>FactoryChart.java</h1><pre class="source lang-java linenums">package chartFactory;
+import java.util.HashMap;
+
+import org.jfree.chart.JFreeChart;
+
+import fetchData.DataSet;
+
+<span class="fc" id="L8">public class FactoryChart {</span>
+    JFreeChart chart;
+    ChartCreator creator;
+    String title;
+    String yLabel;
+
+    public JFreeChart getChart(String chartType, String analysisType, HashMap&lt;String, DataSet&gt; analysis){
+<span class="fc" id="L15">        title = analysisType;</span>
+<span class="fc" id="L16">        yLabel = getY(analysisType);</span>
+
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        if (chartType.equals(&quot;Pie Chart&quot;) &amp;&amp;</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">            yLabel.equals(&quot;Average&quot;)){</span>
+<span class="fc" id="L20">            creator = new PieChartCreator();</span>
+<span class="fc" id="L21">            this.chart = creator.createChart(title, yLabel, analysis);</span>
+
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        }else if (chartType.equals(&quot;Line Chart&quot;) &amp;&amp;</span>
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">            !yLabel.equals(&quot;Average&quot;)){</span>
+<span class="fc" id="L25">            creator = new SeriesChartCreator();</span>
+<span class="fc" id="L26">            this.chart = creator.createChart(title, yLabel, analysis);</span>
+
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        }else if (chartType.equals(&quot;Bar Chart&quot;) &amp;&amp;</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">            !yLabel.equals(&quot;Average&quot;)){</span>
+<span class="fc" id="L30">            creator = new BarChartCreator();</span>
+<span class="fc" id="L31">            this.chart = creator.createChart(title, yLabel, analysis);</span>
+
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        }else if (chartType.equals(&quot;Scatter Chart&quot;) &amp;&amp;</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">            !yLabel.equals(&quot;Average&quot;)){</span>
+<span class="fc" id="L35">            creator = new ScatterChartCreator();</span>
+<span class="fc" id="L36">            this.chart = creator.createChart(title, yLabel, analysis);</span>
+
+        }
+
+<span class="fc" id="L40">        return chart;</span>
+    }
+    
+    
+    public String getY(String analysisType){
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (analysisType.equals(&quot;CO2 vs Energy vs Air Pollution&quot;)</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            || analysisType.equals(&quot;Air Pollution vs Forest Area&quot;)){</span>
+<span class="fc" id="L47">            return &quot;Annual Percentage&quot;;</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        }else if(analysisType.equals(&quot;CO2 vs GDP per Capita&quot;)</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">            || analysisType.equals(&quot;Current Health Expenditure vs Hospital Beds&quot;)){</span>
+<span class="fc" id="L50">            return &quot;Ratio&quot;;</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        }else if(analysisType.equals(&quot;Average Forest Area (% of Land Area)&quot;)</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">            || analysisType.equals(&quot;Average Government Expenditure on Education&quot;)){</span>
+<span class="fc" id="L53">            return &quot;Average&quot;;</span>
+        }
+<span class="fc" id="L55">        return &quot;&quot;;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

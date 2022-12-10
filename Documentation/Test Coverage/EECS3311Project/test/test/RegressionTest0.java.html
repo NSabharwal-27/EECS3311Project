@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>RegressionTest0.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">RegressionTest0.java</span></div><h1>RegressionTest0.java</h1><pre class="source lang-java linenums">package test;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+<span class="fc" id="L7">public class RegressionTest0 {</span>
+
+<span class="fc" id="L9">    public static boolean debug = false;</span>
+
+    @Test
+    public void test1() throws Throwable {
+<span class="pc bpc" id="L13" title="1 of 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L14">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test1&quot;);</span>
+<span class="fc" id="L15">        java.lang.Object obj0 = new java.lang.Object();</span>
+<span class="fc" id="L16">        java.lang.Class&lt;?&gt; wildcardClass1 = obj0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="fc" id="L18">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="fc" id="L19">    }</span>
+
+    @Test
+    public void test2() throws Throwable {
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">        if (debug)</span>
+<span class="nc" id="L24">            System.out.format(&quot;%n%s%n&quot;, &quot;RegressionTest0.test2&quot;);</span>
+<span class="fc" id="L25">        analysis.Analysis_Type1 analysis_Type1_0 = new analysis.Analysis_Type1();</span>
+<span class="fc" id="L26">        java.lang.Class&lt;?&gt; wildcardClass1 = analysis_Type1_0.getClass();</span>
+        // Regression assertion (captures the current behavior of the code)
+<span class="fc" id="L28">        org.junit.Assert.assertNotNull(wildcardClass1);</span>
+<span class="fc" id="L29">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

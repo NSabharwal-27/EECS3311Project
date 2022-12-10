@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Analysis_Type4.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">analysis</a> &gt; <span class="el_source">Analysis_Type4.java</span></div><h1>Analysis_Type4.java</h1><pre class="source lang-java linenums">package analysis;
+
+import java.util.HashMap;
+
+import fetchData.DataSet;
+import fetchData.FetchData;
+
+/**
+ * 1-series pie chart graph, the average of
+ *     1. Forest area (as % of land area) for the selected years
+ *     The rest percentage would be land for all other uses
+ */
+
+<span class="fc" id="L14">public class Analysis_Type4 implements AnalysisStrategy{</span>
+    
+    final static String FOREST_AREA_CODE = &quot;AG.LND.FRST.ZS&quot;;
+
+    public HashMap&lt;String, DataSet&gt; analysisExecute(int start, int end, String country){
+        
+     // Example: Country = Canada, from 2000 to 2020
+<span class="fc" id="L21">        String countryCode = country;</span>
+<span class="fc" id="L22">        int startYear = start;</span>
+<span class="fc" id="L23">        int endYear = end;</span>
+        
+<span class="fc" id="L25">        HashMap&lt;String, DataSet&gt; data = new HashMap&lt;String, DataSet&gt;();</span>
+<span class="fc" id="L26">        DataSet toReturn = new DataSet();</span>
+        
+<span class="fc" id="L28">        Double averageForestArea = calculateAverageForestArea(countryCode, startYear, endYear);</span>
+<span class="fc" id="L29">        toReturn.put(0, averageForestArea);</span>
+        //System.out.println(String.format(&quot;Average forest area: %.2f&quot;, averageForestArea));
+        
+<span class="fc" id="L32">        data.put(&quot;Average Forest Area&quot;, toReturn);</span>
+<span class="fc" id="L33">        return data;</span>
+    }
+    
+    private static Double calculateAverageForestArea(String countryCode, int startYear, int endYear)
+    {
+<span class="fc" id="L38">        DataSet rawData = FetchData.fetchData(countryCode, FOREST_AREA_CODE, startYear, endYear);</span>
+<span class="fc" id="L39">        return CalculateAverage.calculate(rawData);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

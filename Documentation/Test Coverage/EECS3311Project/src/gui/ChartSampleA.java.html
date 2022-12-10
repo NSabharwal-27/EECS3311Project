@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ChartSampleA.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">ChartSampleA.java</span></div><h1>ChartSampleA.java</h1><pre class="source lang-java linenums">package gui;
+
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+
+import analysis.AnalysisStrategy;
+import analysis.Analysis_Type1;
+import analysis.Analysis_Type2;
+import analysis.Analysis_Type3;
+import analysis.Analysis_Type4;
+import analysis.Analysis_Type5;
+import analysis.Analysis_Type6;
+import analysis.Analysis_Type7;
+import analysis.Analysis_Type8;
+import analysis.Context;
+import chartFactory.FactoryChart;
+import fetchData.DataSet;
+
+public class ChartSampleA implements Observer{
+<span class="fc" id="L27">    private RecalcButton subject = RecalcButton.getInstance();</span>
+    JFreeChart chart;
+    HashMap&lt;String, DataSet&gt; data;
+    public int start;
+    public int end;
+    public String country;
+    public String title;
+    public String report;
+    String thisAnalysis;
+
+    private static ChartSampleA instance;
+	
+	public static ChartSampleA getInstance() {
+<span class="fc bfc" id="L40" title="All 2 branches covered.">		if (instance == null) {</span>
+<span class="fc" id="L41">			instance = new  ChartSampleA();</span>
+		}
+<span class="fc" id="L43">		return instance;</span>
+	}
+
+<span class="fc" id="L46">    public ChartSampleA(){</span>
+<span class="fc" id="L47">        subject.register(this);</span>
+<span class="fc" id="L48">    }</span>
+
+    @Override
+    public void recalcUpdate(RecalcButton sub) {
+<span class="fc" id="L52">        System.out.println(&quot;recalc&quot; + analysis.toString());</span>
+<span class="fc" id="L53">        getFields();</span>
+        
+<span class="fc" id="L55">        ArrayList&lt;String&gt; list = MainWindow.requestedChartTypes;</span>
+<span class="fc" id="L56">        boolean flagReport = false;</span>
+
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (end &lt; start){</span>
+<span class="nc" id="L59">            MainWindow.requestedChartTypes.clear();</span>
+<span class="nc" id="L60">            new ErrorYears();</span>
+
+<span class="nc" id="L62">        }else{</span>
+
+<span class="fc bfc" id="L64" title="All 2 branches covered.">            for(String chartName : list){</span>
+
+<span class="fc" id="L66">                FactoryChart factory = new FactoryChart();</span>
+<span class="fc" id="L67">                chart = factory.getChart(chartName, title, data);</span>
+
+<span class="pc bpc" id="L69" title="2 of 4 branches missed.">                if (chart == null &amp;&amp; !chartName.equals(&quot;Report&quot;)) {</span>
+
+<span class="nc bnc" id="L71" title="All 4 branches missed.">                    if (list.contains(&quot;Report&quot;) &amp;&amp; !flagReport){</span>
+                        
+<span class="nc" id="L73">                        MainWindow.requestedChartTypes.clear();</span>
+<span class="nc" id="L74">                        MainWindow.requestedChartTypes.add(&quot;Report&quot;);</span>
+<span class="nc" id="L75">                        JTextArea textDescription = new JTextArea(report);</span>
+<span class="nc" id="L76">                        JScrollPane scrollPane = new JScrollPane(textDescription); </span>
+<span class="nc" id="L77">                        scrollPane.setName(&quot;Report&quot;);</span>
+<span class="nc" id="L78">                        MainWindow.chartHolder.add(scrollPane);</span>
+<span class="nc" id="L79">                        MainWindow frame = MainWindow.getInstance();</span>
+<span class="nc" id="L80">                        frame.setVisible(true);</span>
+
+<span class="nc bnc" id="L82" title="All 2 branches missed.">                    }else if (list.contains(&quot;Report&quot;)){</span>
+
+<span class="nc" id="L84">                        MainWindow.requestedChartTypes.clear();</span>
+<span class="nc" id="L85">                        MainWindow.requestedChartTypes.add(&quot;Report&quot;);</span>
+
+<span class="nc" id="L87">                    }else{</span>
+<span class="nc" id="L88">                        MainWindow.requestedChartTypes.clear();</span>
+                    }
+                    
+<span class="nc" id="L91">                    new ErrorChart();</span>
+<span class="nc" id="L92">                    break;</span>
+
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">                }else if (chartName.equals(&quot;Report&quot;)){</span>
+                    
+<span class="fc" id="L96">                    flagReport = true;</span>
+<span class="fc" id="L97">                    JTextArea textDescription = new JTextArea(report);</span>
+<span class="fc" id="L98">                    JScrollPane scrollPane = new JScrollPane(textDescription); </span>
+<span class="fc" id="L99">                    scrollPane.setName(&quot;Report&quot;);</span>
+<span class="fc" id="L100">                    MainWindow.chartHolder.add(scrollPane);</span>
+<span class="fc" id="L101">                    MainWindow frame = MainWindow.getInstance();</span>
+<span class="fc" id="L102">                    frame.setVisible(true);</span>
+
+<span class="fc" id="L104">                }else{</span>
+                    
+<span class="nc" id="L106">                    ChartPanel chartPanelSampleA = new ChartPanel(chart);</span>
+<span class="nc" id="L107">                    chartPanelSampleA.setName(chartName);</span>
+<span class="nc" id="L108">                    MainWindow.chartHolder.add(chartPanelSampleA);</span>
+<span class="nc" id="L109">                    MainWindow frame = MainWindow.getInstance();</span>
+<span class="nc" id="L110">                    frame.setVisible(true);</span>
+
+                }
+                
+            }
+        }
+
+<span class="fc" id="L117">    }</span>
+
+    @Override
+    public void addUpdate(AddButton sub) {
+<span class="fc" id="L121">        System.out.println(&quot;Add&quot; + analysis.toString());</span>
+
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">        if (end &lt; start){</span>
+<span class="nc" id="L124">            analysis.remove(0);</span>
+<span class="nc" id="L125">            MainWindow.requestedChartTypes.clear();</span>
+<span class="nc" id="L126">            new ErrorYears();</span>
+
+<span class="pc bfc" id="L128" title="All 2 branches covered.">        }else if(analysis.size() &gt; 0){</span>
+<span class="fc" id="L129">            thisAnalysis = analysis.get(0);</span>
+<span class="fc" id="L130">            analysis.remove(0);</span>
+
+<span class="pc bpc" id="L132" title="1 of 2 branches missed.">            if (title == null){</span>
+<span class="nc" id="L133">                MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());</span>
+<span class="nc" id="L134">                new ErrorRecalc();</span>
+
+<span class="pc bfc" id="L136" title="All 2 branches covered.">            } else if (thisAnalysis.equals(&quot;Report&quot;)){</span>
+<span class="fc" id="L137">                JTextArea textDescription = new JTextArea(report);</span>
+<span class="fc" id="L138">                JScrollPane scrollPane = new JScrollPane(textDescription);</span>
+<span class="fc" id="L139">                scrollPane.setName(&quot;Report&quot;); </span>
+<span class="fc" id="L140">                MainWindow.chartHolder.add(scrollPane);</span>
+<span class="fc" id="L141">                MainWindow frame = MainWindow.getInstance();</span>
+<span class="fc" id="L142">                frame.setVisible(true);</span>
+
+<span class="fc" id="L144">            }else{</span>
+<span class="fc" id="L145">                FactoryChart factory = new FactoryChart();</span>
+<span class="fc" id="L146">                chart = factory.getChart(thisAnalysis, title, data);</span>
+
+<span class="fc bfc" id="L148" title="All 2 branches covered.">                if (chart == null) {</span>
+<span class="fc" id="L149">                    MainWindow.requestedChartTypes.remove(MainWindow.getCurrentChart());</span>
+<span class="fc" id="L150">                    new ErrorChart();</span>
+
+<span class="fc" id="L152">                }else{</span>
+<span class="fc" id="L153">                    ChartPanel chartPanelSampleA = new ChartPanel(chart);</span>
+<span class="fc" id="L154">                    chartPanelSampleA.setName(thisAnalysis);</span>
+<span class="fc" id="L155">                    MainWindow.chartHolder.add(chartPanelSampleA);</span>
+<span class="fc" id="L156">                    MainWindow frame = MainWindow.getInstance();</span>
+<span class="fc" id="L157">                    frame.setVisible(true);</span>
+                }
+            }
+        }
+        
+<span class="fc" id="L162">    }</span>
+
+    @Override
+    public void remUpdate(RemoveButton sub) {
+<span class="fc" id="L166">        System.out.println(&quot;Rem&quot; + MainWindow.getCurrentChart());</span>
+        
+<span class="fc" id="L168">        String chartToRemove = MainWindow.getCurrentChart();</span>
+
+        //Get the components in the panel
+<span class="fc" id="L171">        Component[] componentList = MainWindow.chartHolder.getComponents();</span>
+
+        //Loop through the components
+<span class="fc bfc" id="L174" title="All 2 branches covered.">        for(Component c : componentList){</span>
+
+            //Find the components to remove
+<span class="fc bfc" id="L177" title="All 2 branches covered.">            if(c.getName().equals(chartToRemove)){</span>
+
+                //Remove it
+<span class="fc" id="L180">                MainWindow.chartHolder.remove(c);</span>
+            }
+        }
+
+        //IMPORTANT
+<span class="fc" id="L185">        MainWindow.chartHolder.revalidate();</span>
+<span class="fc" id="L186">        MainWindow.chartHolder.repaint();</span>
+        
+<span class="fc" id="L188">    }</span>
+
+    @Override
+    public void getFields(){
+<span class="fc" id="L192">        start = MainWindow.getStartYear();</span>
+<span class="fc" id="L193">        end = MainWindow.getEndYear();</span>
+<span class="fc" id="L194">        country = MainWindow.getCountryCode();</span>
+<span class="fc" id="L195">        title = MainWindow.getAnalysisType();</span>
+
+<span class="fc" id="L197">        Context context = new Context(getAnalysisObj());</span>
+<span class="fc" id="L198">        data = context.callExecute(start, end, country);</span>
+        
+<span class="fc" id="L200">        report = getReport();</span>
+<span class="fc" id="L201">    }</span>
+
+    @Override
+    public AnalysisStrategy getAnalysisObj(){
+<span class="fc bfc" id="L205" title="All 2 branches covered.">        if (title.equals(MainWindow.analysisTypes[0])){</span>
+<span class="fc" id="L206">            return new Analysis_Type1();</span>
+
+<span class="fc bfc" id="L208" title="All 2 branches covered.">        } else if (title.equals(MainWindow.analysisTypes[1])){</span>
+<span class="fc" id="L209">            return new Analysis_Type2();</span>
+
+<span class="fc bfc" id="L211" title="All 2 branches covered.">        } else if (title.equals(MainWindow.analysisTypes[2])){</span>
+<span class="fc" id="L212">            return new Analysis_Type3();</span>
+
+<span class="fc bfc" id="L214" title="All 2 branches covered.">        }else if (title.equals(MainWindow.analysisTypes[3])){</span>
+<span class="fc" id="L215">            return new Analysis_Type4();</span>
+            
+<span class="fc bfc" id="L217" title="All 2 branches covered.">        }else if (title.equals(MainWindow.analysisTypes[4])){</span>
+<span class="fc" id="L218">            return new Analysis_Type5();</span>
+            
+<span class="fc bfc" id="L220" title="All 2 branches covered.">        }else if (title.equals(MainWindow.analysisTypes[5])){</span>
+<span class="fc" id="L221">            return new Analysis_Type6();</span>
+            
+<span class="fc bfc" id="L223" title="All 2 branches covered.">        }else if (title.equals(MainWindow.analysisTypes[6])){</span>
+<span class="fc" id="L224">            return new Analysis_Type7();</span>
+            
+<span class="pc bpc" id="L226" title="1 of 2 branches missed.">        }else if (title.equals(MainWindow.analysisTypes[7])){</span>
+<span class="fc" id="L227">            return new Analysis_Type8();</span>
+            
+        }else{
+<span class="nc" id="L230">            return null;</span>
+        }
+    }
+
+    @Override
+    public String getReport() {
+<span class="pc bpc" id="L236" title="1 of 4 branches missed.">        if (title.equals(MainWindow.analysisTypes[3]) || title.equals(MainWindow.analysisTypes[4])){</span>
+<span class="fc" id="L237">            report = title + &quot;\n===================================\n&quot;;</span>
+
+<span class="fc bfc" id="L239" title="All 2 branches covered.">            for (String i : data.keySet()){</span>
+<span class="fc" id="L240">                DataSet newData = data.get(i);</span>
+<span class="fc" id="L241">                report = report.concat(i + &quot;:\n&quot;);</span>
+<span class="fc" id="L242">                report = report.concat(&quot;\t Average =&gt; &quot; + newData.get(0) + &quot;\n&quot;);</span>
+            }
+
+<span class="fc" id="L245">            report = report.concat(&quot;\n&quot;);</span>
+            
+<span class="fc" id="L247">        }else{</span>
+<span class="fc" id="L248">            report = title + &quot;\n===================================\n&quot;;</span>
+<span class="fc bfc" id="L249" title="All 2 branches covered.">            for (int year = start; year &lt;= end; year++){</span>
+<span class="fc" id="L250">                report = report.concat(&quot;Year &quot; + year + &quot;:\n&quot;);</span>
+
+<span class="fc bfc" id="L252" title="All 2 branches covered.">                for (String i : data.keySet()){</span>
+<span class="fc" id="L253">                    DataSet newData = data.get(i);</span>
+<span class="fc" id="L254">                    report = report.concat(&quot;\t&quot; + i + &quot; =&gt; &quot; + newData.get(year) + &quot;\n&quot;);</span>
+                }
+
+<span class="fc" id="L257">                report = report.concat(&quot;\n&quot;);</span>
+            }
+        }
+<span class="fc" id="L260">        return report;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

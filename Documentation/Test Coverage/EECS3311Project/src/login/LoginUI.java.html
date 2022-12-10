@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>LoginUI.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">login</a> &gt; <span class="el_source">LoginUI.java</span></div><h1>LoginUI.java</h1><pre class="source lang-java linenums">package login;
+
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+import gui.MainWindow;
+
+// Uses Singleton Design Pattern
+public class LoginUI extends JFrame implements ActionListener{
+
+	private static final long serialVersionUID = 1L;
+	
+	private static JLabel usernameLabel;
+	private static JTextField usernameText;
+	private static JLabel passwordLabel;
+	private static JPasswordField passwordText;
+	private static JButton submitButton;
+
+	private static LoginUI instance;
+	
+	public static LoginUI getInstance() {
+<span class="fc bfc" id="L33" title="All 2 branches covered.">		if (instance == null) {</span>
+<span class="fc" id="L34">			instance = new  LoginUI();</span>
+		}
+<span class="fc" id="L36">		return instance;</span>
+	}
+	
+<span class="fc" id="L39">	private LoginUI() {</span>
+
+<span class="fc" id="L41">		JPanel panel = new JPanel();</span>
+<span class="fc" id="L42">		panel.setPreferredSize(new Dimension(350, 150));</span>
+<span class="fc" id="L43">		this.getContentPane().add(panel);</span>
+<span class="fc" id="L44">		this.pack();</span>
+<span class="fc" id="L45">		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L46">        this.setLocationRelativeTo(null);</span>
+<span class="fc" id="L47">		this.add(panel);</span>
+<span class="fc" id="L48">		panel.setLayout(null);</span>
+		
+<span class="fc" id="L50">		usernameLabel = new JLabel(&quot;Username:&quot;);</span>
+<span class="fc" id="L51">		usernameLabel.setBounds(10, 20, 80, 25);</span>
+<span class="fc" id="L52">		panel.add(usernameLabel);</span>
+		
+<span class="fc" id="L54">		usernameText = new JTextField(20);</span>
+<span class="fc" id="L55">		usernameText.setBounds(100, 20, 200, 25);</span>
+<span class="fc" id="L56">		panel.add(usernameText);</span>
+		
+<span class="fc" id="L58">		passwordLabel = new JLabel(&quot;Password:&quot;);</span>
+<span class="fc" id="L59">		passwordLabel.setBounds(10, 50, 80, 25);</span>
+<span class="fc" id="L60">		panel.add(passwordLabel);</span>
+		
+<span class="fc" id="L62">		passwordText = new JPasswordField();</span>
+<span class="fc" id="L63">		passwordText.setBounds(100, 50, 200, 25);</span>
+<span class="fc" id="L64">		panel.add(passwordText);</span>
+
+<span class="fc" id="L66">		submitButton = new JButton(&quot;Submit!&quot;);</span>
+<span class="fc" id="L67">		submitButton.setBounds(150, 80, 100, 25);</span>
+<span class="fc" id="L68">		submitButton.addActionListener(this);</span>
+<span class="fc" id="L69">		panel.add(submitButton);</span>
+<span class="fc" id="L70">	}</span>
+	
+	public static JTextField getUsernameText() {
+<span class="fc" id="L73">		return usernameText;</span>
+	}
+
+	public static void setUsernameText(JTextField usernameText) {
+<span class="fc" id="L77">		LoginUI.usernameText = usernameText;</span>
+<span class="fc" id="L78">	}</span>
+
+	public static JPasswordField getPasswordText() {
+<span class="fc" id="L81">		return passwordText;</span>
+	}
+
+	public static void setPasswordText(JPasswordField passwordText) {
+<span class="fc" id="L85">		LoginUI.passwordText = passwordText;</span>
+<span class="fc" id="L86">	}</span>
+
+	public static JButton getSubmitButton() {
+<span class="fc" id="L89">		return submitButton;</span>
+	}
+
+	public static void setSubmitButton(JButton submitButton) {
+<span class="fc" id="L93">		LoginUI.submitButton = submitButton;</span>
+<span class="fc" id="L94">	}</span>
+	
+	@Override
+	public void actionPerformed(ActionEvent event) {
+<span class="nc" id="L98">		String username = usernameText.getText().trim();</span>
+<span class="nc" id="L99">		String password = String.valueOf(passwordText.getPassword()).trim();</span>
+
+		try {
+<span class="nc bnc" id="L102" title="All 2 branches missed.">			if(checkUsenameAndPassword(username, password)) {</span>
+<span class="nc" id="L103">				this.dispose();</span>
+<span class="nc" id="L104">				MainWindow.getInstance();</span>
+<span class="nc" id="L105">			}</span>
+			else {
+<span class="nc" id="L107">				new ErrorLogin();</span>
+			}
+<span class="nc" id="L109">		} catch (IOException error) {</span>
+<span class="nc" id="L110">			error.printStackTrace();</span>
+		}
+<span class="nc" id="L112">	}</span>
+	
+	public boolean checkUsenameAndPassword(String username, String password) throws IOException {
+<span class="fc" id="L115">		boolean userFound = false;</span>
+<span class="fc" id="L116">		String line = &quot;&quot;;  </span>
+<span class="fc" id="L117">		String splitBy = &quot;,&quot;; </span>
+		
+<span class="fc" id="L119">		try (BufferedReader br = new BufferedReader(new FileReader(&quot;src/userData.csv&quot;))) {</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">			while((line = br.readLine()) != null) {</span>
+<span class="fc" id="L121">				String user = line.split(splitBy)[0];</span>
+<span class="fc" id="L122">				String pass = line.split(splitBy)[1];</span>
+				
+<span class="pc bpc" id="L124" title="1 of 4 branches missed.">				if(username.equalsIgnoreCase(user) &amp;&amp; password.equals(pass)) {</span>
+<span class="fc" id="L125">					userFound = true;</span>
+<span class="fc" id="L126">					break;</span>
+				}
+			}
+		}
+		
+<span class="fc" id="L131">		return userFound;</span>
+	}
+
+	public static void main(String[] args) {
+		
+<span class="nc" id="L136">		JFrame frame = LoginUI.getInstance();</span>
+<span class="nc" id="L137">		frame.setVisible(true);</span>
+		
+<span class="nc" id="L139">	}</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

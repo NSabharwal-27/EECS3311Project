@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ErrorRecalc.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">ErrorRecalc.java</span></div><h1>ErrorRecalc.java</h1><pre class="source lang-java linenums">package gui;
+
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class ErrorRecalc extends JFrame implements ActionListener{
+    private JLabel errorLabel;
+	private JButton okButton;
+	private static ErrorRecalc instance;
+	
+	public static ErrorRecalc getInstance()
+	{
+<span class="nc bnc" id="L19" title="All 2 branches missed.">	    if (instance == null)</span>
+<span class="nc" id="L20">	        instance = new ErrorRecalc();</span>
+<span class="nc" id="L21">	    return instance;</span>
+	}
+
+<span class="fc" id="L24">    public ErrorRecalc(){</span>
+<span class="fc" id="L25">		JPanel panel = new JPanel();</span>
+<span class="fc" id="L26">		panel.setPreferredSize(new Dimension(490, 100));</span>
+<span class="fc" id="L27">		this.getContentPane().add(panel);</span>
+<span class="fc" id="L28">		this.pack();</span>
+<span class="fc" id="L29">		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L30">        this.setLocationRelativeTo(null);</span>
+<span class="fc" id="L31">		this.add(panel);</span>
+<span class="fc" id="L32">		panel.setLayout(null);</span>
+<span class="fc" id="L33">        this.setVisible(true);</span>
+
+<span class="fc" id="L35">		errorLabel = new JLabel(&quot;You can't start adding charts without pressing recalculate. Please retry!&quot;);</span>
+<span class="fc" id="L36">		errorLabel.setBounds(20, 20, 450, 20);</span>
+<span class="fc" id="L37">		panel.add(errorLabel);</span>
+
+<span class="fc" id="L39">		okButton = new JButton(&quot;Okay&quot;);</span>
+<span class="fc" id="L40">		okButton.setBounds(180, 50, 100, 25);</span>
+<span class="fc" id="L41">		okButton.addActionListener(this);</span>
+<span class="fc" id="L42">		panel.add(okButton);</span>
+<span class="fc" id="L43">		instance = this;</span>
+<span class="fc" id="L44">	}</span>
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L48">        this.dispose();</span>
+<span class="nc" id="L49">    }</span>
+    
+    public static boolean isCreated()
+    {
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">        return ErrorRecalc.instance != null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

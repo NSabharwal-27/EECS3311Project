@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Analysis_Type7.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">analysis</a> &gt; <span class="el_source">Analysis_Type7.java</span></div><h1>Analysis_Type7.java</h1><pre class="source lang-java linenums">package analysis;
+
+import java.util.HashMap;
+
+import fetchData.DataSet;
+import fetchData.FetchData;
+
+// 2 Series Graph
+// 		1. Problems in accessing health care (getting money for treatment) (% of women): Q1 (lowest wealth)
+//		2. Mortality rate, infant (per 1,000 live births)
+// Here we only need to return the raw data with no analysis
+
+<span class="fc" id="L13">public class Analysis_Type7 implements AnalysisStrategy{</span>
+
+    final static String PROBLEMS_ACCESSING_HEALTH_CODE = &quot;SH.ACS.MONY.Q1.ZS&quot;;
+    final static String INFANT_MORTALITY_RATE_CODE = &quot;SP.DYN.IMRT.IN&quot;;
+
+    public HashMap&lt;String, DataSet&gt; analysisExecute(int start, int end, String country) {
+
+        // Example: Country = Canada, from 2000 to 2020
+<span class="fc" id="L21">        String countryCode = country;</span>
+<span class="fc" id="L22">        int startYear = start;</span>
+<span class="fc" id="L23">        int endYear = end;</span>
+        
+<span class="fc" id="L25">        HashMap&lt;String, DataSet&gt; data = new HashMap&lt;String, DataSet&gt;();</span>
+
+        // Problems in accessing health care (getting money for treatment) (% of women):
+        // Q1 (lowest wealth)
+<span class="fc" id="L29">        DataSet problemsAccessingHealth = calculateProblemsAccessingHealthCare(countryCode, startYear, endYear);</span>
+        //System.out.println(&quot;\nProblems in Accessing Health Care in Q1 as a % of Women in: &quot; + countryCode + &quot;\n----------------------&quot;);
+        //System.out.println(problemsAccessingHealth);
+
+        // Mortality rate, infant (per 1,000 live births)
+       // System.out.println(&quot;\n\n-----------------\n\n&quot;);
+<span class="fc" id="L35">        DataSet infantMortalityRate = calculateInfantMortalityRate(countryCode, startYear, endYear);</span>
+        //System.out.println(&quot;\nMortality Rates in Infants per 1,000 Births in: &quot; + countryCode + &quot;\n----------------------&quot;);
+        //System.out.println(infantMortalityRate);
+        
+<span class="fc" id="L39">        data.put(&quot;Problems Accessing Healthcare&quot;, problemsAccessingHealth);</span>
+<span class="fc" id="L40">        data.put(&quot;Infant Mortality Rate&quot;, infantMortalityRate);</span>
+        
+<span class="fc" id="L42">        return data;</span>
+    }
+
+    private static DataSet calculateProblemsAccessingHealthCare(String countryCode, int startYear, int endYear) {
+<span class="fc" id="L46">        return FetchData.fetchData(countryCode, PROBLEMS_ACCESSING_HEALTH_CODE, startYear, endYear); // Data from fetch</span>
+    }
+
+    private static DataSet calculateInfantMortalityRate(String countryCode, int startYear, int endYear) {
+<span class="fc" id="L50">        return FetchData.fetchData(countryCode, INFANT_MORTALITY_RATE_CODE, startYear, endYear); // Data from fetch</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

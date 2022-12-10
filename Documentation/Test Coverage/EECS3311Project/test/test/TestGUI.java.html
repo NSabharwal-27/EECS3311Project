@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestGUI.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">TestGUI.java</span></div><h1>TestGUI.java</h1><pre class="source lang-java linenums">package test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.awt.Component;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import org.jfree.chart.ChartPanel;
+import org.junit.Test;
+
+import analysis.Analysis_Type1;
+import analysis.Analysis_Type2;
+import analysis.Analysis_Type3;
+import analysis.Analysis_Type4;
+import analysis.Analysis_Type5;
+import analysis.Analysis_Type6;
+import analysis.Analysis_Type7;
+import analysis.Analysis_Type8;
+import gui.ChartSampleA;
+import gui.ErrorChart;
+import gui.ErrorRecalc;
+import gui.MainWindow;
+
+<span class="fc" id="L32">public class TestGUI {</span>
+
+    
+       // Main Window
+       @Test
+       public void testBasics()
+       {
+<span class="fc" id="L39">           MainWindow window = new MainWindow();</span>
+<span class="fc" id="L40">           assertEquals(window.getTitle(), &quot;World Banker&quot;);</span>
+<span class="fc" id="L41">           assertEquals(window.getDefaultCloseOperation(), JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L42">           assertFalse(window.isResizable());</span>
+<span class="fc" id="L43">           window.dispose();</span>
+<span class="fc" id="L44">       }</span>
+       
+       //Chart Sample A Testing
+       @Test
+       public void testDetermineAnalysisType()
+       {
+           //Default Analysis Type
+<span class="fc" id="L51">           MainWindow window = new MainWindow();</span>
+<span class="fc" id="L52">           ChartSampleA chartSample = ChartSampleA.getInstance();</span>
+<span class="fc" id="L53">           chartSample.getFields();</span>
+<span class="fc" id="L54">           assertEquals(Analysis_Type1.class, chartSample.getAnalysisObj().getClass());</span>
+           
+           //Test Specific 
+<span class="fc" id="L57">           MainWindow.setAnalysisType(&quot;Government Expenditure on Education vs Health Expenditure&quot;);</span>
+<span class="fc" id="L58">           chartSample.getFields();</span>
+<span class="fc" id="L59">           assertEquals(Analysis_Type8.class, chartSample.getAnalysisObj().getClass());</span>
+<span class="fc" id="L60">           window.dispose();</span>
+<span class="fc" id="L61">       }</span>
+       
+      @Test
+      public void testProcess() throws Exception
+      {
+<span class="fc" id="L66">          MainWindow window = MainWindow.getInstance();</span>
+
+          //Test Default Values in Main Window
+<span class="fc" id="L69">          assertEquals(&quot;Brazil&quot;, MainWindow.getCountryCode());</span>
+<span class="fc" id="L70">          assertEquals(2005, MainWindow.getStartYear());</span>
+<span class="fc" id="L71">          assertEquals(2020, MainWindow.getEndYear());</span>
+<span class="fc" id="L72">          assertTrue(MainWindow.getRequestedChartTypes().isEmpty()); </span>
+<span class="fc" id="L73">          assertEquals(&quot;Pie Chart&quot;, MainWindow.getCurrentChart());</span>
+<span class="fc" id="L74">          assertEquals(&quot;CO2 vs Energy vs Air Pollution&quot;, MainWindow.getAnalysisType());</span>
+          
+          //Assert that ChartHolder currently contains the JLabel.
+<span class="fc" id="L77">          assertEquals(JLabel.class, MainWindow.getChartHolder().getComponent(0).getClass());</span>
+           
+          //Change View to Line Chart
+<span class="fc" id="L80">          MainWindow.setAvailableViews(1);</span>
+<span class="fc" id="L81">          Thread.sleep(500);</span>
+<span class="fc" id="L82">          assertEquals(&quot;Line Chart&quot;, MainWindow.getCurrentChart());</span>
+
+          //Recalculate
+<span class="fc" id="L85">          MainWindow.getRecalcBut().recalculate.doClick();</span>
+<span class="fc" id="L86">          Thread.sleep(500);</span>
+
+          //Add Chart
+<span class="fc" id="L89">          MainWindow.getAddBut().addView.doClick();</span>
+<span class="fc" id="L90">          Thread.sleep(500);</span>
+<span class="fc" id="L91">          assertEquals(ChartPanel.class, MainWindow.getChartHolder().getComponent(0).getClass());</span>
+<span class="fc" id="L92">          Thread.sleep(500);</span>
+          
+          //Change View to Bar Chart
+<span class="fc" id="L95">          MainWindow.setAvailableViews(2);</span>
+<span class="fc" id="L96">          Thread.sleep(500);</span>
+<span class="fc" id="L97">          assertEquals(&quot;Bar Chart&quot;, MainWindow.getCurrentChart());</span>
+          
+          //Add Chart
+<span class="fc" id="L100">          MainWindow.getAddBut().addView.doClick();</span>
+<span class="fc" id="L101">          assertEquals(2,  MainWindow.getChartHolder().getComponentCount());</span>
+<span class="fc" id="L102">          assertEquals(ChartPanel.class, MainWindow.getChartHolder().getComponent(1).getClass());</span>
+<span class="fc" id="L103">          Thread.sleep(500);</span>
+          
+          //Remove Bar Chart
+<span class="fc" id="L106">          MainWindow.getRemBut().removeView.doClick();</span>
+<span class="fc" id="L107">          assertEquals(1,  MainWindow.getChartHolder().getComponentCount());</span>
+
+          //Remove Line Chart
+<span class="fc" id="L110">          MainWindow.setAvailableViews(1);</span>
+<span class="fc" id="L111">          MainWindow.getRemBut().removeView.doClick();</span>
+<span class="fc" id="L112">          assertEquals(0,  MainWindow.getChartHolder().getComponentCount());</span>
+          
+<span class="fc" id="L114">          window.dispose();</span>
+<span class="fc" id="L115">      }</span>
+       
+       @Test
+       public void testErrorRecalcCreation() throws Exception
+       {
+<span class="fc" id="L120">           MainWindow window = new MainWindow();</span>
+<span class="fc" id="L121">           Thread.sleep(500);</span>
+<span class="fc" id="L122">           MainWindow.getAddBut().addView.doClick();</span>
+<span class="fc" id="L123">           Thread.sleep(500);</span>
+<span class="fc" id="L124">           assertTrue(ErrorRecalc.isCreated());</span>
+<span class="fc" id="L125">           window.dispose();</span>
+<span class="fc" id="L126">       }</span>
+       
+       @Test
+       public void testErrorRecalc()
+       {
+<span class="fc" id="L131">           ErrorRecalc error = new ErrorRecalc();</span>
+<span class="fc" id="L132">           JPanel panel = (JPanel) error.getContentPane().getComponent(0);</span>
+<span class="fc" id="L133">           Component[] components = panel.getComponents();</span>
+<span class="fc" id="L134">           assertEquals(2, components.length);</span>
+<span class="fc" id="L135">           assertEquals(JLabel.class, components[0].getClass());</span>
+<span class="fc" id="L136">           assertEquals(JButton.class, components[1].getClass());</span>
+           
+<span class="fc" id="L138">           JLabel label = (JLabel) components[0];</span>
+<span class="fc" id="L139">           assertEquals(&quot;You can't start adding charts without pressing recalculate. Please retry!&quot;, label.getText());</span>
+<span class="fc" id="L140">           JButton button = (JButton) components[1];</span>
+<span class="fc" id="L141">           assertEquals(&quot;Okay&quot;, button.getText());</span>
+<span class="fc" id="L142">           error.dispose();</span>
+<span class="fc" id="L143">       }</span>
+       
+       @Test public void testErrorChart()
+       {
+<span class="fc" id="L147">           ErrorChart error = new ErrorChart();</span>
+<span class="fc" id="L148">           JPanel panel = (JPanel) error.getContentPane().getComponent(0);</span>
+<span class="fc" id="L149">           Component[] components = panel.getComponents();</span>
+<span class="fc" id="L150">           assertEquals(2, components.length);</span>
+<span class="fc" id="L151">           assertEquals(JLabel.class, components[0].getClass());</span>
+<span class="fc" id="L152">           assertEquals(JButton.class, components[1].getClass());</span>
+           
+<span class="fc" id="L154">           JLabel label = (JLabel) components[0];</span>
+<span class="fc" id="L155">           assertEquals(&quot;The chart type chosen in incompatable with the analysis. Please retry!&quot;, label.getText());</span>
+<span class="fc" id="L156">           JButton button = (JButton) components[1];</span>
+<span class="fc" id="L157">           assertEquals(&quot;Okay&quot;, button.getText());</span>
+<span class="fc" id="L158">           error.dispose();</span>
+<span class="fc" id="L159">       }</span>
+       
+       @Test
+       public void testGetAnalysisObj()
+       {
+<span class="fc" id="L164">           ChartSampleA chartSample = new ChartSampleA();</span>
+           
+<span class="fc" id="L166">           chartSample.title = &quot;CO2 vs Energy vs Air Pollution&quot;;</span>
+<span class="fc" id="L167">           assertEquals(Analysis_Type1.class, chartSample.getAnalysisObj().getClass());</span>
+           
+<span class="fc" id="L169">           chartSample.title = &quot;Air Pollution vs Forest Area&quot;;</span>
+<span class="fc" id="L170">           assertEquals(Analysis_Type2.class, chartSample.getAnalysisObj().getClass());</span>
+           
+<span class="fc" id="L172">           chartSample.title = &quot;CO2 vs GDP per Capita&quot;;</span>
+<span class="fc" id="L173">           assertEquals(Analysis_Type3.class, chartSample.getAnalysisObj().getClass());</span>
+           
+<span class="fc" id="L175">           chartSample.title = &quot;Average Forest Area (% of Land Area)&quot;;</span>
+<span class="fc" id="L176">           assertEquals(Analysis_Type4.class, chartSample.getAnalysisObj().getClass());</span>
+           
+<span class="fc" id="L178">           chartSample.title = &quot;Average Government Expenditure on Education&quot;;</span>
+<span class="fc" id="L179">           assertEquals(Analysis_Type5.class, chartSample.getAnalysisObj().getClass());</span>
+           
+<span class="fc" id="L181">           chartSample.title = &quot;Current Health Expenditure vs Hospital Beds&quot;;</span>
+<span class="fc" id="L182">           assertEquals(Analysis_Type6.class, chartSample.getAnalysisObj().getClass());</span>
+           
+<span class="fc" id="L184">           chartSample.title = &quot;Problems in Accessing Health Care vs Infant Mortality&quot;;</span>
+<span class="fc" id="L185">           assertEquals(Analysis_Type7.class, chartSample.getAnalysisObj().getClass());</span>
+           
+<span class="fc" id="L187">           chartSample.title = &quot;Government Expenditure on Education vs Health Expenditure&quot;;</span>
+<span class="fc" id="L188">           assertEquals(Analysis_Type8.class, chartSample.getAnalysisObj().getClass());</span>
+<span class="fc" id="L189">       }    </span>
+       
+       @Test
+       public void testReport() throws Exception
+       {
+<span class="fc" id="L194">           MainWindow window = MainWindow.getInstance();</span>
+
+           //Recalculate
+<span class="fc" id="L197">           MainWindow.getRecalcBut().recalculate.doClick();</span>
+<span class="fc" id="L198">           Thread.sleep(500);</span>
+           
+           //Change View to Report
+<span class="fc" id="L201">           MainWindow.setAvailableViews(4);</span>
+<span class="fc" id="L202">           Thread.sleep(500);</span>
+<span class="fc" id="L203">           assertEquals(&quot;Report&quot;, MainWindow.getCurrentChart());</span>
+           
+           //Add Chart
+<span class="fc" id="L206">           MainWindow.getAddBut().addView.doClick();</span>
+<span class="fc" id="L207">           Thread.sleep(500);</span>
+           
+           //Verify Report
+<span class="fc" id="L210">           assertEquals(JScrollPane.class, MainWindow.getChartHolder().getComponent(0).getClass());</span>
+<span class="fc" id="L211">           JScrollPane pane = (JScrollPane) MainWindow.getChartHolder().getComponent(0);</span>
+<span class="fc" id="L212">           assertEquals(&quot;Report&quot;, pane.getName());</span>
+<span class="fc" id="L213">           assertEquals(JTextArea.class, pane.getViewport().getView().getClass());</span>
+<span class="fc" id="L214">           JTextArea text = (JTextArea) pane.getViewport().getView();</span>
+<span class="fc" id="L215">           assertTrue(text.getText().contains(&quot;CO2 vs Energy vs Air Pollution&quot;));</span>
+           
+           //Change Analysis Type
+<span class="fc" id="L218">           MainWindow.setAnalysisType(&quot;Average Forest Area (% of Land Area)&quot;);</span>
+<span class="fc" id="L219">           Thread.sleep(500);</span>
+           
+           //Recalculate
+<span class="fc" id="L222">           MainWindow.getRecalcBut().recalculate.doClick();</span>
+<span class="fc" id="L223">           Thread.sleep(500);</span>
+           
+         //Verify Report
+<span class="fc" id="L226">           assertEquals(JScrollPane.class, MainWindow.getChartHolder().getComponent(0).getClass());</span>
+<span class="fc" id="L227">           pane = (JScrollPane) MainWindow.getChartHolder().getComponent(0);</span>
+<span class="fc" id="L228">           assertEquals(&quot;Report&quot;, pane.getName());</span>
+<span class="fc" id="L229">           assertEquals(JTextArea.class, pane.getViewport().getView().getClass());</span>
+<span class="fc" id="L230">           text = (JTextArea) pane.getViewport().getView();</span>
+<span class="fc" id="L231">           assertTrue(text.getText().contains(&quot;Average Forest Area (% of Land Area)&quot;));</span>
+           
+                      
+<span class="fc" id="L234">           window.dispose();</span>
+           
+<span class="fc" id="L236">       }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

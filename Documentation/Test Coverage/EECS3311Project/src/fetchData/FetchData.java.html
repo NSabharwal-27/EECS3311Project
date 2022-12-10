@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>FetchData.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">fetchData</a> &gt; <span class="el_source">FetchData.java</span></div><h1>FetchData.java</h1><pre class="source lang-java linenums">package fetchData;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
+
+<span class="nc" id="L10">public class FetchData {</span>
+   
+    private static HttpURLConnection connection;
+
+    /**
+     * Fetches data from WorldBank.org for the specified country code, indicator,
+     * and year range. Returns a HashMap&lt;Integer, Double&gt; in the format (year,
+     * value).
+     * 
+     * @param countryCode - Official country code as per WorldBank
+     * @param indicator   - Official indicator code as per WorldBank
+     * @param startYear   - Start year for data, represented as an integer. e.g. 1970
+     *
+     * @param endYear     - End year for data, represented as an integer. e.g. 2015
+     * @return HashMap&lt;Integer, Double&gt; in the format of &lt;year, value&gt;. A year with
+     *         an undefined value returns null as the value.
+     */
+    public static DataSet fetchData(String countryCode, String indicator, int startYear, int endYear) {
+<span class="fc" id="L28">        String mappedCode = mapCode(countryCode);</span>
+<span class="fc" id="L29">        String urlString = String.format(&quot;http://api.worldbank.org/v2/country/%s/indicator/%s?date=%d:%d&amp;format=json&quot;,</span>
+<span class="fc" id="L30">                mappedCode, indicator, startYear, endYear);</span>
+
+        try {
+<span class="fc" id="L33">            URL url = new URL(urlString);</span>
+<span class="fc" id="L34">            connection = (HttpURLConnection) url.openConnection();</span>
+<span class="fc" id="L35">            connection.setRequestMethod(&quot;GET&quot;);</span>
+<span class="fc" id="L36">            connection.connect();</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">            if (connection.getResponseCode() == 200) { // Successful</span>
+
+                // Read response into JsonArray
+<span class="fc" id="L40">                String info = &quot;&quot;;</span>
+<span class="fc" id="L41">                Scanner urlScanner = new Scanner(url.openStream());</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">                while (urlScanner.hasNext()) {</span>
+<span class="fc" id="L43">                    info += urlScanner.nextLine();</span>
+                }
+<span class="fc" id="L45">                urlScanner.close();</span>
+<span class="fc" id="L46">                JsonArray jsonArray = new JsonParser().parse(info).getAsJsonArray();</span>
+<span class="fc" id="L47">                DataSet data = new DataSet(jsonArray, countryCode, indicator, startYear, endYear);</span>
+<span class="fc" id="L48">                connection.disconnect();</span>
+<span class="fc" id="L49">                return data;</span>
+            } else { // Unsuccessful connection
+<span class="nc" id="L51">                System.out.println(&quot;Connection Error: &quot; + connection.getResponseCode() + &quot; URL: &quot; + urlString);</span>
+<span class="nc" id="L52">                return null;</span>
+            }
+<span class="fc" id="L54">        } catch (Exception E) {</span>
+<span class="fc" id="L55">            return null;</span>
+        }
+    }
+    
+    private static String mapCode(String countryCode) {
+<span class="fc" id="L60">        String toReturn = &quot;&quot;;</span>
+        
+<span class="pc bpc" id="L62" title="2 of 6 branches missed.">        switch (countryCode.toLowerCase()) {</span>
+            case &quot;canada&quot;:
+<span class="fc" id="L64">                toReturn = &quot;CAN&quot;;</span>
+<span class="fc" id="L65">                break;</span>
+            case &quot;china&quot;:
+<span class="nc" id="L67">                toReturn = &quot;CHN&quot;;</span>
+<span class="nc" id="L68">                break;</span>
+            case &quot;brazil&quot;:
+<span class="fc" id="L70">                toReturn = &quot;BRA&quot;;</span>
+<span class="fc" id="L71">                break;</span>
+            case &quot;france&quot;:
+<span class="nc" id="L73">                toReturn = &quot;FRA&quot;;</span>
+<span class="nc" id="L74">                break;</span>
+            case &quot;usa&quot;:
+<span class="fc" id="L76">                toReturn = &quot;USA&quot;;</span>
+                break;
+        }
+   
+<span class="fc" id="L80">        return toReturn;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

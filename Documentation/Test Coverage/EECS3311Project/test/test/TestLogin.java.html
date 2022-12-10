@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestLogin.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">TestLogin.java</span></div><h1>TestLogin.java</h1><pre class="source lang-java linenums">package test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.awt.Component;
+import java.io.IOException;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+import org.junit.jupiter.api.Test;
+
+import login.ErrorLogin;
+import login.LoginUI;
+
+<span class="fc" id="L21">public class TestLogin {</span>
+	
+	/**
+	 * Asserts a correct user name as a string, and correct password as a string with valid characters
+	 * Expected: True
+	 * 
+	 * @throws IOException 
+	 */
+	@Test
+	void testCorrectUsernameAndPassword() throws IOException {
+<span class="fc" id="L31">		String username1 = &quot;Erika&quot;;</span>
+<span class="fc" id="L32">		String password1 = &quot;Password1&quot;;</span>
+		
+<span class="fc" id="L34">		String username2 = &quot;Nagham&quot;;</span>
+<span class="fc" id="L35">		String password2 = &quot;Password2&quot;;</span>
+		
+<span class="fc" id="L37">		String username3 = &quot;Nikhil&quot;;</span>
+<span class="fc" id="L38">		String password3 = &quot;Password3&quot;;</span>
+		
+<span class="fc" id="L40">		String username4 = &quot;Steeve&quot;;</span>
+<span class="fc" id="L41">		String password4 = &quot;Password4&quot;;</span>
+		
+<span class="fc" id="L43">		LoginUI loginFrame = LoginUI.getInstance();</span>
+		
+<span class="fc" id="L45">		LoginUI.getUsernameText().setText(username1);</span>
+<span class="fc" id="L46">		LoginUI.getPasswordText().setToolTipText(password1);</span>
+<span class="fc" id="L47">		assertTrue(loginFrame.checkUsenameAndPassword(username1, password1), &quot;The user logs in&quot;);</span>
+		
+<span class="fc" id="L49">		LoginUI.getUsernameText().setText(username2);</span>
+<span class="fc" id="L50">		LoginUI.getPasswordText().setToolTipText(password2);</span>
+<span class="fc" id="L51">		assertTrue(loginFrame.checkUsenameAndPassword(username2, password2), &quot;The user logs in&quot;);</span>
+		
+<span class="fc" id="L53">		LoginUI.getUsernameText().setText(username3);</span>
+<span class="fc" id="L54">		LoginUI.getPasswordText().setToolTipText(password3);</span>
+<span class="fc" id="L55">		assertTrue(loginFrame.checkUsenameAndPassword(username3, password3), &quot;The user logs in&quot;);</span>
+		
+<span class="fc" id="L57">		LoginUI.getUsernameText().setText(username4);</span>
+<span class="fc" id="L58">		LoginUI.getPasswordText().setToolTipText(password4);</span>
+<span class="fc" id="L59">		assertTrue(loginFrame.checkUsenameAndPassword(username4, password4), &quot;The user logs in&quot;);</span>
+<span class="fc" id="L60">	}</span>
+	
+	/**
+	 * Asserts an incorrect user name as a string, and correct password as a string with valid characters
+	 * Expected: False
+	 * 
+	 * @throws IOException 
+	 */
+	@Test
+	void testIncorrectUsermameCorrectPassword() throws IOException {
+<span class="fc" id="L70">		String username1 = &quot;Erica&quot;;</span>
+<span class="fc" id="L71">		String password1 = &quot;Password1&quot;;</span>
+		
+<span class="fc" id="L73">		String username2 = &quot;Naggam&quot;;</span>
+<span class="fc" id="L74">		String password2 = &quot;Password2&quot;;</span>
+		
+<span class="fc" id="L76">		String username3 = &quot;Nikkil&quot;;</span>
+<span class="fc" id="L77">		String password3 = &quot;Password3&quot;;</span>
+		
+<span class="fc" id="L79">		String username4 = &quot;Steve&quot;;</span>
+<span class="fc" id="L80">		String password4 = &quot;Password4&quot;;</span>
+		
+<span class="fc" id="L82">		LoginUI loginFrame = LoginUI.getInstance();</span>
+		
+<span class="fc" id="L84">		LoginUI.getUsernameText().setText(username1);</span>
+<span class="fc" id="L85">		LoginUI.getPasswordText().setToolTipText(password1);</span>
+<span class="fc" id="L86">		assertFalse(loginFrame.checkUsenameAndPassword(username1, password1), &quot;The user does not login&quot;);</span>
+		
+<span class="fc" id="L88">		LoginUI.getUsernameText().setText(username2);</span>
+<span class="fc" id="L89">		LoginUI.getPasswordText().setToolTipText(password2);</span>
+<span class="fc" id="L90">		assertFalse(loginFrame.checkUsenameAndPassword(username2, password2), &quot;The user does not login&quot;);</span>
+		
+<span class="fc" id="L92">		LoginUI.getUsernameText().setText(username3);</span>
+<span class="fc" id="L93">		LoginUI.getPasswordText().setToolTipText(password3);</span>
+<span class="fc" id="L94">		assertFalse(loginFrame.checkUsenameAndPassword(username3, password3), &quot;The user does not login&quot;);</span>
+		
+<span class="fc" id="L96">		LoginUI.getUsernameText().setText(username4);</span>
+<span class="fc" id="L97">		LoginUI.getPasswordText().setToolTipText(password4);</span>
+<span class="fc" id="L98">		assertFalse(loginFrame.checkUsenameAndPassword(username4, password4), &quot;The user does not login&quot;);</span>
+<span class="fc" id="L99">	}</span>
+	
+	/**
+	 * Asserts an empty user name, a password among the valid ones
+	 * Expected: False
+	 * 
+	 * @throws IOException 
+	 */
+	@Test
+	void testEmptyUsername() throws IOException {
+<span class="fc" id="L109">		String username = &quot;&quot;;</span>
+		
+<span class="fc" id="L111">		String password1 = &quot;Password1&quot;;</span>
+<span class="fc" id="L112">		String password2 = &quot;Password2&quot;;</span>
+<span class="fc" id="L113">		String password3 = &quot;Password3&quot;;</span>
+<span class="fc" id="L114">		String password4 = &quot;Password4&quot;;</span>
+		
+<span class="fc" id="L116">		LoginUI loginFrame = LoginUI.getInstance();</span>
+		
+<span class="fc" id="L118">		LoginUI.getUsernameText().setText(username);</span>
+<span class="fc" id="L119">		LoginUI.getPasswordText().setToolTipText(password1);</span>
+<span class="fc" id="L120">		assertFalse(loginFrame.checkUsenameAndPassword(username, password1), &quot;The user does not login&quot;);</span>
+		
+<span class="fc" id="L122">		LoginUI.getUsernameText().setText(username);</span>
+<span class="fc" id="L123">		LoginUI.getPasswordText().setToolTipText(password2);</span>
+<span class="fc" id="L124">		assertFalse(loginFrame.checkUsenameAndPassword(username, password2), &quot;The user does not login&quot;);</span>
+		
+<span class="fc" id="L126">		LoginUI.getUsernameText().setText(username);</span>
+<span class="fc" id="L127">		LoginUI.getPasswordText().setToolTipText(password3);</span>
+<span class="fc" id="L128">		assertFalse(loginFrame.checkUsenameAndPassword(username, password3), &quot;The user does not login&quot;);</span>
+		
+<span class="fc" id="L130">		LoginUI.getUsernameText().setText(username);</span>
+<span class="fc" id="L131">		LoginUI.getPasswordText().setToolTipText(password4);</span>
+<span class="fc" id="L132">		assertFalse(loginFrame.checkUsenameAndPassword(username, password4), &quot;The user does not login&quot;);</span>
+<span class="fc" id="L133">	}</span>
+	
+	/**
+	 * Asserts a correct user name as a string with an empty character at the end, and correct password as a string with valid characters
+	 * Expected: False
+	 * 
+	 * @throws IOException 
+	 */
+	@Test
+	void testCorrectUsernameWithEmptyCharAtEnd() throws IOException {
+<span class="fc" id="L143">		String username1 = &quot;Erika &quot;;</span>
+<span class="fc" id="L144">		String password1 = &quot;Password1&quot;;</span>
+		
+<span class="fc" id="L146">		String username2 = &quot;Nagham &quot;;</span>
+<span class="fc" id="L147">		String password2 = &quot;Password2&quot;;</span>
+		
+<span class="fc" id="L149">		String username3 = &quot;Nikhil &quot;;</span>
+<span class="fc" id="L150">		String password3 = &quot;Password3&quot;;</span>
+		
+<span class="fc" id="L152">		String username4 = &quot;Steeve &quot;;</span>
+<span class="fc" id="L153">		String password4 = &quot;Password4&quot;;</span>
+		
+<span class="fc" id="L155">		LoginUI loginFrame = LoginUI.getInstance();</span>
+		
+<span class="fc" id="L157">		LoginUI.getUsernameText().setText(username1);</span>
+<span class="fc" id="L158">		LoginUI.getPasswordText().setToolTipText(password1);</span>
+<span class="fc" id="L159">		assertFalse(loginFrame.checkUsenameAndPassword(username1, password1), &quot;The user logs in&quot;);</span>
+		
+<span class="fc" id="L161">		LoginUI.getUsernameText().setText(username2);</span>
+<span class="fc" id="L162">		LoginUI.getPasswordText().setToolTipText(password2);</span>
+<span class="fc" id="L163">		assertFalse(loginFrame.checkUsenameAndPassword(username2, password2), &quot;The user logs in&quot;);</span>
+		
+<span class="fc" id="L165">		LoginUI.getUsernameText().setText(username3);</span>
+<span class="fc" id="L166">		LoginUI.getPasswordText().setToolTipText(password3);</span>
+<span class="fc" id="L167">		assertFalse(loginFrame.checkUsenameAndPassword(username3, password3), &quot;The user logs in&quot;);</span>
+		
+<span class="fc" id="L169">		LoginUI.getUsernameText().setText(username4);</span>
+<span class="fc" id="L170">		LoginUI.getPasswordText().setToolTipText(password4);</span>
+<span class="fc" id="L171">		assertFalse(loginFrame.checkUsenameAndPassword(username4, password4), &quot;The user logs in&quot;);</span>
+<span class="fc" id="L172">	}</span>
+	
+	@Test
+	public void testSetUsernamePassword()
+	{
+<span class="fc" id="L177">	    JTextField username = new JTextField(&quot;username&quot;);</span>
+<span class="fc" id="L178">	    LoginUI.setUsernameText(username);</span>
+<span class="fc" id="L179">	    assertEquals(username, LoginUI.getUsernameText());</span>
+	    
+<span class="fc" id="L181">	    JPasswordField password = new JPasswordField(&quot;password&quot;);</span>
+<span class="fc" id="L182">        LoginUI.setPasswordText(password);</span>
+<span class="fc" id="L183">        assertEquals(password, LoginUI.getPasswordText());</span>
+<span class="fc" id="L184">	}</span>
+	
+	@Test
+	public void testModifySubmitButton()
+	{
+<span class="fc" id="L189">	    JButton submitButton = new JButton(&quot;Submit--&quot;);</span>
+<span class="fc" id="L190">        submitButton.setBounds(100, 80, 100, 25);</span>
+<span class="fc" id="L191">        LoginUI.setSubmitButton(submitButton);</span>
+        
+<span class="fc" id="L193">        JButton actual = LoginUI.getSubmitButton();</span>
+<span class="fc" id="L194">        assertEquals(submitButton, actual);</span>
+        
+<span class="fc" id="L196">	}</span>
+	@Test 
+	public void testErrorLogin()
+	{
+<span class="fc" id="L200">	    ErrorLogin error = new ErrorLogin();</span>
+<span class="fc" id="L201">	    Component[] comp = error.getContentPane().getComponents();</span>
+<span class="fc" id="L202">	    JPanel panel = (JPanel) comp[0];</span>
+<span class="fc" id="L203">	    Component[] labels = panel.getComponents();</span>
+<span class="fc bfc" id="L204" title="All 2 branches covered.">	    for(Component c:labels)</span>
+	    {
+<span class="fc bfc" id="L206" title="All 2 branches covered.">	        if (c.getClass().equals(JLabel.class))</span>
+<span class="fc" id="L207">	            assertEquals(&quot;The username or password you entered is incorrect. Please retry!&quot;, ((JLabel)(c)).getText());</span>
+	        else
+<span class="fc" id="L209">	            assertEquals(&quot;Okay&quot;, ((JButton)(c)).getText());</span>
+	    }
+<span class="fc" id="L211">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>

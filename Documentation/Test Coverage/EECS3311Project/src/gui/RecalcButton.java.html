@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>RecalcButton.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">test (1) (Dec. 9, 2022 10:41:38 p.m.)</a> &gt; <a href="../../index.html" class="el_group">EECS3311Project</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">gui</a> &gt; <span class="el_source">RecalcButton.java</span></div><h1>RecalcButton.java</h1><pre class="source lang-java linenums">package gui;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+// implements Singleton Design Pattern
+public class RecalcButton extends Subject {
+<span class="fc" id="L10">    public JButton recalculate = new JButton(&quot;Recalculate&quot;);</span>
+
+    private static RecalcButton instance;
+	
+	public static RecalcButton getInstance() {
+<span class="fc bfc" id="L15" title="All 2 branches covered.">		if (instance == null) {</span>
+<span class="fc" id="L16">			instance = new  RecalcButton();</span>
+		}
+<span class="fc" id="L18">		return instance;</span>
+	}
+
+    public void notifyObservers(){
+<span class="fc" id="L22">        System.out.println(&quot;notifying&quot;);</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        for (Observer observer : Subject.observers){</span>
+<span class="fc" id="L24">            System.out.println(observer.toString());</span>
+<span class="fc" id="L25">            observer.recalcUpdate(this);</span>
+        }
+<span class="fc" id="L27">    }</span>
+
+<span class="fc" id="L29">    public RecalcButton(){</span>
+<span class="fc" id="L30">        recalculate.setFocusable(false);</span>
+<span class="fc" id="L31">        EventRecalc eventRecalc = new EventRecalc();</span>
+<span class="fc" id="L32">        recalculate.addActionListener(eventRecalc);</span>
+<span class="fc" id="L33">    }</span>
+
+<span class="fc" id="L35">    public class EventRecalc implements ActionListener{</span>
+        public void actionPerformed(ActionEvent eRecalc){
+<span class="fc" id="L37">           System.out.println(MainWindow.getCountryCode() + &quot;\n&quot;</span>
+<span class="fc" id="L38">                   + MainWindow.getStartYear() + &quot;\n&quot; </span>
+<span class="fc" id="L39">                   + MainWindow.getEndYear() + &quot;\n&quot;</span>
+<span class="fc" id="L40">                   + MainWindow.getRequestedChartTypes().toString() + &quot;\n&quot;</span>
+<span class="fc" id="L41">                   + MainWindow.getAnalysisType() + &quot;\n&quot;);</span>
+
+<span class="fc" id="L43">            MainWindow.getChartHolder().removeAll();</span>
+<span class="fc" id="L44">            MainWindow.getChartHolder().revalidate();</span>
+<span class="fc" id="L45">            MainWindow.getChartHolder().repaint();</span>
+
+<span class="fc" id="L47">            notifyObservers();</span>
+<span class="fc" id="L48">        }</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>test (1) (Dec. 9, 2022 10:41:38 p.m.)</div></body></html>
