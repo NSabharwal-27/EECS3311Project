@@ -3,6 +3,7 @@ package fetchData;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 

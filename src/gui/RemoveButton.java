@@ -1,8 +1,9 @@
 package gui;
 
-import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 
 public class RemoveButton extends Subject{
     public JButton removeView = new JButton("-");

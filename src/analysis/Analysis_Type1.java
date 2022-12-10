@@ -1,8 +1,9 @@
 package analysis;
 
+import java.util.HashMap;
+
 import fetchData.DataSet;
 import fetchData.FetchData;
-import java.util.HashMap;
 
 // 3 Series Graph
 // The annual percentage change of  

@@ -1,5 +1,6 @@
 package chartFactory;
 import java.util.HashMap;
+
 import org.jfree.chart.JFreeChart;
 
 import fetchData.DataSet;

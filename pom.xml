@@ -1,7 +1,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+  </properties>
+  
   <dependencies>
+
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+  </dependency>
+
+
 	<dependency>
-    	<groupId>com.google.code.gson</groupId>
+    <groupId>com.google.code.gson</groupId>
 		<artifactId>gson</artifactId>
 		<version>2.2.2</version>
   	</dependency>
@@ -11,20 +25,43 @@
         <version>1.5.2</version>
     </dependency>
   </dependencies>
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>EECS3311Project</groupId>
   <artifactId>EECS3311Project</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
+
     <plugins>
+
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
+          <configuration>
+            <release>17</release>
+          </configuration>
+        </plugin>
+
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <release>17</release>
-        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.2</version>
+          <dependencies>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                  <artifactId>junit-jupiter-engine</artifactId>
+                  <version>5.9.0</version>
+            </dependency>
+          </dependencies>
+      </plugin>
+
+      <plugin>
+      	<groupId>junit</groupId>
+      	<artifactId>junit</artifactId>
+     	<version>4.12</version>
       </plugin>
     </plugins>
+
   </build>
 </project>

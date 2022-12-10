@@ -14,7 +14,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
 import org.junit.Test;
 
 import analysis.Analysis_Type1;
@@ -25,8 +24,6 @@ import analysis.Analysis_Type5;
 import analysis.Analysis_Type6;
 import analysis.Analysis_Type7;
 import analysis.Analysis_Type8;
-import chartFactory.FactoryChart;
-import gui.AddButton;
 import gui.ChartSampleA;
 import gui.ErrorChart;
 import gui.ErrorRecalc;

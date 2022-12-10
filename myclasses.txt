@@ -9,11 +9,6 @@ analysis.Analysis_Type8
 analysis.CalculateAnnualPercentageChange
 analysis.CalculateAverage
 analysis.CalculateRatio
-chartFactory.FactoryChart
-chartFactory.PieChartCreator
-chartFactory.ReportChartCreator
-chartFactory.ScatterChartCreator
-chartFactory.SeriesChartCreator
 fetchData.DataSet
 fetchData.DataSetIterator
 fetchData.Iterator
