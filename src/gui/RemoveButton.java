@@ -25,12 +25,12 @@ public class RemoveButton extends Subject{
 
     public RemoveButton(){
         removeView.setFocusable(false);
-        eventRemove eventRemove = new eventRemove();
+        EventRemove eventRemove = new EventRemove();
         removeView.addActionListener(eventRemove);
 
     }
 
-    public class eventRemove implements ActionListener{
+    public class EventRemove implements ActionListener{
         public void actionPerformed(ActionEvent eRemove){
             System.out.println("Removing Chart");
             System.out.println(MainWindow.getRequestedChartTypes().toString());

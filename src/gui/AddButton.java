@@ -12,7 +12,7 @@ public class AddButton extends Subject {
 	
 	public static AddButton getInstance() {
 		if (instance == null) {
-			instance = new  AddButton();
+			instance = new AddButton();
 		}
 		return instance;
 	}
@@ -25,12 +25,12 @@ public class AddButton extends Subject {
 
     public AddButton(){
         addView.setFocusable(false);
-        eventAdd eventAdd = new eventAdd();
+        EventAdd eventAdd = new EventAdd();
         addView.addActionListener(eventAdd);
     }
 
 
-    public class eventAdd implements ActionListener{
+    public class EventAdd implements ActionListener{
         public void actionPerformed(ActionEvent eAdd){
             System.out.println("Adding Chart");
             //TODO - Determine if chart is allowed based on analysis type

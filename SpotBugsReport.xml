@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.7.3" sequence="1" timestamp="1670568318422" analysisTimestamp="1670568313037" release="">
+  <Project projectName="EECS3311Project">
+    <Jar>\EECS3311Project\target\test-classes</Jar>
+    <Jar>C:\Users\johan\OneDrive - York University\4th Year\EECS 3311\Project\EECS3311Project\target\classes</Jar>
+    <AuxClasspathEntry>C:\Users\johan\OneDrive - York University\4th Year\EECS 3311\Project\EECS3311Project\target\classes</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.m2\repository\com\google\code\gson\gson\2.2.2\gson-2.2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.m2\repository\org\jfree\jfreechart\1.5.2\jfreechart-1.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-jupiter-api_5.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-jupiter-engine_5.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-jupiter-migrationsupport_5.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-jupiter-params_5.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-platform-commons_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-platform-engine_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-platform-launcher_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-platform-runner_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-platform-suite-api_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-platform-suite-engine_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-platform-suite-commons_1.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\junit-vintage-engine_5.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\org.opentest4j_1.2.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\org.apiguardian.api_1.1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\org.junit_4.13.2.v20211018-1956.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\johan\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.4.v20220903-1038\jre\lib\jrt-fs.jar</AuxClasspathEntry>
+    <SrcDir>\EECS3311Project\target\generated-test-sources\test-annotations</SrcDir>
+    <SrcDir>C:\Users\johan\OneDrive - York University\4th Year\EECS 3311\Project\EECS3311Project\target\generated-sources\annotations</SrcDir>
+    <SrcDir>C:\Users\johan\OneDrive - York University\4th Year\EECS 3311\Project\EECS3311Project\test</SrcDir>
+    <SrcDir>C:\Users\johan\OneDrive - York University\4th Year\EECS 3311\Project\EECS3311Project\src</SrcDir>
+  </Project>
+  <BugInstance type="NS_NON_SHORT_CIRCUIT" priority="3" rank="20" abbrev="NS" category="STYLE" first="1">
+    <Class classname="analysis.Analysis_Type6">
+      <SourceLine classname="analysis.Analysis_Type6" sourcefile="Analysis_Type6.java" sourcepath="analysis/Analysis_Type6.java"/>
+    </Class>
+    <Method classname="analysis.Analysis_Type6" name="calculateRatioHealthExpenditureToBeds" signature="(Ljava/lang/String;II)LfetchData/DataSet;" isStatic="true">
+      <SourceLine classname="analysis.Analysis_Type6" start="44" end="72" startBytecode="0" endBytecode="483" sourcefile="Analysis_Type6.java" sourcepath="analysis/Analysis_Type6.java"/>
+    </Method>
+    <SourceLine classname="analysis.Analysis_Type6" start="60" end="60" startBytecode="95" endBytecode="95" sourcefile="Analysis_Type6.java" sourcepath="analysis/Analysis_Type6.java"/>
+    <SourceLine classname="analysis.Analysis_Type6" start="60" end="60" startBytecode="95" endBytecode="95" sourcefile="Analysis_Type6.java" sourcepath="analysis/Analysis_Type6.java"/>
+  </BugInstance>
+  <BugInstance type="NS_NON_SHORT_CIRCUIT" priority="3" rank="20" abbrev="NS" category="STYLE" first="1">
+    <Class classname="analysis.CalculateRatio">
+      <SourceLine classname="analysis.CalculateRatio" sourcefile="CalculateRatio.java" sourcepath="analysis/CalculateRatio.java"/>
+    </Class>
+    <Method classname="analysis.CalculateRatio" name="calculate" signature="(LfetchData/DataSet;LfetchData/DataSet;)LfetchData/DataSet;" isStatic="true">
+      <SourceLine classname="analysis.CalculateRatio" start="11" end="27" startBytecode="0" endBytecode="321" sourcefile="CalculateRatio.java" sourcepath="analysis/CalculateRatio.java"/>
+    </Method>
+    <SourceLine classname="analysis.CalculateRatio" start="18" end="18" startBytecode="61" endBytecode="61" sourcefile="CalculateRatio.java" sourcepath="analysis/CalculateRatio.java"/>
+    <SourceLine classname="analysis.CalculateRatio" start="18" end="18" startBytecode="61" endBytecode="61" sourcefile="CalculateRatio.java" sourcepath="analysis/CalculateRatio.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" first="1">
+    <Class classname="chartFactory.FactoryChart">
+      <SourceLine classname="chartFactory.FactoryChart" sourcefile="FactoryChart.java" sourcepath="chartFactory/FactoryChart.java"/>
+    </Class>
+    <Method classname="chartFactory.FactoryChart" name="getChart" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)Lorg/jfree/chart/JFreeChart;" isStatic="false">
+      <SourceLine classname="chartFactory.FactoryChart" start="14" end="39" startBytecode="0" endBytecode="411" sourcefile="FactoryChart.java" sourcepath="chartFactory/FactoryChart.java"/>
+    </Method>
+    <Field classname="chartFactory.FactoryChart" name="chart" signature="Lorg/jfree/chart/JFreeChart;" isStatic="false">
+      <SourceLine classname="chartFactory.FactoryChart" sourcefile="FactoryChart.java" sourcepath="chartFactory/FactoryChart.java"/>
+    </Field>
+    <SourceLine classname="chartFactory.FactoryChart" start="39" end="39" startBytecode="235" endBytecode="235" sourcefile="FactoryChart.java" sourcepath="chartFactory/FactoryChart.java"/>
+    <SourceLine classname="chartFactory.FactoryChart" start="39" end="39" startBytecode="235" endBytecode="235" sourcefile="FactoryChart.java" sourcepath="chartFactory/FactoryChart.java"/>
+  </BugInstance>
+  <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" rank="18" abbrev="WMI" category="PERFORMANCE" first="1">
+    <Class classname="chartFactory.PieChartCreator">
+      <SourceLine classname="chartFactory.PieChartCreator" sourcefile="PieChartCreator.java" sourcepath="chartFactory/PieChartCreator.java"/>
+    </Class>
+    <Method classname="chartFactory.PieChartCreator" name="createDataset" signature="(Ljava/util/HashMap;)Lorg/jfree/data/general/PieDataset;" isStatic="false">
+      <SourceLine classname="chartFactory.PieChartCreator" start="17" end="25" startBytecode="0" endBytecode="248" sourcefile="PieChartCreator.java" sourcepath="chartFactory/PieChartCreator.java"/>
+    </Method>
+    <SourceLine classname="chartFactory.PieChartCreator" start="20" end="20" startBytecode="35" endBytecode="35" sourcefile="PieChartCreator.java" sourcepath="chartFactory/PieChartCreator.java"/>
+    <SourceLine classname="chartFactory.PieChartCreator" start="20" end="20" startBytecode="35" endBytecode="35" sourcefile="PieChartCreator.java" sourcepath="chartFactory/PieChartCreator.java"/>
+  </BugInstance>
+  <BugInstance type="HE_EQUALS_USE_HASHCODE" priority="1" rank="14" abbrev="HE" category="BAD_PRACTICE" first="1">
+    <Class classname="fetchData.DataSet">
+      <SourceLine classname="fetchData.DataSet" sourcefile="DataSet.java" sourcepath="fetchData/DataSet.java"/>
+    </Class>
+    <Method classname="fetchData.DataSet" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false">
+      <SourceLine classname="fetchData.DataSet" start="90" end="98" startBytecode="0" endBytecode="127" sourcefile="DataSet.java" sourcepath="fetchData/DataSet.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE" first="1">
+    <Class classname="fetchData.DataSet">
+      <SourceLine classname="fetchData.DataSet" sourcefile="DataSet.java" sourcepath="fetchData/DataSet.java"/>
+    </Class>
+    <Field classname="fetchData.DataSet" name="endYear" signature="I" isStatic="false">
+      <SourceLine classname="fetchData.DataSet" sourcefile="DataSet.java" sourcepath="fetchData/DataSet.java"/>
+    </Field>
+    <SourceLine classname="fetchData.DataSet" start="30" end="30" startBytecode="23" endBytecode="23" sourcefile="DataSet.java" sourcepath="fetchData/DataSet.java"/>
+  </BugInstance>
+  <BugInstance type="DM_CONVERT_CASE" priority="3" rank="20" abbrev="Dm" category="I18N" first="1">
+    <Class classname="fetchData.FetchData">
+      <SourceLine classname="fetchData.FetchData" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+    </Class>
+    <Method classname="fetchData.FetchData" name="mapCode" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="fetchData.FetchData" start="59" end="79" startBytecode="0" endBytecode="277" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+    </Method>
+    <SourceLine classname="fetchData.FetchData" start="61" end="61" startBytecode="4" endBytecode="4" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+    <SourceLine classname="fetchData.FetchData" start="61" end="61" startBytecode="4" endBytecode="4" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="fetchData.FetchData">
+      <SourceLine classname="fetchData.FetchData" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+    </Class>
+    <Method classname="fetchData.FetchData" name="fetchData" signature="(Ljava/lang/String;Ljava/lang/String;II)LfetchData/DataSet;" isStatic="true">
+      <SourceLine classname="fetchData.FetchData" start="27" end="54" startBytecode="0" endBytecode="552" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner" start="566" end="567" startBytecode="0" endBytecode="71" sourcefile="Scanner.java" sourcepath="java/util/Scanner.java"/>
+    </Method>
+    <SourceLine classname="fetchData.FetchData" start="40" end="40" startBytecode="101" endBytecode="101" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+    <SourceLine classname="fetchData.FetchData" start="40" end="40" startBytecode="101" endBytecode="101" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+  </BugInstance>
+  <BugInstance type="REC_CATCH_EXCEPTION" priority="2" rank="17" abbrev="REC" category="STYLE" first="1">
+    <Class classname="fetchData.FetchData">
+      <SourceLine classname="fetchData.FetchData" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+    </Class>
+    <Method classname="fetchData.FetchData" name="fetchData" signature="(Ljava/lang/String;Ljava/lang/String;II)LfetchData/DataSet;" isStatic="true">
+      <SourceLine classname="fetchData.FetchData" start="27" end="54" startBytecode="0" endBytecode="552" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+    </Method>
+    <SourceLine classname="fetchData.FetchData" start="53" end="53" startBytecode="227" endBytecode="227" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+    <SourceLine classname="fetchData.FetchData" start="53" end="53" startBytecode="227" endBytecode="227" sourcefile="FetchData.java" sourcepath="fetchData/FetchData.java"/>
+  </BugInstance>
+  <BugInstance type="LI_LAZY_INIT_STATIC" priority="3" rank="17" abbrev="LI" category="MT_CORRECTNESS" first="1">
+    <Class classname="gui.AddButton">
+      <SourceLine classname="gui.AddButton" sourcefile="AddButton.java" sourcepath="gui/AddButton.java"/>
+    </Class>
+    <Method classname="gui.AddButton" name="getInstance" signature="()Lgui/AddButton;" isStatic="true">
+      <SourceLine classname="gui.AddButton" start="13" end="16" startBytecode="0" endBytecode="7" sourcefile="AddButton.java" sourcepath="gui/AddButton.java"/>
+    </Method>
+    <Field classname="gui.AddButton" name="instance" signature="Lgui/AddButton;" isStatic="true" role="FIELD_ON">
+      <SourceLine classname="gui.AddButton" sourcefile="AddButton.java" sourcepath="gui/AddButton.java"/>
+    </Field>
+    <SourceLine classname="gui.AddButton" start="13" end="14" startBytecode="0" endBytecode="13" sourcefile="AddButton.java" sourcepath="gui/AddButton.java"/>
+  </BugInstance>
+  <BugInstance type="LI_LAZY_INIT_STATIC" priority="3" rank="17" abbrev="LI" category="MT_CORRECTNESS" first="1">
+    <Class classname="gui.ChartSampleA">
+      <SourceLine classname="gui.ChartSampleA" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    </Class>
+    <Method classname="gui.ChartSampleA" name="getInstance" signature="()Lgui/ChartSampleA;" isStatic="true">
+      <SourceLine classname="gui.ChartSampleA" start="40" end="43" startBytecode="0" endBytecode="7" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    </Method>
+    <Field classname="gui.ChartSampleA" name="instance" signature="Lgui/ChartSampleA;" isStatic="true" role="FIELD_ON">
+      <SourceLine classname="gui.ChartSampleA" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    </Field>
+    <SourceLine classname="gui.ChartSampleA" start="40" end="41" startBytecode="0" endBytecode="13" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ChartSampleA">
+      <SourceLine classname="gui.ChartSampleA" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    </Class>
+    <Method classname="gui.ChartSampleA" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ChartSampleA" start="46" end="48" startBytecode="0" endBytecode="73" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    </Method>
+    <String value="register"/>
+    <SourceLine classname="gui.ChartSampleA" start="47" end="47" startBytecode="16" endBytecode="16" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    <SourceLine classname="gui.ChartSampleA" start="47" end="47" startBytecode="16" endBytecode="16" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ChartSampleA">
+      <SourceLine classname="gui.ChartSampleA" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    </Class>
+    <Method classname="gui.ChartSampleA" name="getInstance" signature="()Lgui/ChartSampleA;" isStatic="true">
+      <SourceLine classname="gui.ChartSampleA" start="40" end="43" startBytecode="0" endBytecode="68" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    </Method>
+    <Field classname="gui.ChartSampleA" name="instance" signature="Lgui/ChartSampleA;" isStatic="true">
+      <SourceLine classname="gui.ChartSampleA" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    </Field>
+    <SourceLine classname="gui.ChartSampleA" start="43" end="43" startBytecode="19" endBytecode="19" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    <SourceLine classname="gui.ChartSampleA" start="43" end="43" startBytecode="19" endBytecode="19" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+  </BugInstance>
+  <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" rank="18" abbrev="WMI" category="PERFORMANCE" first="1">
+    <Class classname="gui.ChartSampleA">
+      <SourceLine classname="gui.ChartSampleA" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    </Class>
+    <Method classname="gui.ChartSampleA" name="getReport" signature="()Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="gui.ChartSampleA" start="236" end="260" startBytecode="0" endBytecode="621" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    </Method>
+    <Field classname="gui.ChartSampleA" name="data" signature="Ljava/util/HashMap;" isStatic="false">
+      <SourceLine classname="gui.ChartSampleA" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    </Field>
+    <SourceLine classname="gui.ChartSampleA" start="240" end="240" startBytecode="88" endBytecode="88" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+    <SourceLine classname="gui.ChartSampleA" start="240" end="240" startBytecode="88" endBytecode="88" sourcefile="ChartSampleA.java" sourcepath="gui/ChartSampleA.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ErrorChart">
+      <SourceLine classname="gui.ErrorChart" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+    </Class>
+    <Method classname="gui.ErrorChart" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ErrorChart" start="16" end="35" startBytecode="0" endBytecode="271" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+    </Method>
+    <String value="addActionListener"/>
+    <SourceLine classname="gui.ErrorChart" start="33" end="33" startBytecode="139" endBytecode="139" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+    <SourceLine classname="gui.ErrorChart" start="33" end="33" startBytecode="139" endBytecode="139" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ErrorChart">
+      <SourceLine classname="gui.ErrorChart" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+    </Class>
+    <Method classname="gui.ErrorChart" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ErrorChart" start="16" end="35" startBytecode="0" endBytecode="271" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+    </Method>
+    <String value="getContentPane"/>
+    <SourceLine classname="gui.ErrorChart" start="19" end="19" startBytecode="29" endBytecode="29" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+    <SourceLine classname="gui.ErrorChart" start="19" end="19" startBytecode="29" endBytecode="29" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ErrorChart">
+      <SourceLine classname="gui.ErrorChart" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+    </Class>
+    <Method classname="gui.ErrorChart" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ErrorChart" start="16" end="35" startBytecode="0" endBytecode="271" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+    </Method>
+    <String value="pack"/>
+    <SourceLine classname="gui.ErrorChart" start="20" end="20" startBytecode="38" endBytecode="38" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+    <SourceLine classname="gui.ErrorChart" start="20" end="20" startBytecode="38" endBytecode="38" sourcefile="ErrorChart.java" sourcepath="gui/ErrorChart.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ErrorRecalc">
+      <SourceLine classname="gui.ErrorRecalc" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Class>
+    <Method classname="gui.ErrorRecalc" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ErrorRecalc" start="24" end="44" startBytecode="0" endBytecode="279" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Method>
+    <String value="addActionListener"/>
+    <SourceLine classname="gui.ErrorRecalc" start="41" end="41" startBytecode="139" endBytecode="139" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    <SourceLine classname="gui.ErrorRecalc" start="41" end="41" startBytecode="139" endBytecode="139" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ErrorRecalc">
+      <SourceLine classname="gui.ErrorRecalc" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Class>
+    <Method classname="gui.ErrorRecalc" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ErrorRecalc" start="24" end="44" startBytecode="0" endBytecode="279" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Method>
+    <String value="getContentPane"/>
+    <SourceLine classname="gui.ErrorRecalc" start="27" end="27" startBytecode="29" endBytecode="29" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    <SourceLine classname="gui.ErrorRecalc" start="27" end="27" startBytecode="29" endBytecode="29" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ErrorRecalc">
+      <SourceLine classname="gui.ErrorRecalc" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Class>
+    <Method classname="gui.ErrorRecalc" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ErrorRecalc" start="24" end="44" startBytecode="0" endBytecode="279" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Method>
+    <String value="pack"/>
+    <SourceLine classname="gui.ErrorRecalc" start="28" end="28" startBytecode="38" endBytecode="38" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    <SourceLine classname="gui.ErrorRecalc" start="28" end="28" startBytecode="38" endBytecode="38" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ErrorRecalc">
+      <SourceLine classname="gui.ErrorRecalc" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Class>
+    <Method classname="gui.ErrorRecalc" name="getInstance" signature="()Lgui/ErrorRecalc;" isStatic="true">
+      <SourceLine classname="gui.ErrorRecalc" start="19" end="21" startBytecode="0" endBytecode="68" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Method>
+    <Field classname="gui.ErrorRecalc" name="instance" signature="Lgui/ErrorRecalc;" isStatic="true">
+      <SourceLine classname="gui.ErrorRecalc" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Field>
+    <SourceLine classname="gui.ErrorRecalc" start="21" end="21" startBytecode="19" endBytecode="19" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    <SourceLine classname="gui.ErrorRecalc" start="21" end="21" startBytecode="19" endBytecode="19" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" first="1">
+    <Class classname="gui.ErrorRecalc">
+      <SourceLine classname="gui.ErrorRecalc" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Class>
+    <Method classname="gui.ErrorRecalc" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ErrorRecalc" start="24" end="44" startBytecode="0" endBytecode="279" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Method>
+    <Field classname="gui.ErrorRecalc" name="instance" signature="Lgui/ErrorRecalc;" isStatic="true">
+      <SourceLine classname="gui.ErrorRecalc" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    </Field>
+    <SourceLine classname="gui.ErrorRecalc" start="43" end="43" startBytecode="152" endBytecode="152" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+    <SourceLine classname="gui.ErrorRecalc" start="43" end="43" startBytecode="152" endBytecode="152" sourcefile="ErrorRecalc.java" sourcepath="gui/ErrorRecalc.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ErrorYears">
+      <SourceLine classname="gui.ErrorYears" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+    </Class>
+    <Method classname="gui.ErrorYears" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ErrorYears" start="16" end="35" startBytecode="0" endBytecode="271" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+    </Method>
+    <String value="addActionListener"/>
+    <SourceLine classname="gui.ErrorYears" start="33" end="33" startBytecode="139" endBytecode="139" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+    <SourceLine classname="gui.ErrorYears" start="33" end="33" startBytecode="139" endBytecode="139" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ErrorYears">
+      <SourceLine classname="gui.ErrorYears" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+    </Class>
+    <Method classname="gui.ErrorYears" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ErrorYears" start="16" end="35" startBytecode="0" endBytecode="271" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+    </Method>
+    <String value="getContentPane"/>
+    <SourceLine classname="gui.ErrorYears" start="19" end="19" startBytecode="29" endBytecode="29" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+    <SourceLine classname="gui.ErrorYears" start="19" end="19" startBytecode="29" endBytecode="29" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.ErrorYears">
+      <SourceLine classname="gui.ErrorYears" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+    </Class>
+    <Method classname="gui.ErrorYears" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.ErrorYears" start="16" end="35" startBytecode="0" endBytecode="271" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+    </Method>
+    <String value="pack"/>
+    <SourceLine classname="gui.ErrorYears" start="20" end="20" startBytecode="38" endBytecode="38" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+    <SourceLine classname="gui.ErrorYears" start="20" end="20" startBytecode="38" endBytecode="38" sourcefile="ErrorYears.java" sourcepath="gui/ErrorYears.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_STATIC_REP2" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainWindow">
+      <SourceLine classname="gui.MainWindow" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Class>
+    <Method classname="gui.MainWindow" name="setChartHolder" signature="(Ljavax/swing/JPanel;)V" isStatic="true">
+      <SourceLine classname="gui.MainWindow" start="207" end="208" startBytecode="0" endBytecode="50" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Method>
+    <Field classname="gui.MainWindow" name="chartHolder" signature="Ljavax/swing/JPanel;" isStatic="true">
+      <SourceLine classname="gui.MainWindow" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Field>
+    <LocalVariable name="chartHolder" register="0" pc="1" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="gui.MainWindow" start="207" end="207" startBytecode="1" endBytecode="1" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    <SourceLine classname="gui.MainWindow" start="207" end="207" startBytecode="1" endBytecode="1" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainWindow">
+      <SourceLine classname="gui.MainWindow" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Class>
+    <Method classname="gui.MainWindow" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.MainWindow" start="60" end="79" startBytecode="0" endBytecode="150" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Method>
+    <String value="getContentPane"/>
+    <SourceLine classname="gui.MainWindow" start="62" end="62" startBytecode="5" endBytecode="5" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    <SourceLine classname="gui.MainWindow" start="62" end="62" startBytecode="5" endBytecode="5" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainWindow">
+      <SourceLine classname="gui.MainWindow" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Class>
+    <Method classname="gui.MainWindow" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.MainWindow" start="60" end="79" startBytecode="0" endBytecode="150" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Method>
+    <String value="pack"/>
+    <SourceLine classname="gui.MainWindow" start="76" end="76" startBytecode="41" endBytecode="41" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    <SourceLine classname="gui.MainWindow" start="76" end="76" startBytecode="41" endBytecode="41" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainWindow">
+      <SourceLine classname="gui.MainWindow" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Class>
+    <Method classname="gui.MainWindow" name="getChartHolder" signature="()Ljavax/swing/JPanel;" isStatic="true">
+      <SourceLine classname="gui.MainWindow" start="203" end="203" startBytecode="0" endBytecode="35" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Method>
+    <Field classname="gui.MainWindow" name="chartHolder" signature="Ljavax/swing/JPanel;" isStatic="true">
+      <SourceLine classname="gui.MainWindow" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Field>
+    <SourceLine classname="gui.MainWindow" start="203" end="203" startBytecode="3" endBytecode="3" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    <SourceLine classname="gui.MainWindow" start="203" end="203" startBytecode="3" endBytecode="3" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainWindow">
+      <SourceLine classname="gui.MainWindow" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Class>
+    <Method classname="gui.MainWindow" name="getInstance" signature="()Lgui/MainWindow;" isStatic="true">
+      <SourceLine classname="gui.MainWindow" start="54" end="57" startBytecode="0" endBytecode="68" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Method>
+    <Field classname="gui.MainWindow" name="instance" signature="Lgui/MainWindow;" isStatic="true">
+      <SourceLine classname="gui.MainWindow" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Field>
+    <SourceLine classname="gui.MainWindow" start="57" end="57" startBytecode="19" endBytecode="19" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    <SourceLine classname="gui.MainWindow" start="57" end="57" startBytecode="19" endBytecode="19" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainWindow">
+      <SourceLine classname="gui.MainWindow" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Class>
+    <Method classname="gui.MainWindow" name="getRequestedChartTypes" signature="()Ljava/util/ArrayList;" isStatic="true">
+      <SourceLine classname="gui.MainWindow" start="185" end="185" startBytecode="0" endBytecode="35" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Method>
+    <Field classname="gui.MainWindow" name="requestedChartTypes" signature="Ljava/util/ArrayList;" isStatic="true">
+      <SourceLine classname="gui.MainWindow" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    </Field>
+    <SourceLine classname="gui.MainWindow" start="185" end="185" startBytecode="3" endBytecode="3" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+    <SourceLine classname="gui.MainWindow" start="185" end="185" startBytecode="3" endBytecode="3" sourcefile="MainWindow.java" sourcepath="gui/MainWindow.java"/>
+  </BugInstance>
+  <BugInstance type="MS_OOI_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.Observer">
+      <SourceLine classname="gui.Observer" sourcefile="Observer.java" sourcepath="gui/Observer.java"/>
+    </Class>
+    <Field classname="gui.Observer" name="analysis" signature="Ljava/util/ArrayList;" isStatic="true">
+      <SourceLine classname="gui.Observer" sourcefile="Observer.java" sourcepath="gui/Observer.java"/>
+    </Field>
+    <SourceLine classname="gui.Observer" start="15" end="15" startBytecode="7" endBytecode="7" sourcefile="Observer.java" sourcepath="gui/Observer.java"/>
+  </BugInstance>
+  <BugInstance type="LI_LAZY_INIT_STATIC" priority="3" rank="17" abbrev="LI" category="MT_CORRECTNESS" first="1">
+    <Class classname="gui.RecalcButton">
+      <SourceLine classname="gui.RecalcButton" sourcefile="RecalcButton.java" sourcepath="gui/RecalcButton.java"/>
+    </Class>
+    <Method classname="gui.RecalcButton" name="getInstance" signature="()Lgui/RecalcButton;" isStatic="true">
+      <SourceLine classname="gui.RecalcButton" start="15" end="18" startBytecode="0" endBytecode="7" sourcefile="RecalcButton.java" sourcepath="gui/RecalcButton.java"/>
+    </Method>
+    <Field classname="gui.RecalcButton" name="instance" signature="Lgui/RecalcButton;" isStatic="true" role="FIELD_ON">
+      <SourceLine classname="gui.RecalcButton" sourcefile="RecalcButton.java" sourcepath="gui/RecalcButton.java"/>
+    </Field>
+    <SourceLine classname="gui.RecalcButton" start="15" end="16" startBytecode="0" endBytecode="13" sourcefile="RecalcButton.java" sourcepath="gui/RecalcButton.java"/>
+  </BugInstance>
+  <BugInstance type="LI_LAZY_INIT_STATIC" priority="3" rank="17" abbrev="LI" category="MT_CORRECTNESS" first="1">
+    <Class classname="gui.RemoveButton">
+      <SourceLine classname="gui.RemoveButton" sourcefile="RemoveButton.java" sourcepath="gui/RemoveButton.java"/>
+    </Class>
+    <Method classname="gui.RemoveButton" name="getInstance" signature="()Lgui/RemoveButton;" isStatic="true">
+      <SourceLine classname="gui.RemoveButton" start="13" end="16" startBytecode="0" endBytecode="7" sourcefile="RemoveButton.java" sourcepath="gui/RemoveButton.java"/>
+    </Method>
+    <Field classname="gui.RemoveButton" name="instance" signature="Lgui/RemoveButton;" isStatic="true" role="FIELD_ON">
+      <SourceLine classname="gui.RemoveButton" sourcefile="RemoveButton.java" sourcepath="gui/RemoveButton.java"/>
+    </Field>
+    <SourceLine classname="gui.RemoveButton" start="13" end="14" startBytecode="0" endBytecode="13" sourcefile="RemoveButton.java" sourcepath="gui/RemoveButton.java"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" rank="16" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.Subject">
+      <SourceLine classname="gui.Subject" sourcefile="Subject.java" sourcepath="gui/Subject.java"/>
+    </Class>
+    <Field classname="gui.Subject" name="observers" signature="Ljava/util/ArrayList;" isStatic="true">
+      <SourceLine classname="gui.Subject" sourcefile="Subject.java" sourcepath="gui/Subject.java"/>
+    </Field>
+    <SourceLine classname="gui.Subject" start="6" end="6" startBytecode="7" endBytecode="7" sourcefile="Subject.java" sourcepath="gui/Subject.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.ErrorLogin">
+      <SourceLine classname="login.ErrorLogin" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+    </Class>
+    <Method classname="login.ErrorLogin" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="login.ErrorLogin" start="16" end="35" startBytecode="0" endBytecode="271" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+    </Method>
+    <String value="addActionListener"/>
+    <SourceLine classname="login.ErrorLogin" start="33" end="33" startBytecode="139" endBytecode="139" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+    <SourceLine classname="login.ErrorLogin" start="33" end="33" startBytecode="139" endBytecode="139" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.ErrorLogin">
+      <SourceLine classname="login.ErrorLogin" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+    </Class>
+    <Method classname="login.ErrorLogin" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="login.ErrorLogin" start="16" end="35" startBytecode="0" endBytecode="271" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+    </Method>
+    <String value="getContentPane"/>
+    <SourceLine classname="login.ErrorLogin" start="19" end="19" startBytecode="29" endBytecode="29" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+    <SourceLine classname="login.ErrorLogin" start="19" end="19" startBytecode="29" endBytecode="29" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.ErrorLogin">
+      <SourceLine classname="login.ErrorLogin" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+    </Class>
+    <Method classname="login.ErrorLogin" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="login.ErrorLogin" start="16" end="35" startBytecode="0" endBytecode="271" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+    </Method>
+    <String value="pack"/>
+    <SourceLine classname="login.ErrorLogin" start="20" end="20" startBytecode="38" endBytecode="38" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+    <SourceLine classname="login.ErrorLogin" start="20" end="20" startBytecode="38" endBytecode="38" sourcefile="ErrorLogin.java" sourcepath="login/ErrorLogin.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="checkUsenameAndPassword" signature="(Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="login.LoginUI" start="115" end="131" startBytecode="0" endBytecode="397" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Method classname="java.io.FileReader" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileReader" start="60" end="61" startBytecode="0" endBytecode="68" sourcefile="FileReader.java" sourcepath="java/io/FileReader.java"/>
+    </Method>
+    <SourceLine classname="login.LoginUI" start="119" end="119" startBytecode="26" endBytecode="26" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="119" end="119" startBytecode="26" endBytecode="26" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_STATIC_REP2" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="setPasswordText" signature="(Ljavax/swing/JPasswordField;)V" isStatic="true">
+      <SourceLine classname="login.LoginUI" start="85" end="86" startBytecode="0" endBytecode="50" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="passwordText" signature="Ljavax/swing/JPasswordField;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <LocalVariable name="passwordText" register="0" pc="1" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="login.LoginUI" start="85" end="85" startBytecode="1" endBytecode="1" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="85" end="85" startBytecode="1" endBytecode="1" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_STATIC_REP2" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="setSubmitButton" signature="(Ljavax/swing/JButton;)V" isStatic="true">
+      <SourceLine classname="login.LoginUI" start="93" end="94" startBytecode="0" endBytecode="50" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="submitButton" signature="Ljavax/swing/JButton;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <LocalVariable name="submitButton" register="0" pc="1" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="login.LoginUI" start="93" end="93" startBytecode="1" endBytecode="1" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="93" end="93" startBytecode="1" endBytecode="1" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_STATIC_REP2" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="setUsernameText" signature="(Ljavax/swing/JTextField;)V" isStatic="true">
+      <SourceLine classname="login.LoginUI" start="77" end="78" startBytecode="0" endBytecode="50" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="usernameText" signature="Ljavax/swing/JTextField;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <LocalVariable name="usernameText" register="0" pc="1" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="login.LoginUI" start="77" end="77" startBytecode="1" endBytecode="1" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="77" end="77" startBytecode="1" endBytecode="1" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="login.LoginUI" start="39" end="70" startBytecode="0" endBytecode="393" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <String value="addActionListener"/>
+    <SourceLine classname="login.LoginUI" start="68" end="68" startBytecode="230" endBytecode="230" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="68" end="68" startBytecode="230" endBytecode="230" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="login.LoginUI" start="39" end="70" startBytecode="0" endBytecode="393" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <String value="getContentPane"/>
+    <SourceLine classname="login.LoginUI" start="43" end="43" startBytecode="30" endBytecode="30" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="43" end="43" startBytecode="30" endBytecode="30" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR" priority="3" rank="20" abbrev="MC" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="login.LoginUI" start="39" end="70" startBytecode="0" endBytecode="393" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <String value="pack"/>
+    <SourceLine classname="login.LoginUI" start="44" end="44" startBytecode="39" endBytecode="39" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="44" end="44" startBytecode="39" endBytecode="39" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="getInstance" signature="()Llogin/LoginUI;" isStatic="true">
+      <SourceLine classname="login.LoginUI" start="33" end="36" startBytecode="0" endBytecode="68" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="instance" signature="Llogin/LoginUI;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <SourceLine classname="login.LoginUI" start="36" end="36" startBytecode="19" endBytecode="19" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="36" end="36" startBytecode="19" endBytecode="19" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="getPasswordText" signature="()Ljavax/swing/JPasswordField;" isStatic="true">
+      <SourceLine classname="login.LoginUI" start="81" end="81" startBytecode="0" endBytecode="35" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="passwordText" signature="Ljavax/swing/JPasswordField;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <SourceLine classname="login.LoginUI" start="81" end="81" startBytecode="3" endBytecode="3" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="81" end="81" startBytecode="3" endBytecode="3" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="getSubmitButton" signature="()Ljavax/swing/JButton;" isStatic="true">
+      <SourceLine classname="login.LoginUI" start="89" end="89" startBytecode="0" endBytecode="35" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="submitButton" signature="Ljavax/swing/JButton;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <SourceLine classname="login.LoginUI" start="89" end="89" startBytecode="3" endBytecode="3" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="89" end="89" startBytecode="3" endBytecode="3" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="getUsernameText" signature="()Ljavax/swing/JTextField;" isStatic="true">
+      <SourceLine classname="login.LoginUI" start="73" end="73" startBytecode="0" endBytecode="35" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="usernameText" signature="Ljavax/swing/JTextField;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <SourceLine classname="login.LoginUI" start="73" end="73" startBytecode="3" endBytecode="3" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="73" end="73" startBytecode="3" endBytecode="3" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="login.LoginUI" start="39" end="70" startBytecode="0" endBytecode="393" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="usernameLabel" signature="Ljavax/swing/JLabel;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <SourceLine classname="login.LoginUI" start="50" end="50" startBytecode="72" endBytecode="72" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="50" end="50" startBytecode="72" endBytecode="72" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="3" rank="20" abbrev="ST" category="STYLE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="login.LoginUI" start="39" end="70" startBytecode="0" endBytecode="393" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="passwordLabel" signature="Ljavax/swing/JLabel;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <SourceLine classname="login.LoginUI" start="58" end="58" startBytecode="141" endBytecode="141" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="58" end="58" startBytecode="141" endBytecode="141" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="3" rank="20" abbrev="ST" category="STYLE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="login.LoginUI" start="39" end="70" startBytecode="0" endBytecode="393" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="passwordText" signature="Ljavax/swing/JPasswordField;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <SourceLine classname="login.LoginUI" start="62" end="62" startBytecode="173" endBytecode="173" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="62" end="62" startBytecode="173" endBytecode="173" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="3" rank="20" abbrev="ST" category="STYLE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="login.LoginUI" start="39" end="70" startBytecode="0" endBytecode="393" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="submitButton" signature="Ljavax/swing/JButton;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <SourceLine classname="login.LoginUI" start="66" end="66" startBytecode="208" endBytecode="208" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="66" end="66" startBytecode="208" endBytecode="208" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="3" rank="20" abbrev="ST" category="STYLE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="login.LoginUI" start="39" end="70" startBytecode="0" endBytecode="393" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <Field classname="login.LoginUI" name="usernameText" signature="Ljavax/swing/JTextField;" isStatic="true">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Field>
+    <SourceLine classname="login.LoginUI" start="54" end="54" startBytecode="106" endBytecode="106" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="54" end="54" startBytecode="106" endBytecode="106" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" priority="3" rank="19" abbrev="SW" category="BAD_PRACTICE" first="1">
+    <Class classname="login.LoginUI">
+      <SourceLine classname="login.LoginUI" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Class>
+    <Method classname="login.LoginUI" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="login.LoginUI" start="136" end="139" startBytecode="0" endBytecode="69" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    </Method>
+    <SourceLine classname="login.LoginUI" start="137" end="137" startBytecode="6" endBytecode="6" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+    <SourceLine classname="login.LoginUI" start="137" end="137" startBytecode="6" endBytecode="6" sourcefile="LoginUI.java" sourcepath="login/LoginUI.java"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="test.java.Randoop.RegressionTest0">
+      <SourceLine classname="test.java.Randoop.RegressionTest0" sourcefile="RegressionTest0.java" sourcepath="test/java/Randoop/RegressionTest0.java"/>
+    </Class>
+    <Field classname="test.java.Randoop.RegressionTest0" name="debug" signature="Z" isStatic="true">
+      <SourceLine classname="test.java.Randoop.RegressionTest0" sourcefile="RegressionTest0.java" sourcepath="test/java/Randoop/RegressionTest0.java"/>
+    </Field>
+    <SourceLine classname="test.java.Randoop.RegressionTest0" start="10" end="10" startBytecode="1" endBytecode="1" sourcefile="RegressionTest0.java" sourcepath="test/java/Randoop/RegressionTest0.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Fri, 9 Dec 2022 01:44:31 -0500" total_classes="45" referenced_classes="376" total_bugs="56" total_size="1640" num_packages="7" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="25.25" clock_seconds="5.40" peak_mbytes="691.66" alloc_mbytes="2048.00" gc_seconds="0.16" priority_3="30" priority_2="21" priority_1="5">
+    <PackageStats package="analysis" total_bugs="2" total_types="13" total_size="236" priority_3="2">
+      <ClassStats class="analysis.AnalysisStrategy" sourceFile="AnalysisStrategy.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="analysis.Analysis_Type1" sourceFile="Analysis_Type1.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="analysis.Analysis_Type2" sourceFile="Analysis_Type2.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="analysis.Analysis_Type3" sourceFile="Analysis_Type3.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="analysis.Analysis_Type4" sourceFile="Analysis_Type4.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="analysis.Analysis_Type5" sourceFile="Analysis_Type5.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="analysis.Analysis_Type6" sourceFile="Analysis_Type6.java" interface="false" size="31" bugs="1" priority_3="1"/>
+      <ClassStats class="analysis.Analysis_Type7" sourceFile="Analysis_Type7.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="analysis.Analysis_Type8" sourceFile="Analysis_Type8.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="analysis.CalculateAnnualPercentageChange" sourceFile="CalculateAnnualPercentageChange.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="analysis.CalculateAverage" sourceFile="CalculateAverage.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="analysis.CalculateRatio" sourceFile="CalculateRatio.java" interface="false" size="15" bugs="1" priority_3="1"/>
+      <ClassStats class="analysis.Context" sourceFile="Context.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="chartFactory" total_bugs="2" total_types="6" total_size="143" priority_2="2">
+      <ClassStats class="chartFactory.BarChartCreator" sourceFile="BarChartCreator.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="chartFactory.ChartCreator" sourceFile="ChartCreator.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="chartFactory.FactoryChart" sourceFile="FactoryChart.java" interface="false" size="38" bugs="1" priority_2="1"/>
+      <ClassStats class="chartFactory.PieChartCreator" sourceFile="PieChartCreator.java" interface="false" size="29" bugs="1" priority_2="1"/>
+      <ClassStats class="chartFactory.ScatterChartCreator" sourceFile="ScatterChartCreator.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="chartFactory.SeriesChartCreator" sourceFile="SeriesChartCreator.java" interface="false" size="25" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="fetchData" total_bugs="5" total_types="5" total_size="133" priority_3="1" priority_2="2" priority_1="2">
+      <ClassStats class="fetchData.DataSet" sourceFile="DataSet.java" interface="false" size="58" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="fetchData.DataSetIterator" sourceFile="DataSetIterator.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="fetchData.FetchData" sourceFile="FetchData.java" interface="false" size="39" bugs="3" priority_3="1" priority_2="1" priority_1="1"/>
+      <ClassStats class="fetchData.Iterator" sourceFile="Iterator.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="fetchData.Pair" sourceFile="Pair.java" interface="false" size="12" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="gui" total_bugs="26" total_types="13" total_size="495" priority_3="16" priority_2="8" priority_1="2">
+      <ClassStats class="gui.AddButton" sourceFile="AddButton.java" interface="false" size="18" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.AddButton$EventAdd" sourceFile="AddButton.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="gui.ChartSampleA" sourceFile="ChartSampleA.java" interface="false" size="150" bugs="4" priority_3="2" priority_2="2"/>
+      <ClassStats class="gui.ErrorChart" sourceFile="ErrorChart.java" interface="false" size="25" bugs="3" priority_3="3"/>
+      <ClassStats class="gui.ErrorRecalc" sourceFile="ErrorRecalc.java" interface="false" size="33" bugs="5" priority_3="3" priority_2="1" priority_1="1"/>
+      <ClassStats class="gui.ErrorYears" sourceFile="ErrorYears.java" interface="false" size="25" bugs="3" priority_3="3"/>
+      <ClassStats class="gui.MainWindow" sourceFile="MainWindow.java" interface="false" size="137" bugs="6" priority_3="2" priority_2="4"/>
+      <ClassStats class="gui.Observer" sourceFile="Observer.java" interface="true" size="10" bugs="1" priority_2="1"/>
+      <ClassStats class="gui.RecalcButton" sourceFile="RecalcButton.java" interface="false" size="20" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.RecalcButton$EventRecalc" sourceFile="RecalcButton.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="gui.RemoveButton" sourceFile="RemoveButton.java" interface="false" size="18" bugs="1" priority_3="1"/>
+      <ClassStats class="gui.RemoveButton$EventRemove" sourceFile="RemoveButton.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="gui.Subject" sourceFile="Subject.java" interface="false" size="19" bugs="1" priority_1="1"/>
+    </PackageStats>
+    <PackageStats package="login" total_bugs="20" total_types="2" total_size="107" priority_3="11" priority_2="8" priority_1="1">
+      <ClassStats class="login.ErrorLogin" sourceFile="ErrorLogin.java" interface="false" size="25" bugs="3" priority_3="3"/>
+      <ClassStats class="login.LoginUI" sourceFile="LoginUI.java" interface="false" size="82" bugs="17" priority_3="8" priority_2="8" priority_1="1"/>
+    </PackageStats>
+    <PackageStats package="test" total_bugs="0" total_types="5" total_size="506">
+      <ClassStats class="test.TestChartFactory" sourceFile="TestChartFactory.java" interface="false" size="63" bugs="0"/>
+      <ClassStats class="test.TestFetchData" sourceFile="TestFetchData.java" interface="false" size="86" bugs="0"/>
+      <ClassStats class="test.TestGUI" sourceFile="TestGUI.java" interface="false" size="132" bugs="0"/>
+      <ClassStats class="test.TestLogin" sourceFile="TestLogin.java" interface="false" size="117" bugs="0"/>
+      <ClassStats class="test.TestSelectAnalysisType" sourceFile="TestSelectAnalysisType.java" interface="false" size="108" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="test.java.Randoop" total_bugs="1" total_types="1" total_size="20" priority_2="1">
+      <ClassStats class="test.java.Randoop.RegressionTest0" sourceFile="RegressionTest0.java" interface="false" size="20" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="1007" invocations="2073" avgMicrosecondsPerInvocation="485" maxMicrosecondsPerInvocation="26844" standardDeviationMicrosecondsPerInvocation="1320"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="719" invocations="2077" avgMicrosecondsPerInvocation="346" maxMicrosecondsPerInvocation="18638" standardDeviationMicrosecondsPerInvocation="581"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="409" invocations="376" avgMicrosecondsPerInvocation="1088" maxMicrosecondsPerInvocation="26778" standardDeviationMicrosecondsPerInvocation="2454"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="398" invocations="2" avgMicrosecondsPerInvocation="199230" maxMicrosecondsPerInvocation="215202" standardDeviationMicrosecondsPerInvocation="15977"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="390" invocations="376" avgMicrosecondsPerInvocation="1038" maxMicrosecondsPerInvocation="24467" standardDeviationMicrosecondsPerInvocation="2134"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="202" invocations="1061" avgMicrosecondsPerInvocation="190" maxMicrosecondsPerInvocation="2958" standardDeviationMicrosecondsPerInvocation="254"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="120" invocations="185" avgMicrosecondsPerInvocation="652" maxMicrosecondsPerInvocation="23194" standardDeviationMicrosecondsPerInvocation="1811"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="117" invocations="495" avgMicrosecondsPerInvocation="236" maxMicrosecondsPerInvocation="26829" standardDeviationMicrosecondsPerInvocation="1230"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="111" invocations="376" avgMicrosecondsPerInvocation="295" maxMicrosecondsPerInvocation="5127" standardDeviationMicrosecondsPerInvocation="518"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="100" invocations="2020" avgMicrosecondsPerInvocation="49" maxMicrosecondsPerInvocation="1728" standardDeviationMicrosecondsPerInvocation="86"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="98" invocations="190" avgMicrosecondsPerInvocation="519" maxMicrosecondsPerInvocation="6980" standardDeviationMicrosecondsPerInvocation="750"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="85" invocations="189" avgMicrosecondsPerInvocation="451" maxMicrosecondsPerInvocation="6627" standardDeviationMicrosecondsPerInvocation="724"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="82" invocations="210" avgMicrosecondsPerInvocation="391" maxMicrosecondsPerInvocation="6364" standardDeviationMicrosecondsPerInvocation="635"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="80" invocations="376" avgMicrosecondsPerInvocation="214" maxMicrosecondsPerInvocation="5352" standardDeviationMicrosecondsPerInvocation="393"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="76" invocations="191" avgMicrosecondsPerInvocation="401" maxMicrosecondsPerInvocation="3719" standardDeviationMicrosecondsPerInvocation="523"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="74" invocations="376" avgMicrosecondsPerInvocation="198" maxMicrosecondsPerInvocation="3323" standardDeviationMicrosecondsPerInvocation="371"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1670568318421" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>
