@@ -13,8 +13,8 @@ public class PieChartCreator extends ChartCreator  {
     String label1;
     String label2; 
 
-    public PieDataset<String> createDataset(HashMap<String, DataSet> analysis) {
-        DefaultPieDataset<String> dataset = new DefaultPieDataset<String>();
+    public PieDataset createDataset(HashMap<String, DataSet> analysis) {
+        DefaultPieDataset dataset = new DefaultPieDataset();
         
         for(String entry : analysis.keySet()) {
             double value = analysis.get(entry).get(0);
@@ -34,7 +34,7 @@ public class PieChartCreator extends ChartCreator  {
             label2 = "Other Government Expenditure";
         }
 
-        PieDataset<String> dataset = createDataset(analysis);
+        PieDataset dataset = createDataset(analysis);
 
         JFreeChart chart = ChartFactory.createPieChart( //NOTE: ChartFactory here refers to a Factory supplied with JFreeChart
             title, // chart title
